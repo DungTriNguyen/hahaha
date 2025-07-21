@@ -5,6 +5,13 @@
   --foreground: #171717;
 }
 
+@theme {
+  --container-max-width: 1440px;
+  --container-padding: 1.5rem; /* Default padding */
+  --container-padding-xs: 1rem; /* Padding for xs breakpoint */
+  --container-padding-md: 2rem; /* Padding for md breakpoint */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -23,4 +30,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.coda-regular {
+  font-family: "Coda", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.coda-extrabold {
+  font-family: "Coda", system-ui;
+  font-weight: 800;
+  font-style: normal;
 }
