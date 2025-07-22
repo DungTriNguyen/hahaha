@@ -59,7 +59,7 @@ const projects: Projects[] = [
 
 const ProjectSection = () => {
   return (
-    <section className="max-w-[1440px] mx-auto bg-black items-center justify-center text-white">
+    <section className="relative z-20 max-w-[1440px] mx-auto bg-black items-center justify-center text-white">
       <div className="flex w-full flex-col items-center justify-center">
        
           <p className="pb-2">PROJECTS</p>

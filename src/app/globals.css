@@ -7,6 +7,7 @@
 
 @theme {
   --container-max-width: 1440px;
+  
   --container-padding: 1.5rem; /* Default padding */
   --container-padding-xs: 1rem; /* Padding for xs breakpoint */
   --container-padding-md: 2rem; /* Padding for md breakpoint */

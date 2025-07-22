@@ -13,6 +13,7 @@ const FirstComponent = () => {
                     <li>READY FOR MILLION USERS</li>
                 </ul>
                 <div><Image src='/rocket.svg' width={26} height={26} alt="Rocket icon"/></div>
+                <div></div>
             </div>
         </div>
     )

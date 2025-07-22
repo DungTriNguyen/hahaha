@@ -1,49 +1,63 @@
-import Image from "next/image";
-import Head from "next/head";
+import React from "react";
 
 const ContactSection = () => {
   return (
-    <>
-      <Head>
-        <title>Contact | Your Site Name</title>
-      </Head>
-      <section className="max-w-[1440px] mx-auto bg-black text-white py-16 font-coda">
-        <div className="flex w-full flex-col items-center justify-center text-center gap-8">
-          <p className="text-lg uppercase tracking-wider">CONTACT</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Let&apos;s Achieve Your Goals Together
+    <section className="relative z-10 w-full bg-[#0C0B10] py-20 px-4 md:px-0 flex flex-col items-center justify-center">
+      <div className="container flex flex-col items-center gap-16">
+        {/* Main Contact Block */}
+        <div className="flex flex-col items-center gap-6 text-center max-w-2xl w-full">
+          <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase mb-2">
+            Contact
+          </span>
+          <h2 className="text-white text-4xl md:text-6xl font-bold uppercase mb-2">
+            let&apos;s achieve your goals together
           </h2>
-          <div className="flex w-[279px] h-[64px] items-center gap-8 rounded-2xl bg-[#2468FF]">
-            <p className="pl-6">SHARE YOUR IDEA NOW</p>
-            <div className="rounded-2xl p-3 bg-[#1A4CD8] h-auto">
-              <Image src="/light.svg" width={32} height={32} alt="light icon" />
-            </div>
-          </div>
-          <div className="flex gap-4 justify-center items-center flex-wrap">
-            <div className="flex gap-4 items-center">
-              <Image src="/phone.svg" width={20} height={20} alt="Phone icon" />
-              <p>[+84] 966 868 574</p>
-            </div>
-            <span>/</span>
-            <div className="flex gap-4 items-center">
-              <Image src="/email.svg" width={20} height={20} alt="Email icon" />
-              <p>contact@hubcom.tech</p>
-            </div>
-            <span>/</span>
-            <div className="flex gap-4 items-center">
-              <Image
-                src="/marker_pin.svg"
-                width={20}
-                height={20}
-                alt="Location pin icon"
+          <p className="text-white/90 text-base md:text-lg mb-4">
+            Tell us about your desires
+          </p>
+          <button className="mt-2 flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-2xl shadow-lg transition-all duration-200">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="#fff"
+                strokeWidth="2"
+                fill="none"
               />
-              <p>5 No Trang Long St., W7, Binh Thanh Dist., HCMC</p>
-            </div>
-          </div>
-          <p className="mt-8 text-sm">© 2025 Hubcom. All rights reserved.</p>
+              <path
+                d="M12 8v4l2 2"
+                stroke="#fff"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+            Share your idea NOW
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
-      </section>
-    </>
+
+        <div className="text-xs text-gray-400 mt-8 text-center">
+          © 2025 Hubcom. All rights reserved.
+        </div>
+      </div>
+    </section>
   );
 };
 

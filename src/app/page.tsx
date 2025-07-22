@@ -1,5 +1,6 @@
 import AboutSection from "@/components/main-content/AboutSection";
 import ContactSection from "@/components/main-content/ContactSection";
+import FromIdeaToProduct from "@/components/main-content/FromIdeaToProduct";
 import HeroSection from "@/components/main-content/HeroSection";
 import ProjectSection from "@/components/main-content/ProjectSection";
 import ServiceSection from "@/components/main-content/ServiceSection";
@@ -9,12 +10,11 @@ export default function Home() {
   return (
     <div >
       <HeroSection/>
+      <FromIdeaToProduct/>
       <ProjectSection/>
-      {/* <AboutSection/> */}
+      <AboutSection/>
       <ServiceSection/>
       <ContactSection/>
-      
-
     </div>
   );
 }
