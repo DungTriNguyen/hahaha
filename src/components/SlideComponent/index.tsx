@@ -1,5 +1,5 @@
 // components/ProjectSlider.js
-
+"use client"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
@@ -55,7 +55,7 @@ const SlideComponent = () => {
     >
       {projects.map((project) => (
         <SwiperSlide key={project.id}>
-          <div className="bg-white text-black rounded-2xl overflow-hidden shadow-lg">
+          <div className=" text-black rounded-2xl overflow-hidden shadow-lg">
             <Image
               src={project.image}
               width={400}

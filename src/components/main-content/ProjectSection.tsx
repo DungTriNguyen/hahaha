@@ -59,13 +59,19 @@ const projects: Projects[] = [
 
 const ProjectSection = () => {
   return (
-    <section className="relative z-20 max-w-[1440px] mx-auto bg-black items-center justify-center text-white">
-      <div className="flex w-full flex-col items-center justify-center">
-       
-          <p className="pb-2">PROJECTS</p>
-          <h2 className="pb-9">OUR Bold WORKS</h2>
-       
-        <p>Shaping brilliant ideas into life</p>
+    <section className="relative z-20  mx-auto bg-[#0C0B10] items-center justify-center text-white">
+      <div className="container flex w-full flex-col items-center justify-center pt-40">
+        <div className="flex flex-col items-center justify-center gap-6 text-center max-w-2xl w-full">
+          <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase mb-2">
+            Projects
+          </span>
+          <h2 className="text-white text-4xl md:text-6xl uppercase mb-2">
+            OUR Bold WORKS
+          </h2>
+          <p className="text-white/90 text-base md:text-lg mb-14">
+            Shaping brilliant ideas into life
+          </p>
+        </div>
         <div className="items-center justify-center ">
           <ProjectComponent data={projects} />
         </div>

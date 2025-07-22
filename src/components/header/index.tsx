@@ -27,11 +27,11 @@ const navItemsDesktop = [
   },
   {
     title: "Articles",
-    href: "#articles",
+    href: "/articles",
   },
   {
     title: "Careers",
-    href: "#careers",
+    href: "/careers",
   },
 ];
 const navItemsMobile = [
@@ -61,7 +61,7 @@ const navItemsMobile = [
   },
   {
     title: "Careers",
-    href: "#careers",
+    href: "/carrers",
   },
   {
     title: "X",
