@@ -18,25 +18,21 @@ const ContactSection = () => {
           <p className="text-white/90 text-lg max-w-2xl">
             Tell us about your desires
           </p>
-          <div className="bg-[#2468FF] text-white rounded-2xl flex items-center justify-between p-2 w-fit">
+          <div className="bg-[#2468FF] text-white rounded-2xl flex items-center justify-between p-2 w-fit group cursor-pointer">
             <span className="px-6 py-4 font-semibold tracking-widest uppercase">
               Share your idea NOW
             </span>
-            <div className="p-3 rounded-xl bg-[#1A4CD8]">
-              <Image
-                src="/light.svg"
-                alt="light"
-                width={26}
-                height={26}
-                className="block hover:hidden"
-              />
-              <Image
-                src="/right.svg"
-                alt="arrow"
-                width={8}
-                height={16}
-                className="hidden hover:block"
-              />
+
+            <div className="p-3 rounded-xl bg-[#1A4CD8] relative w-[56px] h-[56px] overflow-hidden">
+              {/* Icon mặc định (light.svg) */}
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
+                <Image src="/light.svg" alt="light" width={32} height={32} />
+              </div>
+
+              {/* Icon khi hover (right.svg) */}
+              <div className="absolute p-3 inset-0 flex items-center justify-center transition-all duration-300 ease-in-out translate-x-[-100%] opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+                <Image src="/right.svg" alt="arrow" width={32} height={32} />
+              </div>
             </div>
           </div>
         </div>

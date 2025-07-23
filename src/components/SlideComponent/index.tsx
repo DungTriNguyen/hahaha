@@ -40,37 +40,40 @@ const SlideComponent = () => {
     },
   ];
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]} // Enable Swiper modules
-      spaceBetween={24} // Gap between slides (Tailwind's gap-6)
-      slidesPerView={1} // Show 1 slide on mobile
-      breakpoints={{
-        480: { slidesPerView: 1 }, // 2 slides on xs (480px)
-        800: { slidesPerView: 3 }, // 3 slides on md (800px)
-      }}
-      navigation // Enable navigation arrows
-      pagination={{ clickable: true }} // Enable clickable pagination dots
-      autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto-slide every 3s
-      className="w-full"
-    >
-      {projects.map((project) => (
-        <SwiperSlide key={project.id}>
-          <div className=" text-black rounded-2xl overflow-hidden shadow-lg">
-            <Image
-              src={project.image}
-              width={400}
-              height={300}
-              alt={project.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6 font-coda">
-              <h3 className="text-xl font-extrabold mb-2">{project.title}</h3>
-              <p className="text-base">{project.description}</p>
+    <div className="relative [&_.swiper]:pb-10 [&_.swiper-pagination]:bottom-0 [&_.swiper-button-prev]:top-[35%] [&_.swiper-button-next]:top-[35%]">
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]} // Enable Swiper modules
+        spaceBetween={24} // Gap between slides (Tailwind's gap-6)
+        slidesPerView={1} // Show 1 slide on mobile
+        breakpoints={{
+          480: { slidesPerView: 1 }, // 2 slides on xs (480px)
+          800: { slidesPerView: 3 }, // 3 slides on md (800px)
+        }}
+        navigation // Enable navigation arrows
+        pagination={{ clickable: true }} // Enable clickable pagination dots
+        autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto-slide every 3s
+        className="w-full"
+      >
+        {projects.map((project) => (
+          <SwiperSlide key={project.id}>
+            <div className=" text-black rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src={project.image}
+                width={400}
+                height={300}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6 font-coda">
+                <h3 className="text-xl font-extrabold mb-2">{project.title}</h3>
+                <p className="text-base">{project.description}</p>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          </SwiperSlide>
+        ))}
+        <div className="swiper-pagination !bottom-[-20px]" />
+      </Swiper>
+    </div>
   );
 };
 export default SlideComponent;

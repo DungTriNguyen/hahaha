@@ -13,16 +13,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter); /* Default sans font is Inter */
   --font-coda: var(--font-coda); /* Define font-coda utility */
-  --font-mono: var(--font-geist-mono, "monospace"); /* Fallback for undefined --font-geist-mono */
+  --font-mono: var(
+    --font-geist-mono,
+    "monospace"
+  ); /* Fallback for undefined --font-geist-mono */
   --container-max-width: 1440px; /* Ensure consistency with your 1440px container */
   --container-padding: 1.5rem;
-  --color-custom-blue: #2468FF;
-  --color-dark-blue: #1A4CD8;
-  --background-image-hero-mobile: url('/images/mobile-hero.jpg');
-  --background-image-hero-desktop: url('/images/desktop-hero.jpg');
-  --background-image-header-bg: url('/images/header-bg.jpg');
-  --background-image-projects-bg: url('/images/projects-bg.jpg');
-  --background-image-contact-bg: url('/images/contact-bg.jpg');
+  --color-custom-blue: #2468ff;
+  --color-dark-blue: #1a4cd8;
+  --background-image-hero-mobile: url("/images/mobile-hero.jpg");
+  --background-image-hero-desktop: url("/images/desktop-hero.jpg");
+  --background-image-header-bg: url("/images/header-bg.jpg");
+  --background-image-projects-bg: url("/images/projects-bg.jpg");
+  --background-image-contact-bg: url("/images/contact-bg.jpg");
   --breakpoint-xs: 480px;
   --breakpoint-md: 800px;
 }
@@ -55,25 +58,24 @@ body {
 }
 
 .swiper-pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-  gap: 0.5rem;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 3.5rem !important;
+  gap: 0.5rem !important;
 }
 
 .swiper-pagination-bullet {
-  width: 12px;
-  height: 6px;
-  border-radius: 9999px;
-  background-color: #aaa;
-  transition: all 0.3s ease;
+  width: 12px !important;
+  height: 6px !important;
+  border-radius: 9999px !important;
+  background-color: #aaa !important;
+  transition: all 0.3s ease !important;
 }
 
 .swiper-pagination-bullet-active {
-  width: 32px;
-  background-color: #fff;
+  width: 32px !important;
+  background-color: #fff !important;
 }
-
 
 .animated-iframe {
   animation: slowMove 7000s linear infinite;

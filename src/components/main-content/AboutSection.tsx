@@ -71,6 +71,7 @@ const AboutSection = () => {
           modules={[Pagination]}
           pagination={{
             clickable: true,
+            el: ".custom-swiper-pagination",
             bulletClass: "swiper-pagination-bullet",
             bulletActiveClass: "swiper-pagination-bullet-active",
           }}
@@ -111,6 +112,7 @@ const AboutSection = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="custom-swiper-pagination mt-10 flex justify-center" />
       </div>
     </section>
   );

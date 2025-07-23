@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useBlogCategory } from "../hooks/blog-category";
@@ -6,9 +6,17 @@ import { useBlog } from "../hooks/blog";
 import { BlogResponse } from "@/types/blog";
 
 const CategorySlideSection = () => {
-  const { data: category, loading, error } = useBlogCategory({ ParentId: process.env.NEXT_PUBLIC_CATEGORY_ARTICLE_ID });
-
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
+  const {
+    data: category,
+    loading,
+    error,
+  } = useBlogCategory({
+    ParentId: process.env.NEXT_PUBLIC_CATEGORY_ARTICLE_ID,
+  });
+  console.log("category", category);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
+    null
+  );
 
   // 👉 Khi category fetch xong, tự động set ID đầu tiên nếu chưa có ID
   useEffect(() => {
@@ -30,7 +38,10 @@ const CategorySlideSection = () => {
       <div className="container flex justify-between">
         <div className="space-y-6">
           {dataBlog?.items.map((article, index) => (
-            <div key={index} className="flex gap-6 justify-center items-center pr-12">
+            <div
+              key={index}
+              className="flex gap-6 justify-center items-center pr-12"
+            >
               <div className="">
                 <Image
                   src={article.imageUrl || "/articles/article.png"}
@@ -43,7 +54,10 @@ const CategorySlideSection = () => {
                 <p>{article.title}</p>
                 <p>{article.createdDate}</p>
                 <p className="line-clamp-2">{article.description}</p>
-                <a href={`/articles/${article.itemUrl}`} className="underline font-bold">
+                <a
+                  href={`/articles/${article.itemUrl}`}
+                  className="underline font-bold"
+                >
                   Read More
                 </a>
               </div>

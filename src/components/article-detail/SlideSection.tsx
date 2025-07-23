@@ -10,15 +10,12 @@ import Image from "next/image";
 const slides = [
   {
     img: "/articles/article_1.png",
-    
   },
   {
     img: "/articles/article_2.png",
-    
   },
   {
     img: "/articles/article_3.png",
-   
   },
 ];
 
@@ -45,14 +42,12 @@ const SlideSection = () => {
             }}
             className="custom-swiper swiper-custom-pagination mx-auto"
             style={{
-            paddingLeft: "290px",
-          }}
+              paddingLeft: "290px",
+            }}
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
-                <div
-                  className="rounded-xl overflow-hidden"
-                >
+                <div className="rounded-xl overflow-hidden">
                   <Image src={slide.img} width={720} height={540} alt="" />
                 </div>
               </SwiperSlide>
