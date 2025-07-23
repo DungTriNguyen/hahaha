@@ -20,52 +20,61 @@ const technologies2 = [
 
 const SecondComponent = () => {
   return (
-    <section className="relative z-20 bg-[#0C0B10] text-white bg-[url('/img_service_section_2.png')]">
-      <div className="container flex justify-between px-16 py-20">
-        <div>
-          <p className="text-sm font-semibold tracking-widest uppercase mb-4">
-            LATEST TECHNOLOGIES WE BUILD WITH
-          </p>
-          <div>
-            <ul className="grid grid-cols-3 gap-12">
+    <section className="relative z-20 bg-[#1A4CD8] text-white py-40 bg-[url('/img_service_section_2.png')] bg-cover bg-center">
+      <div className="container">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          {/* Latest Technologies */}
+          <div className="flex-1">
+            <div className="mb-6">
+              <h3 className="text-2xl font-coda font-normal uppercase mb-6">
+                Latest technologies
+                <br />
+                we build with
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
               {technologies1.map((item, index) => (
-                <li key={index} className="flex justify-center items-center">
+                <div key={index} className="flex justify-center items-center">
                   <div className="w-auto h-auto">
                     <Image
                       src={item.icon}
                       width={0}
                       height={0}
-                      alt="icon technology"
-                      className="w-auto h-auto"
-                      style={{ width: "auto", height: "auto" }} // Đảm bảo SVG hiển thị kích thước gốc
-                    />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div>
-          <p className="text-sm font-semibold tracking-widest uppercase mb-4">
-            PARTNERING WITH LEADING SUPPLIERS
-          </p>
-          <div>
-            <ul className="grid grid-cols-3 gap-12">
-              {technologies2.map((item, index) => (
-                <li key={index} className="flex justify-center items-center">
-                  <div className="w-auto h-auto">
-                    <Image
-                      src={item.icon}
-                      width={0}
-                      height={0}
-                      alt="icon technology"
-                      className="w-auto h-auto"
+                      alt="technology icon"
+                      className="w-auto h-auto max-w-[80px] max-h-[80px]"
                       style={{ width: "auto", height: "auto" }}
                     />
                   </div>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
+          </div>
+
+          {/* Partnering with Leading Suppliers */}
+          <div className="flex-1">
+            <div className="mb-6">
+              <h3 className="text-2xl font-coda font-normal uppercase mb-6">
+                Partnering with
+                <br />
+                leading suppliers
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+              {technologies2.map((item, index) => (
+                <div key={index} className="flex justify-center items-center">
+                  <div className="w-auto h-auto">
+                    <Image
+                      src={item.icon}
+                      width={0}
+                      height={0}
+                      alt="partner icon"
+                      className="w-auto h-auto max-w-[80px] max-h-[80px]"
+                      style={{ width: "auto", height: "auto" }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ export interface Projects {
   description: string;
   img: string;
 }
+
 const projects: Projects[] = [
   {
     id: 1,
@@ -59,24 +60,32 @@ const projects: Projects[] = [
 
 const ProjectSection = () => {
   return (
-    <section className="relative z-20  mx-auto bg-[#0C0B10] items-center justify-center text-white">
-      <div className="container flex w-full flex-col items-center justify-center pt-40">
-        <div className="flex flex-col items-center justify-center gap-6 text-center max-w-2xl w-full">
-          <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase mb-2">
-            Projects
-          </span>
-          <h2 className="text-white text-4xl md:text-6xl uppercase mb-2">
-            OUR Bold WORKS
-          </h2>
-          <p className="text-white/90 text-base md:text-lg mb-14">
+    <section className="relative z-20 w-full bg-[#0C0B10] text-white">
+      <div className="container flex flex-col items-center gap-14 pt-44 pb-20">
+        {/* Header Section */}
+        <div className="flex flex-col items-center gap-9 text-center max-w-4xl">
+          <div className="flex flex-col gap-2">
+            <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
+              Projects
+            </span>
+            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold font-coda uppercase">
+              OUR Bold
+              <br />
+              WORKS
+            </h2>
+          </div>
+          <p className="text-white/90 text-lg max-w-2xl">
             Shaping brilliant ideas into life
           </p>
         </div>
-        <div className="items-center justify-center ">
+
+        {/* Projects Grid */}
+        <div className="w-full">
           <ProjectComponent data={projects} />
         </div>
       </div>
     </section>
   );
 };
+
 export default ProjectSection;

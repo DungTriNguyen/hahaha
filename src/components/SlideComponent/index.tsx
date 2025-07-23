@@ -1,5 +1,5 @@
 // components/ProjectSlider.js
-"use client"
+"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
@@ -45,7 +45,7 @@ const SlideComponent = () => {
       spaceBetween={24} // Gap between slides (Tailwind's gap-6)
       slidesPerView={1} // Show 1 slide on mobile
       breakpoints={{
-        480: { slidesPerView: 2 }, // 2 slides on xs (480px)
+        480: { slidesPerView: 1 }, // 2 slides on xs (480px)
         800: { slidesPerView: 3 }, // 3 slides on md (800px)
       }}
       navigation // Enable navigation arrows

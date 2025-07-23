@@ -2,16 +2,26 @@ import React from "react";
 
 const FromIdeaToProduct = () => {
   return (
-    <div className="relative inset-0 z-10 h-[2560px] flex items-center justify-center backdrop-blur-[80px] bg-gradient-to-b from-[rgba(12,11,16,0)] to-[#0C0B10]">
-      <div className="flex flex-col items-center justify-center py-12">
-        <span
-          className="text-white text-[96px] leading-[1.2] uppercase text-center font-normal"
-          style={{ fontFamily: "Coda, sans-serif" }}
-        >
+    <section className="relative w-full h-[2560px] flex items-center justify-center overflow-hidden">
+      {/* Background with gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(12, 11, 16, 0) 0%, rgba(12, 11, 16, 1) 100%)",
+        }}
+      />
+
+      {/* Blur overlay */}
+      <div className="absolute inset-0 backdrop-blur-[80px]" />
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center px-4 md:px-8">
+        <h2 className="text-white text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-coda font-normal uppercase text-center leading-tight max-w-6xl">
           From ideas to products
-        </span>
+        </h2>
       </div>
-    </div>
+    </section>
   );
 };
 
