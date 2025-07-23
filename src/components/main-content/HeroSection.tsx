@@ -7,20 +7,24 @@ import { useBlogCategory } from "../hooks/blog-category";
 const HeroSection = () => {
   const { data, loading, error } = useBlog();
   console.log("data", data);
-  const { data: blogCategories, loading: blogCategoriesLoading, error: blogCategoriesError } = useBlogCategory();
+  const {
+    data: blogCategories,
+    loading: blogCategoriesLoading,
+    error: blogCategoriesError,
+  } = useBlogCategory();
   console.log("blogCategories", blogCategories);
 
   return (
     <>
       <div className="h-screen"></div>
       <section className="fixed inset-0 z-0 pointer-events-none">
-        <div className="">
-        <iframe
-          src="https://my.spline.design/untitled-V0MRkb0fl4hWPlrsrdpTfhIB/"
-          className="absolute inset-0 w-full h-full"
-          style={{ pointerEvents: "none", transform: "scale(1.2)" }}
-          allowFullScreen
-        ></iframe>
+        <div className="w-full relative inset-0 bg-black h-screen">
+          <iframe
+            src="https://my.spline.design/untitled-V0MRkb0fl4hWPlrsrdpTfhIB/"
+            className="absolute t-[20%] w-full h-full"
+            style={{ pointerEvents: "none", transform: "scale(1.8)" }}
+            allowFullScreen
+          ></iframe>
         </div>
 
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10 gap-9">

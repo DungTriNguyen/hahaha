@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState, useEffect } from "react";
 import type { BlogResponse, BlogItem, BlogContent } from "@/types/blog";
 
@@ -9,7 +9,9 @@ interface UseBlogOptions {
 }
 
 export function useBlog(options?: UseBlogOptions) {
-  const [data, setData] = useState<BlogResponse | BlogItem | BlogContent | null>(null);
+  const [data, setData] = useState<
+    BlogResponse | BlogItem | BlogContent | null
+  >(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,7 +24,7 @@ export function useBlog(options?: UseBlogOptions) {
         let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Blog/${process.env.NEXT_PUBLIC_TENANT_ID}`;
 
         if (options?.id) {
-          url += `/${options.id}${options.content ? '/content' : ''}`;
+          url += `/${options.id}${options.content ? "/content" : ""}`;
         } else if (options?.BlogCategoryId) {
           url += `?BlogCategoryId=${options.BlogCategoryId}`;
         }
