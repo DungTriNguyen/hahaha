@@ -49,6 +49,9 @@ body {
     padding-right: 60px;
     width: 100%;
   }
+  .font-coda {
+    font-family: var(--font-coda);
+  }
 }
 
 .swiper-pagination {
@@ -69,4 +72,18 @@ body {
 .swiper-pagination-bullet-active {
   width: 32px;
   background-color: #fff;
+}
+
+
+.animated-iframe {
+  animation: slowMove 7000s linear infinite;
+}
+
+@keyframes slowMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0); /* hoặc bất kỳ hướng di chuyển nào */
+  }
 }

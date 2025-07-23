@@ -1,75 +1,36 @@
 import Image from "next/image";
+import { BlogContent } from "@/types/blog";
+import { useBlog } from "../hooks/blog";
 
-const ArticleContent = () => {
+const ArticleContent = ({ image, description, id }: { image: string, description: string, id: string }) => {
+  const { data, loading, error } = useBlog({ id: id, content: true });
+  const content = data as BlogContent;
   return (
-    <section className="bg-[#0C0B10] flex flex-col justify-center items-center text-white">
-      <div className="max-w-[840px] w-full h-auto ">
-        <div className="">
+    <section className="bg-[#0C0B10] flex flex-col items-center justify-center px-4 py-8 md:py-16">
+      <div className="w-full max-w-[840px] flex flex-col items-center gap-8">
+        {/* Ảnh đầu bài */}
+        <div className="w-full rounded-3xl overflow-hidden shadow-lg">
           <Image
-            src="/articles/article_detail.png"
+            src={image}
             width={840}
             height={336}
             alt=""
+            className="w-full h-[336px] object-cover rounded-3xl"
+            priority
           />
         </div>
-
-        <div>
-          <p>Everyone wants to build an MVP - but few get it right.</p>
-          <p>
-            Too often, MVPs are launched without clear direction, built too
-            quickly, or fail to solve a real problem. The result? Wasted time,
-            misaligned teams, and products that never get traction.
-          </p>
-          <p>
-            At Hubcom, we’ve worked with dozens of startups and enterprises to
-            design MVPs that actually work — fast, focused, and user-driven.
-          </p>
+        {/* Nội dung bài viết */}
+        <div className="w-full flex flex-col gap-4">
+          <p className="text-lg text-[#CCCCCC] leading-relaxed mb-2 border-l border-l-[#2468FF] p-4">{description}</p>
+          {content?.content ? (
+            <div
+              className="prose prose-invert max-w-none text-white text-base md:text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: content?.content || "" }}
+            />
+          ) : (
+            <p className="text-gray-400">Không có nội dung</p>
+          )}
         </div>
-        <title>The 3 Most Common MVP Traps:</title>
-        <div>
-          <p>1. Building Too Much, Too Soon</p>
-          <p>
-            An MVP isn’t about launching a mini version of your product — it’s
-            about testing one core assumption. Anything more is noise.
-          </p>
-        </div>
-        <div>
-          <p>1. Building Too Much, Too Soon</p>
-          <p>
-            An MVP isn’t about launching a mini version of your product — it’s
-            about testing one core assumption. Anything more is noise.
-          </p>
-        </div>
-        <div>
-          <p>1. Building Too Much, Too Soon</p>
-          <p>
-            An MVP isn’t about launching a mini version of your product — it’s
-            about testing one core assumption. Anything more is noise.
-          </p>
-        </div>
-        <title>How Hubcom Approaches MVPs</title>
-        <div>
-          <p>At Hubcom, we follow a lean yet intentional process:</p>
-          <ul>
-            <li>Align on the core user need.</li>
-            <li>Map key journeys with UX-first thinking.</li>
-            <li>Build only what's essential for learning.</li>
-            <li>Ship fast — then iterate based on real usage.</li>
-          </ul>
-          <p>
-            In one case, we helped a client go from concept to MVP launch in 6
-            weeks, and they closed their first 1,000 users within 30 days — all
-            because we focused on the right problem, not just a feature
-            checklist.
-          </p>
-        </div>
-        <title>How Hubcom Approaches MVPs</title>
-        <ul>
-          <li>Solves a single, urgent problem</li>
-          <li>Launched with clear success metrics</li>
-          <li>Easy to test, easy to evolve</li>
-          <li>Built with scale in mind</li>
-        </ul>
       </div>
     </section>
   );

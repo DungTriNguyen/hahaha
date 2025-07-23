@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Coda } from "next/font/google";
 import "./globals.css";
 import  Header from "@/components/header";
 
@@ -10,7 +10,11 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
+const coda = Coda({
+  variable: "--font-coda",
+  subsets: ["latin"],
+  weight: ["400", "800"],
+});
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -34,7 +38,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap" rel="stylesheet" />
       </Head> */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${coda.variable} antialiased`}
       >
         <Header/>
         {children}

@@ -34,7 +34,7 @@ const AboutSection = () => {
     <section className="relative z-20 w-full pt-40 bg-[#0C0B10]">
       <iframe
         src="https://my.spline.design/particleplanet-d7SCh4sTgE3E99WaGUflMxS9/"
-        className="absolute w-full h-full object-cover z-10 pointer-events-none"
+        className="absolute w-full h-full object-cover z-10 pointer-events-none animated-iframe"
         style={{
           pointerEvents: "none",
           left: 0,
@@ -52,11 +52,11 @@ const AboutSection = () => {
         }}
       />
 
-      <div className="container relative z-30 flex flex-col items-center justify-center gap-9 text-center max-w-4xl mx-auto px-4">
+      <div className="container relative z-30 flex flex-col items-center justify-center gap-9 text-center  mx-auto px-4">
         <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
           About
         </span>
-        <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold uppercase font-coda">
+        <h2 className="text-white max-w-[800px] text-4xl md:text-6xl lg:text-7xl uppercase font-coda">
           WE BUILD BEYOND BRIEFS
         </h2>
         <p className="text-white/90 text-base md:text-lg max-w-2xl">
@@ -74,32 +74,31 @@ const AboutSection = () => {
             bulletClass: "swiper-pagination-bullet",
             bulletActiveClass: "swiper-pagination-bullet-active",
           }}
-          spaceBetween={48}
+          spaceBetween={24}
           slidesPerView={1}
           breakpoints={{
-            768: { slidesPerView: 1.2, spaceBetween: 32 },
-            1024: { slidesPerView: 1.5, spaceBetween: 48 },
+            640: { slidesPerView: 1, spaceBetween: 24 },
+            1024: { slidesPerView: 1.5, spaceBetween: 32 },
             1440: { slidesPerView: 2, spaceBetween: 48 },
           }}
-          className="custom-swiper swiper-custom-pagination"
           style={{
-            // paddingLeft: "max(1rem, calc((100vw - 1440px) / 2))",
-            paddingRight: "max(1rem, calc((100vw - 1440px) / 2))",
             paddingLeft: "290px",
           }}
+          className="custom-swiper swiper-custom-pagination"
         >
           {slides.map((slide, idx) => (
             <SwiperSlide key={idx}>
-              <div className="rounded-2xl bg-[#121620] h-[424px] flex shadow-lg overflow-hidden">
-                <div className="w-1/2 h-full relative">
+              <div className="rounded-2xl bg-[#121620] flex flex-col md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                <div className="w-full md:w-1/2 h-48 md:h-full relative">
                   <Image
                     src={slide.img}
                     fill
                     alt={slide.title}
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-                <div className="w-1/2 flex flex-col justify-center p-6 md:p-8">
+                <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-8">
                   <h3 className="text-2xl md:text-3xl text-white font-coda mb-4">
                     {slide.title}
                   </h3>

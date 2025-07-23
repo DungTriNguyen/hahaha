@@ -7,6 +7,13 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
 
+  import { useBlog } from "../hooks/blog";
+  import { BlogResponse } from "@/types/blog";
+
+
+
+
+
 const slides = [
   {
     img: "/articles/article_1.png",
@@ -23,11 +30,14 @@ const slides = [
 ];
 
 const HeroSlideSecton = () => {
+  const { data, loading, error } = useBlog();
+  const dataBlog = data as BlogResponse;
+  console.log("data", dataBlog);
   return (
-    <section className="bg-[url('/img_background.png')] bg-cover bg-center w-full flex flex-col justify-center items-center text-white py-20 top-0">
+    <section className="bg-[url('/img_background.png')] bg-cover lg:bg-bottom bg-center w-full flex flex-col justify-center items-center text-white py-20 top-0">
       <div className="container text-center">
-        <p>ARTICLES</p>
-        <h1>INSIGHTS & IDEAS</h1>
+        <p className="">ARTICLES</p>
+        <h1 className="text-4xl font-coda">INSIGHTS & IDEAS</h1>
       </div>
       <div className="pt-16 w-full flex justify-center">
         <div className="w-full">
@@ -49,12 +59,12 @@ const HeroSlideSecton = () => {
             paddingLeft: "290px",
           }}
           >
-            {slides.map((slide, idx) => (
+            {dataBlog?.items.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <div
                   className="rounded-xl overflow-hidden"
                 >
-                  <Image src={slide.img} width={720} height={540} alt="" />
+                  <Image src={item.imageUrl} width={720} height={540} alt={item.title} />
                 </div>
               </SwiperSlide>
             ))}

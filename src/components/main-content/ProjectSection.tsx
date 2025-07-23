@@ -68,7 +68,7 @@ const ProjectSection = () => {
             <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
               Projects
             </span>
-            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold font-coda uppercase">
+            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
               OUR Bold
               <br />
               WORKS

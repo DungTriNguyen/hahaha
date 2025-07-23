@@ -26,7 +26,7 @@ const SlideSection = () => {
   return (
     <section className=" bg-[#0C0B10] w-full flex flex-col justify-center items-center text-white py-20 top-0">
       <div className="container text-start">
-        <p className="text-4xl">RELATED ARTICLES</p>
+        <p className="text-4xl font-coda">RELATED ARTICLES</p>
       </div>
       <div className="pt-16 w-full flex justify-center">
         <div className="w-full">

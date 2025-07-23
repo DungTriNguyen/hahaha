@@ -11,34 +11,14 @@ const ContactSection = () => {
             <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
               Contact
             </span>
-            <h2 className="text-white max-w-[800px] text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
-              let&apos;s achieve your goals together
+            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold font-coda uppercase">
+            Don't see your role listed?
             </h2>
           </div>
           <p className="text-white/90 text-lg max-w-2xl">
-            Tell us about your desires
+            “Got questions? Contact us at <a href="mailto:careers@hubcom.tech" className="underline text-[#2468FF]">careers@hubcom.tech</a>”
           </p>
-          <div className="bg-[#2468FF] text-white rounded-2xl flex items-center justify-between p-2 w-fit">
-            <span className="px-6 py-4 font-semibold tracking-widest uppercase">
-              Share your idea NOW
-            </span>
-            <div className="p-3 rounded-xl bg-[#1A4CD8]">
-              <Image
-                src="/light.svg"
-                alt="light"
-                width={26}
-                height={26}
-                className="block hover:hidden"
-              />
-              <Image
-                src="/right.svg"
-                alt="arrow"
-                width={8}
-                height={16}
-                className="hidden hover:block"
-              />
-            </div>
-          </div>
+          
         </div>
 
         {/* Contact Info */}

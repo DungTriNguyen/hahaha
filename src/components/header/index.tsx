@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import router from "next/router";
 import React, { useState } from "react";
 const navItemsDesktop = [
   {
     title: "Home",
-    href: "#home",
+    href: "/",
   },
   {
     title: "Projects",
@@ -37,7 +39,7 @@ const navItemsDesktop = [
 const navItemsMobile = [
   {
     title: "Home",
-    href: "#home",
+    href: "/",
   },
   {
     title: "Projects",
@@ -93,7 +95,7 @@ const Header = () => {
       >
         <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
           <div className="flex items-center">
-            <Image src="/logo_white 1.png" alt="Logo" width={250} height={48} />
+            <Link href="/"><Image src="/logo_white 1.png" alt="Logo" width={250} height={48} /></Link>
           </div>
           <nav className="hidden lg:flex items-center gap-7">
             {navItemsDesktop.map((item, index) => (
@@ -111,19 +113,7 @@ const Header = () => {
             aria-label="Toggle mobile menu"
             onClick={() => setMobileOpen(true)}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <Image src="/menu.svg" alt="Menu" width={40} height={14} />
           </button>
         </div>
         <div className="w-full h-px bg-gray-700/40" />
@@ -132,25 +122,14 @@ const Header = () => {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-black flex flex-col h-full lg:hidden animate-fade-in">
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
-            <Image src="/logo_white 1.png" alt="Logo" width={120} height={32} />
+            <Link href="/"><Image src="/logo_white 1.png" alt="Logo" width={120} height={32} /></Link>
             <button
               className="p-2"
               aria-label="Close mobile menu"
               onClick={() => setMobileOpen(false)}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Image src="/menu.svg" alt="Menu" width={40} height={14} />
+               
             </button>
           </div>
           <nav className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 items-center">

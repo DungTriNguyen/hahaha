@@ -1,7 +1,15 @@
+'use client'
 import { useState, useEffect } from "react";
+import type { BlogResponse, BlogItem, BlogContent } from "@/types/blog";
 
-export function useBlog() {
-  const [data, setData] = useState(null);
+interface UseBlogOptions {
+  id?: string;
+  BlogCategoryId?: string;
+  content?: boolean;
+}
+
+export function useBlog(options?: UseBlogOptions) {
+  const [data, setData] = useState<BlogResponse | BlogItem | BlogContent | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -9,19 +17,27 @@ export function useBlog() {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
+
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Blog/${process.env.NEXT_PUBLIC_TENANT_ID}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Blog/${process.env.NEXT_PUBLIC_TENANT_ID}`;
+
+        if (options?.id) {
+          url += `/${options.id}${options.content ? '/content' : ''}`;
+        } else if (options?.BlogCategoryId) {
+          url += `?BlogCategoryId=${options.BlogCategoryId}`;
+        }
+
+        const res = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
+
         const json = await res.json();
         setData(json);
       } catch (err) {
@@ -30,8 +46,9 @@ export function useBlog() {
         setLoading(false);
       }
     };
+
     fetchData();
-  }, []);
+  }, [options?.id, options?.BlogCategoryId]);
 
   return { data, loading, error };
 }

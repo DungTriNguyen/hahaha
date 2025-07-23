@@ -26,7 +26,7 @@ const FirstComponent = () => {
             <p className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase mb-2">
               SERVICES
             </p>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase font-coda mb-9">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl uppercase font-coda mb-9">
               Bring your Ideas to real World
             </h2>
             <p className="text-lg text-white/90 leading-relaxed">
