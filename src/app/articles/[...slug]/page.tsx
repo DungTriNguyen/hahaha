@@ -1,12 +1,17 @@
 // app/articles/[...slug]/page.tsx
-import ArticleDetailPage from './ArticleDetailPage'
+import ArticleDetailPage from "./ArticleDetailPage";
 
 interface PageProps {
   params: {
-    slug: string[]
-  }
+    slug: string[];
+  };
 }
 
-export default function Page({ params }: PageProps) {
-  return <ArticleDetailPage slug={params.slug} />
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>;
+}) {
+  const { slug } = await params;
+  return <ArticleDetailPage slug={slug} />;
 }
