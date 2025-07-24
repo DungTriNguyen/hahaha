@@ -57,6 +57,21 @@ body {
   }
 }
 
+/* Swiper Responsive Padding */
+@media (min-width: 1024px) {
+  .custom-swiper {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .custom-swiper {
+    padding-left: 290px !important;
+    padding-right: 0px !important;
+  }
+}
+
 .swiper-pagination {
   display: flex !important;
   justify-content: center !important;
