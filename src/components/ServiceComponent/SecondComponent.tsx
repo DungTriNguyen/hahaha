@@ -20,7 +20,7 @@ const technologies2 = [
 
 const SecondComponent = () => {
   return (
-    <section className="relative z-20 bg-[#1A4CD8] text-white bg-[url('/img_service_section_2.png')] bg-contain bg-no-repeat bg-center py-16 md:py-32 lg:py-48 xl:py-[275px]">
+    <section className="relative z-20 bg-[#1A4CD8] text-white bg-[url('/img_service_section_2.png')] bg-cover bg-no-repeat bg-center md:py-32 xl:py-[275px]">
       <div className="container px-4 md:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* Latest Technologies */}

@@ -8,6 +8,7 @@ export default function BackgroundComponent() {
         alt="background"
         width={1920}
         height={768}
+
       />
     </div>
   );

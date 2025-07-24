@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import type { Metadata } from "next";
 import { Coda, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import IconChat from "@/components/chat-bot/icon-chat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <IconChat />
       </body>
     </html>
   );

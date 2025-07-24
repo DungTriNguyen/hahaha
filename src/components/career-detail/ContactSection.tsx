@@ -8,11 +8,9 @@ const ContactSection = () => {
         {/* Main Contact Block */}
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl w-full">
           <div className="flex flex-col gap-2">
-            <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
-              Contact
-            </span>
-            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold font-coda uppercase">
-            Don't see your role listed?
+            
+            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
+            Thanks! We’ll be in touch soon
             </h2>
           </div>
           <p className="text-white/90 text-lg max-w-2xl">

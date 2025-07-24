@@ -1,13 +1,14 @@
     'use client';
 
-    import ContactSection from "@/components/main-content/ContactSection";
+    import ContactSection from "@/components/article-detail/ContactSection";
     import HeroSection from "@/components/article-detail/HeroSection";
     import SlideComponent from "@/components/article-detail/SlideSection";
     import ArticleContent from "@/components/article-detail/ArticleContent";
     import { useBlog } from "@/components/hooks/blog";
     import { BlogItem } from "@/types/blog";
+    import BackgroundComponent from "@/components/article/BackgroundSection";
     interface Props {
-    slug: string[]; // ['click-through-rate-la-gi-...', '9']
+    slug: string[];
     }
     const ArticleDetailPage = ({ slug }: Props) => {
         
@@ -22,8 +23,9 @@
 
     return (
         <div>
-        <HeroSection title={blog.title}/>
-        <ArticleContent image={blog.imageUrl} description={blog.description} id={id}/>
+        <BackgroundComponent />
+        <HeroSection title={blog.title} image={blog.imageUrl}/>
+        <ArticleContent image={blog.imageUrl} description={blog.description} id={id}/>  
         <SlideComponent />
         <ContactSection />
         </div>

@@ -16,6 +16,7 @@ export default function Home() {
       <AboutSection/>
       <ServiceSection/>
       <ContactSection/>
+      
     </div>
   );
 }

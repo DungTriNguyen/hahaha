@@ -92,6 +92,13 @@ body {
   background-color: #fff !important;
 }
 
+.swiper-slide{
+
+
+}
+.swiper-slide{
+
+}
 .animated-iframe {
   animation: slowMove 7000s linear infinite;
 }
@@ -104,3 +111,19 @@ body {
     transform: translateX(0); /* hoặc bất kỳ hướng di chuyển nào */
   }
 }
+
+@keyframes wave1 {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.02); }
+}
+@keyframes wave2 {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(20px) scale(1.01); }
+}
+@keyframes wave3 {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.03); }
+}
+.animate-wave1 { animation: wave1 12s ease-in-out infinite; }
+.animate-wave2 { animation: wave2 16s ease-in-out infinite; }
+.animate-wave3 { animation: wave3 20s ease-in-out infinite; }

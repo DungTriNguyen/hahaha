@@ -3,24 +3,20 @@ import React from "react";
 
 const ContactSection = () => {
   return (
-    <section className="relative z-10 w-full bg-[#0C0B10] text-white " id="contact">
-      <div className="container flex flex-col items-center justify-center gap-16 pt-80 pb-50 px-4 md:px-0">
+    <section className="relative z-10 w-full bg-[#0C0B10] text-white">
+      <div className="container flex flex-col items-center justify-center gap-16 pt-44 pb-24 px-4 md:px-0">
         {/* Main Contact Block */}
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl w-full">
           <div className="flex flex-col gap-2">
-            <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
-              Contact
-            </span>
+            
             <h2 className="text-white max-w-[800px] text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
-              let&apos;s achieve your goals together
+            Got an idea to build?
             </h2>
           </div>
-          <p className="text-white/90 text-lg max-w-2xl">
-            Tell us about your desires
-          </p>
+         
           <div className="bg-[#2468FF] text-white rounded-2xl flex items-center justify-between p-2 w-fit group cursor-pointer transition-all duration-300 max-w-full">
             <span className="px-4 py-3 md:px-6 md:py-4 font-semibold tracking-widest uppercase text-sm md:text-base whitespace-nowrap">
-              Share your idea NOW
+              START YOUR MVP
             </span>
             <div className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
               {/* Icon mặc định (light.svg) */}

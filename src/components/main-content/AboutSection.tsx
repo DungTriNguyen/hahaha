@@ -31,7 +31,7 @@ const slides = [
 
 const AboutSection = () => {
   return (
-    <section className="relative z-20 w-full pt-40 bg-[#0C0B10]">
+    <section className="relative z-20 w-full pt-40 bg-[#0C0B10]" id="about">
       <iframe
         src="https://my.spline.design/particleplanet-d7SCh4sTgE3E99WaGUflMxS9/"
         className="absolute w-full h-full object-cover z-10 pointer-events-none animated-iframe"

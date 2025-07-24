@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const FirstComponent = () => {
   return (
-    <section className="relative z-20 bg-[#1A4CD8] text-white pt-20 md:pt-32 lg:pt-44 pb-10 md:pb-16 lg:pb-20">
+    <section className="relative z-20 bg-[#0C0B10] text-white pt-20 md:pt-32 lg:pt-44 pb-10 md:pb-16 lg:pb-20">
       {/* Background image with gradient overlay */}
       {/* <div className="absolute inset-0 z-0">
         <Image
@@ -19,6 +19,27 @@ const FirstComponent = () => {
           }}
         />
       </div> */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <Image
+          src="/vector 4.svg"
+          fill
+          alt="service background"
+          className="object-cover smooth-animate-wave1"
+        />
+        <Image
+          src="/vector 5.svg"
+          fill
+          alt="service background"
+          className="object-cover smooth-animate-wave2"
+        />
+        <Image
+          src="/vector 6.svg"
+          fill
+          alt="service background"
+          className="object-cover smooth-animate-wave3"
+        />
+      </div>
+
 
       <div className="container relative z-10 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 md:px-6 lg:px-8">
         <div className="flex-1 max-w-2xl">
@@ -26,7 +47,7 @@ const FirstComponent = () => {
             <p className="text-[#B3CCFF] text-xs md:text-sm font-semibold tracking-widest uppercase mb-2">
               SERVICES
             </p>
-            <h2 className="text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold uppercase font-coda mb-6 md:mb-8 lg:mb-9 leading-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-6xl xl:text-7xl  uppercase font-coda mb-6 md:mb-8 lg:mb-9 leading-tight">
               Bring your Ideas to real World
             </h2>
             <p className="text-base md:text-lg text-white/90 leading-relaxed">
@@ -36,7 +57,7 @@ const FirstComponent = () => {
           </div>
 
           <div className="mb-6 md:mb-8">
-            <ul className="space-y-2 text-white/90 text-sm md:text-base">
+            <ul className="space-y-2 list-disc pl-8 text-white/90 text-sm md:text-base font-semibold">
               <li>MVP to Market</li>
               <li>BUILD FOR SCALE</li>
               <li>READY FOR MILLION USERS</li>

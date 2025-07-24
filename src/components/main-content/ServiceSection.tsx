@@ -3,7 +3,7 @@ import SecondComponent from "../ServiceComponent/SecondComponent";
 
 const ServiceSection = () => {
   return (
-    <section className="relative">
+    <section className="relative" id="services">
       <FirstComponent />
       <SecondComponent />
     </section>

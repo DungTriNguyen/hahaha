@@ -6,6 +6,8 @@ interface UseBlogOptions {
   id?: string;
   BlogCategoryId?: string;
   content?: boolean;
+  PageIndex?: number;
+  PageSize?: number;
 }
 
 export function useBlog(options?: UseBlogOptions) {
@@ -27,6 +29,12 @@ export function useBlog(options?: UseBlogOptions) {
           url += `/${options.id}${options.content ? "/content" : ""}`;
         } else if (options?.BlogCategoryId) {
           url += `?BlogCategoryId=${options.BlogCategoryId}`;
+        } else if (options?.PageIndex && options?.PageSize) {
+          url += `?PageIndex=${options.PageIndex}&PageSize=${options.PageSize}`;
+        }else if(options?.PageIndex){
+          url += `?PageIndex=${options.PageIndex}`;
+        }else if(options?.PageSize){
+          url += `?PageSize=${options.PageSize}`;
         }
 
         const res = await fetch(url, {
@@ -50,7 +58,7 @@ export function useBlog(options?: UseBlogOptions) {
     };
 
     fetchData();
-  }, [options?.id, options?.BlogCategoryId]);
+  }, [options?.id, options?.BlogCategoryId, options?.PageIndex, options?.PageSize]);
 
   return { data, loading, error };
 }
