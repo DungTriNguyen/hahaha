@@ -27,7 +27,11 @@ const ArticleDetailPage = ({ slug }: Props) => {
   return (
     <div>
       <BackgroundComponent />
-      <HeroSection title={blog.title} image={blog.imageUrl} />
+      <HeroSection
+        title={blog.title}
+        image={blog.imageUrl}
+        createdDate={blog.createdDate}
+      />
       <ArticleContent
         image={blog.imageUrl}
         description={blog.description}

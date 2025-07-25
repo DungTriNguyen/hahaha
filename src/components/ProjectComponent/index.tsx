@@ -35,7 +35,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
             >
               <div className="flex flex-col gap-2">
                 {/* Project Number */}
-                <p className="text-[#1A4CD8] text-6xl lg:text-8xl xl:text-9xl font-coda font-normal">
+                <p className="text-[#1A4CD8] group-hover:text-[#B3CCFF] text-6xl lg:text-8xl xl:text-9xl font-coda font-normal">
                   {project.numberIndex}
                 </p>
 

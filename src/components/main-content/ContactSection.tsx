@@ -3,8 +3,11 @@ import React from "react";
 
 const ContactSection = () => {
   return (
-    <section className="relative z-10 w-full bg-[#0C0B10] text-white " id="contact">
-      <div className="container flex flex-col items-center justify-center gap-16 pt-80 pb-50 px-4 md:px-0">
+    <section
+      className="relative z-10 w-full bg-[#0C0B10] text-white"
+      id="contact"
+    >
+      <div className="container flex flex-col items-center justify-center gap-16 py-40 lg:pt-80 lg:pb-50 px-4 md:px-0">
         {/* Main Contact Block */}
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl w-full">
           <div className="flex flex-col gap-2">
@@ -25,12 +28,24 @@ const ContactSection = () => {
             <div className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
               {/* Icon mặc định (light.svg) */}
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
-                <Image src="/light.svg" alt="light" width={32} height={32} className="w-6 h-6 md:w-8 md:h-8" />
+                <Image
+                  src="/light.svg"
+                  alt="light"
+                  width={32}
+                  height={32}
+                  className="w-6 h-6 md:w-8 md:h-8"
+                />
               </div>
 
               {/* Icon khi hover (right.svg) */}
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
-                <Image src="/right.svg" alt="arrow" width={32} height={32} className="w-6 h-6 md:w-8 md:h-8" />
+                <Image
+                  src="/right.svg"
+                  alt="arrow"
+                  width={32}
+                  height={32}
+                  className="w-6 h-6 md:w-8 md:h-8"
+                />
               </div>
             </div>
           </div>

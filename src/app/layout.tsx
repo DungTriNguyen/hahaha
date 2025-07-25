@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Coda, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import IconChat from "@/components/chat-bot/icon-chat";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap" rel="stylesheet" />
-      </Head> */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${coda.variable} antialiased`}
       >

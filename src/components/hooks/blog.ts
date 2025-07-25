@@ -27,14 +27,17 @@ export function useBlog(options?: UseBlogOptions) {
 
         if (options?.id) {
           url += `/${options.id}${options.content ? "/content" : ""}`;
-        } else if (options?.BlogCategoryId) {
-          url += `?BlogCategoryId=${options.BlogCategoryId}`;
-        } else if (options?.PageIndex && options?.PageSize) {
-          url += `?PageIndex=${options.PageIndex}&PageSize=${options.PageSize}`;
-        }else if(options?.PageIndex){
-          url += `?PageIndex=${options.PageIndex}`;
-        }else if(options?.PageSize){
-          url += `?PageSize=${options.PageSize}`;
+        } else {
+          const params = [];
+          if (options?.BlogCategoryId)
+            params.push(`BlogCategoryId=${options.BlogCategoryId}`);
+          if (typeof options?.PageIndex === "number")
+            params.push(`PageIndex=${options.PageIndex}`);
+          if (typeof options?.PageSize === "number")
+            params.push(`PageSize=${options.PageSize}`);
+          if (params.length > 0) {
+            url += `?${params.join("&")}`;
+          }
         }
 
         const res = await fetch(url, {
@@ -58,7 +61,12 @@ export function useBlog(options?: UseBlogOptions) {
     };
 
     fetchData();
-  }, [options?.id, options?.BlogCategoryId, options?.PageIndex, options?.PageSize]);
+  }, [
+    options?.id,
+    options?.BlogCategoryId,
+    options?.PageIndex,
+    options?.PageSize,
+  ]);
 
   return { data, loading, error };
 }

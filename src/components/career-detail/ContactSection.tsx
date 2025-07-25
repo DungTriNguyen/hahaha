@@ -4,19 +4,24 @@ import React from "react";
 const ContactSection = () => {
   return (
     <section className="relative z-10 w-full bg-[#0C0B10] text-white">
-      <div className="container flex flex-col items-center justify-center gap-16 pt-44 pb-24 px-4 md:px-0">
+      <div className="container flex flex-col items-center justify-center gap-16 py-50 lg:pt-44 lg:pb-24 px-4 md:px-0">
         {/* Main Contact Block */}
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl w-full">
           <div className="flex flex-col gap-2">
-            
             <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
-            Thanks! We’ll be in touch soon
+              Thanks! We’ll be in touch soon
             </h2>
           </div>
           <p className="text-white/90 text-lg max-w-2xl">
-            “Got questions? Contact us at <a href="mailto:careers@hubcom.tech" className="underline text-[#2468FF]">careers@hubcom.tech</a>”
+            “Got questions? Contact us at{" "}
+            <a
+              href="mailto:careers@hubcom.tech"
+              className="underline text-[#2468FF]"
+            >
+              careers@hubcom.tech
+            </a>
+            ”
           </p>
-          
         </div>
 
         {/* Contact Info */}

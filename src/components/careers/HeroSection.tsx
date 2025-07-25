@@ -16,19 +16,34 @@ const HeroSection = () => {
             Where Great People Do Great Work
           </h2>
           <p className="text-base md:text-lg text-white/90 leading-relaxed mb-8">
-            Whether you're a designer, developer, or strategist, your voice matters here.
+            Whether you&apos;re a designer, developer, or strategist, your voice
+            matters here.
           </p>
 
           <button className="relative z-10 bg-[#2468FF] rounded-2xl flex items-center gap-4 px-2 py-3 overflow-hidden group cursor-pointer shadow-lg transition-colors">
-            <span className="font-semibold tracking-wide px-2">SEE OPEN ROLES</span>
+            <span className="font-semibold tracking-wide px-2">
+              SEE OPEN ROLES
+            </span>
             <span className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden">
               {/* Icon mặc định */}
               <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
-                <Image src="/right.svg" alt="right" width={28} height={28} className="w-6 h-6 md:w-8 md:h-8" />
+                <Image
+                  src="/right.svg"
+                  alt="right"
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 md:w-8 md:h-8"
+                />
               </span>
               {/* Icon khi hover */}
               <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
-                <Image src="/row.svg" alt="row" width={28} height={28} className="w-6 h-6 md:w-8 md:h-8" />
+                <Image
+                  src="/row.svg"
+                  alt="row"
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 md:w-8 md:h-8"
+                />
               </span>
             </span>
           </button>

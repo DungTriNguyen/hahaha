@@ -5,6 +5,7 @@ import { useBlogCategory } from "../hooks/blog-category";
 import { useBlog } from "../hooks/blog";
 import { BlogResponse } from "@/types/blog";
 import Link from "next/link";
+import { formatDateToLongEN } from "@/utils/formatDate";
 
 const CategorySlideSection = () => {
   const {
@@ -24,22 +25,39 @@ const CategorySlideSection = () => {
       setSelectedCategoryId(category.items[0].id);
     }
   }, [category, selectedCategoryId]);
+  const [pageIndex, setPageIndex] = useState(0); // Thêm state cho pageIndex
+  const pageSize = 3; // pageSize cố định
   const { data: article } = useBlog({
     BlogCategoryId: selectedCategoryId ?? undefined,
+    PageIndex: pageIndex,
+    PageSize: pageSize,
   });
   const dataBlog = article as BlogResponse;
+  // Tính tổng số trang
+  const totalCount = dataBlog?.totalCount || 0;
+  const totalPages = Math.ceil(totalCount / pageSize);
+
+  const handlePrevPage = () => {
+    setPageIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNextPage = () => {
+    setPageIndex((prev) => Math.min(prev + 1, totalPages - 1));
+  };
+
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategoryId(categoryId);
+    setPageIndex(0);
   };
   return (
-    <section className="bg-[#0C0B10] text-white py-10 md:py-16 lg:py-20">
+    <section className="bg-[#0C0B10] text-white lg:py-32 relative z-2">
       <div className="container px-4 md:px-6 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row lg:justify-between gap-8 lg:gap-12">
           {/* Articles List */}
           <div className="space-y-6 lg:flex-1">
-            {
-              dataBlog?.items && dataBlog.items.length > 0 ? (
-                dataBlog?.items.map((article, index) => (
+            {dataBlog?.items && dataBlog.items.length > 0 ? (
+              <>
+                {dataBlog?.items.map((article, index) => (
                   <div
                     key={index}
                     className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8 group items-center"
@@ -54,48 +72,74 @@ const CategorySlideSection = () => {
                         className="w-full h-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110"
                       />
                     </div>
-    
                     {/* Content */}
                     <div className="flex-1 space-y-3 md:space-y-4 min-w-0 ">
-    
                       {/* Title */}
                       <h3 className="text-lg md:text-xl lg:text-2xl font-coda uppercase leading-tight text-white">
                         {article.title}
                       </h3>
-    
                       {/* Metadata */}
                       <div className="flex items-center gap-2 text-xs md:text-sm font-semibold text-white">
-                        <span>{article.createdDate}</span>
+                        <span>{formatDateToLongEN(article.createdDate)}</span>
                       </div>
-    
                       {/* Description */}
                       <p className="text-sm md:text-base text-[#CCCCCC] leading-relaxed line-clamp-3 md:line-clamp-none">
                         {article.description}
                       </p>
-    
                       {/* Read More Button */}
-                      <Link href={`/articles/${article.itemUrl}`} className="text-white text-sm font-semibold">
-                      <div className="relative w-fit group-hover:cursor-pointer">
-                        <div className="flex items-center gap-2 z-10 relative">
-                          <span className="text-white text-sm font-semibold">
-                            Read More
-                          </span>
+                      <Link
+                        href={`/articles/${article.itemUrl}`}
+                        className="text-white text-sm font-semibold"
+                      >
+                        <div className="relative w-fit group-hover:cursor-pointer">
+                          <div className="flex items-center gap-2 z-10 relative">
+                            <span className="text-white text-sm font-semibold">
+                              Read More
+                            </span>
+                          </div>
+                          {/* Animated underline */}
+                          <span className="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out" />
                         </div>
-    
-                        {/* Animated underline */}
-                        <span className="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out" />
-                      </div>
                       </Link>
-    
                     </div>
                   </div>
-                ))
-              ) : (
-                <div className="text-white bg-white bg-opacity-10 px-3 py-2 rounded">
-                  Chưa có dữ liệu
-                </div>
-              )
-            }
+                ))}
+                {/* Pagination Controls */}
+                {totalCount > pageSize && (
+                  <div className="flex justify-end gap-4 mt-20">
+                    <button
+                      onClick={handlePrevPage}
+                      disabled={pageIndex === 0}
+                      className={`px-4 py-2 rounded bg-black bg-opacity-10 text-white font-semibold transition-colors ${
+                        pageIndex === 0
+                          ? "opacity-50 cursor-not-allowed"
+                          : "hover:bg-opacity-20"
+                      }`}
+                    >
+                      Prev
+                    </button>
+                    <span className="flex items-center text-white font-semibold">
+                      Page {totalPages === 0 ? 0 : pageIndex + 1} / {totalPages}
+                    </span>
+                    <button
+                      onClick={handleNextPage}
+                      disabled={pageIndex >= totalPages - 1}
+                      className={`px-4 py-2 rounded bg-black bg-opacity-10 text-white font-semibold transition-colors ${
+                        pageIndex >= totalPages - 1
+                          ? "opacity-50 cursor-not-allowed"
+                          : "hover:bg-opacity-20"
+                      }`}
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-white bg-opacity-10 px-3 py-2 rounded">
+                No data found
+              </div>
+            )}
           </div>
 
           {/* Category Sidebar */}
@@ -114,9 +158,10 @@ const CategorySlideSection = () => {
                     >
                       <span
                         className={`relative pb-1
-                          ${selectedCategoryId === item.id
-                            ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
-                            : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
+                          ${
+                            selectedCategoryId === item.id
+                              ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
+                              : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
                           }
                         `}
                       >
@@ -125,8 +170,8 @@ const CategorySlideSection = () => {
                     </li>
                   ))
                 ) : (
-                  <li className="text-white bg-white bg-opacity-10 px-3 py-2 rounded">
-                    Chưa có dữ liệu
+                  <li className="text-white  bg-opacity-10 px-3 py-2 rounded">
+                    No data found
                   </li>
                 )}
               </ul>

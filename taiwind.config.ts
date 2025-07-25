@@ -1,9 +1,12 @@
-import typography from '@tailwindcss/typography';
+import typography from "@tailwindcss/typography";
 
 export default {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./public/js/in-view-animation.js",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [typography], // ✅ Đúng cách trong Tailwind v4
+  plugins: [typography],
 };
