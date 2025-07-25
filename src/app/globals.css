@@ -105,9 +105,6 @@ body {
   animation: slowMove 7000s linear infinite;
 }
 
-
-
-
 /* @keyframes wave1 {
   0%   { transform: translateX(0%) translateY(0); }
   50%  { transform: translateX(-2%) translateY(-10px); }
@@ -136,4 +133,46 @@ body {
 
 .smooth-animate-wave3 {
   animation: wave3 12s ease-in-out infinite alternate;
+} */
+
+/* @keyframes waveTopAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+
+@keyframes waveMiddleAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+
+@keyframes waveBottomAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+
+.waveTop {
+  animation: waveTopAnim 10s linear infinite;
+  will-change: transform;
+}
+
+.waveMiddle {
+  animation: waveMiddleAnim 10s linear infinite;
+  will-change: transform;
+}
+
+.waveBottom {
+  animation: waveBottomAnim 10s linear infinite;
+  will-change: transform;
 } */
