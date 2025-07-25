@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const FirstComponent = () => {
   return (
-    <section className="relative z-20 bg-[#0C0B10] text-white pt-20 md:pt-32 lg:pt-44 pb-10 md:pb-16 lg:pb-20">
+    <section className="relative z-7 bg-[#0C0B10] text-white pt-20 md:pt-32 lg:pt-44 pb-10 md:pb-16 lg:pb-20">
   
-      {/* <div className="w-full h-[100px] absolute top-0 left-0 z-100 overflow-hidden bg-black ">
+      {/* <div className="w-full h-full absolute bottom-0 left-0 z-9 overflow-hidden bg-black ">
 
         <div className="absolute inset-x-0 bottom-[-1px] h-full w-full overflow-hidden bg-blue z-[15]">
           <div
@@ -58,9 +58,9 @@ const FirstComponent = () => {
               Launch your idea
             </span>
 
-            {/* Icon container */}
+   
             <div className="p-2 md:p-3 rounded-lg md:rounded-xl bg-[#0C0B10] hover:bg-[#1A4CD8] relative w-[48px] h-[48px] md:w-[56px] md:h-[56px] overflow-hidden">
-              {/* Rocket icon - hiển thị mặc định */}
+
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                 <Image
                   src="/rocket.svg"
@@ -71,7 +71,6 @@ const FirstComponent = () => {
                 />
               </div>
 
-              {/* Arrow icon - hiển thị khi hover */}
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out translate-x-[-100%] opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
                 <Image
                   src="/right.svg"
@@ -86,12 +85,12 @@ const FirstComponent = () => {
         </div>
 
         <div className="flex-1 relative w-full">
-          <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
+          <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] ">
             <Image
               src="/img_service_section_1.png"
               fill
               alt="service banner"
-              className="object-contain rounded-lg"
+              className="object-contain rounded-lg float-item"
             />
           </div>
         </div>

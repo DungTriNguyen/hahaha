@@ -96,6 +96,18 @@ function hoverScaleUp() {
   });
 }
 
+function floatAnimation() {
+  document.querySelectorAll(".float-item").forEach((el) => {
+    gsap.to(el, {
+      y: 10,               // dịch lên 10px
+      duration: 2,         // thời gian một vòng
+      ease: "sine.inOut",  // hiệu ứng mượt mà
+      repeat: -1,          // lặp vô hạn
+      yoyo: true,          // quay lại vị trí ban đầu
+    });
+  });
+}
+
 export default function initAnimations() {
   if (typeof window === "undefined") return;
 
@@ -105,4 +117,5 @@ export default function initAnimations() {
   slideInFromLeft();
   slideInFromRight();
   hoverScaleUp();
+  floatAnimation();
 }

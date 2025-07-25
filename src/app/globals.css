@@ -114,7 +114,7 @@ body {
   }
 }
 
-/* @keyframes smoothWave1 {
+@keyframes smoothWave1 {
   0%   { transform: translateY(0) scaleX(1.05) scaleY(1) rotate(-2deg);}
   20%  { transform: translateY(-30px) scaleX(1.08) scaleY(1.03) rotate(0deg);}
   40%  { transform: translateY(-60px) scaleX(1.12) scaleY(1.05) rotate(2deg);}
@@ -136,11 +136,11 @@ body {
   80%  { transform: translateY(20px) scaleX(0.98) scaleY(1.01) rotate(2deg);}
   100% { transform: translateY(0) scaleX(1) scaleY(1) rotate(0deg);}
 
-} */
+}
 
 
 
-/* @keyframes smoothWave1 {
+@keyframes smoothWave1 {
   0% { transform: translateY(0); }
   50% { transform: translateY(30%); }
   100% { transform: translateY(0); }
@@ -166,7 +166,7 @@ body {
 
 .smooth-animate-wave3 {
   animation: smoothWave3 18s linear infinite;
-} */
+}
 
 
 /* Xóa các class animate-wave1/2/3 và keyframes wave1/2/3 nếu còn */
