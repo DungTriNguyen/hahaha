@@ -19,7 +19,7 @@ const HeroSection = () => {
     <>
       <div className="h-screen"></div>
       <section className="fixed inset-0 z-0">
-        <div className="w-full relative inset-0 h-screen fade-up">
+        <div className="w-full relative inset-0 h-screen fade-up delay-3000">
           <iframe
             src="https://my.spline.design/untitled-V0MRkb0fl4hWPlrsrdpTfhIB/"
             className="absolute top-[35%] right-[20%] w-full h-full"
@@ -36,8 +36,6 @@ const HeroSection = () => {
           </p>
           <div className="relative z-50 bg-[#2468FF] w-fit rounded-2xl flex items-center gap-8 p-2 overflow-hidden group cursor-pointer">
             <p className="ml-6">EXPLORE NOW</p>
-
-
             <div className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
           
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">

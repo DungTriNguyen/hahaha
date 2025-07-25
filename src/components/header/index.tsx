@@ -89,42 +89,40 @@ const Header = () => {
   return (
     <>
       <header
-  className="sticky top-0 left-0 w-full z-30
-    backdrop-blur-md
-    bg-transparent "
-  
->
-  <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
-    <div className="flex items-center">
-      <Link href="/">
-        <Image
-          src="/logo_white 1.png"
-          alt="Logo"
-          width={250}
-          height={48}
-        />
-      </Link>
-    </div>
-    <nav className="hidden lg:flex items-center gap-7">
-      {navItemsDesktop.map((item, index) => (
-        <a
-          key={index}
-          href={item.href}
-          className="text-white font-semibold text-[15px] uppercase px-2 py-1"
-        >
-          {item.title}
-        </a>
-      ))}
-    </nav>
-    <button
-      className="lg:hidden p-2"
-      aria-label="Toggle mobile menu"
-      onClick={() => setMobileOpen(true)}
-    >
-      <Image src="/menu.svg" alt="Menu" width={40} height={14} />
-    </button>
-  </div>
-</header>
+        className="sticky top-0 left-0 w-full z-30 backdrop-blur-md bg-transparent"
+
+      >
+        <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/logo_white 1.png"
+                alt="Logo"
+                width={250}
+                height={48}
+              />
+            </Link>
+          </div>
+          <nav className="hidden lg:flex items-center gap-7">
+            {navItemsDesktop.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="text-white font-semibold text-[15px] uppercase px-2 py-1"
+              >
+                {item.title}
+              </a>
+            ))}
+          </nav>
+          <button
+            className="lg:hidden p-2"
+            aria-label="Toggle mobile menu"
+            onClick={() => setMobileOpen(true)}
+          >
+            <Image src="/menu.svg" alt="Menu" width={40} height={14} />
+          </button>
+        </div>
+      </header>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-black flex  flex-col h-full lg:hidden animate-fade-in drop-text">
