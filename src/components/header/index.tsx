@@ -89,10 +89,10 @@ const Header = () => {
   return (
     <>
       <header
-  className="sticky top-0 left-0 w-full z-30 backdrop-blur-sm"
-  style={{
-    background: "linear-gradient(180deg, rgba(12,11,16,0.00) 0%, #0C0B10 100%)",
-  }}
+  className="sticky top-0 left-0 w-full z-30
+    backdrop-blur-md
+    bg-transparent "
+  
 >
   <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
     <div className="flex items-center">
