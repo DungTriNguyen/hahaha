@@ -129,7 +129,7 @@ const Header = () => {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-black flex  flex-col h-full lg:hidden animate-fade-in">
+        <div className="fixed inset-0 z-50 bg-black flex  flex-col h-full lg:hidden animate-fade-in drop-text">
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
             <Link href="/">
               <Image

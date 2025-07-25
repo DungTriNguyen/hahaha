@@ -6,7 +6,7 @@ import SectionCardCareer from "@/components/careers/SectionCardCareer"
 
 const CareersPage = () => {
     return (
-        <div>
+        <div className="bg-[#0C0B10]">
             <BackgroundComponent />
             <HeroSection/>
             <SectionCardCareer/>

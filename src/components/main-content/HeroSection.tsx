@@ -22,7 +22,7 @@ const HeroSection = () => {
     <>
       <div className="h-screen"></div>
       <section className="fixed inset-0 z-0">
-        <div className="w-full relative inset-0 h-screen">
+        <div className="w-full relative inset-0 h-screen fade-up">
           <iframe
             src="https://my.spline.design/untitled-V0MRkb0fl4hWPlrsrdpTfhIB/"
             className="absolute top-[35%] right-[20%] w-full h-full"
@@ -30,7 +30,7 @@ const HeroSection = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="container absolute inset-0 flex flex-col justify-center items-center text-white z-10 gap-9">
+        <div className="container absolute inset-0 flex flex-col justify-center items-center text-white z-10 gap-9 drop-text">
           <h1 className="text-4xl md:text-[72px] font-coda max-w-[800px] text-center">
             WHERE TECH MEETS CREATIVITY
           </h1>

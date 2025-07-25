@@ -32,6 +32,7 @@ const ArticleDetailPage = ({ slug }: Props) => {
         image={blog.imageUrl}
         createdDate={blog.createdDate}
       />
+
       <ArticleContent
         image={blog.imageUrl}
         description={blog.description}
