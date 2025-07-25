@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { useBlog } from "../hooks/blog";
 import { useBlogCategory } from "../hooks/blog-category";
-import { useEffect } from "react";
-import initAnimations from "../../../public/js/in-view-animation";
+
 
 const HeroSection = () => {
   const { data, loading, error } = useBlog();
@@ -15,9 +14,7 @@ const HeroSection = () => {
     error: blogCategoriesError,
   } = useBlogCategory();
   console.log("blogCategories", blogCategories);
-  useEffect(() => {
-    initAnimations();
-  }, []);
+
   return (
     <>
       <div className="h-screen"></div>

@@ -31,7 +31,7 @@ const slides = [
 
 const AboutSection = () => {
   return (
-    <section className="relative z-20 w-full lg:pt-40 bg-[#0C0B10]" id="about">
+    <section className="relative z-20 w-full lg:pt-40 bg-[#0C0B10] overflow-hidden" id="about">
       <iframe
         src="https://my.spline.design/particleplanet-d7SCh4sTgE3E99WaGUflMxS9/"
         className="absolute w-full h-full object-cover z-10 pointer-events-none animated-iframe"
@@ -45,7 +45,7 @@ const AboutSection = () => {
         allowFullScreen
       />
       <div
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-10 pointer-events-none "
         style={{
           background:
             "linear-gradient(to bottom, transparent 0%, rgba(12, 11, 16, 0.8) 50%, rgba(12, 11, 16, 1) 100%)",

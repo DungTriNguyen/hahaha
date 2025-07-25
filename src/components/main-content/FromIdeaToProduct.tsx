@@ -1,8 +1,9 @@
-import React from "react";
+
+
 
 const FromIdeaToProduct = () => {
   return (
-    <section className="relative w-full h-[2560px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[2560px] flex items-center justify-center overflow-hidden scroll-section">
 
       <div
         className="absolute inset-0"
