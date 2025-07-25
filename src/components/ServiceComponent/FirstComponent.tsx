@@ -19,7 +19,7 @@ const FirstComponent = () => {
           }}
         />
       </div> */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      {/* <div className="absolute inset-0 w-full h-[400px] pointer-events-none z-0 ">
         <Image
           src="/vector 4.svg"
           fill
@@ -38,6 +38,34 @@ const FirstComponent = () => {
           alt="service background"
           className="object-cover smooth-animate-wave3"
         />
+      </div> */}
+      {/* <div className="w-full h-[100px] absolute top-0 left-0 z-100 overflow-hidden bg-black ">
+
+        <div className="absolute inset-x-0 bottom-[-1px] h-full w-full overflow-hidden bg-blue z-[15]">
+          <div
+            className="absolute bottom-0 left-0 h-full w-[500%] bg-repeat-x bg-[length:60%_100px] smooth-animate-wave1"
+            style={{ backgroundImage: 'url("/vector 4.svg")' }}
+          ></div>
+        </div>
+
+        <div className="absolute inset-x-0 bottom-[-1px] h-full w-full overflow-hidden bg-blue z-[10] opacity-70">
+          <div
+            className="absolute bottom-0 left-0 h-full w-[500%] bg-repeat-x bg-[length:50%_100px] smooth-animate-wave2"
+            style={{ backgroundImage: 'url("/vector 5.svg")' }}
+          ></div>
+        </div>
+
+        <div className="absolute inset-x-0 bottom-[-1px] h-full w-full overflow-hidden bg-blue opacity-50 z-[5]">
+          <div
+            className="absolute bottom-0 left-0 h-full w-[500%] bg-repeat-x bg-[length:50%_100px] smooth-animate-wave3"
+            style={{ backgroundImage: 'url("/vector 6.svg")' }}
+          ></div>
+        </div>
+      </div> */}
+      <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-[500%] h-full wave1" />
+        <div className="absolute bottom-0 left-0 w-[500%] h-full wave2" />
+        <div className="absolute bottom-0 left-0 w-[500%] h-full wave3" />
       </div>
 
 

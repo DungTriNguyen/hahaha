@@ -114,39 +114,129 @@ body {
   }
 }
 
-@keyframes wave1 {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-20px) scale(1.02);
-  }
+/* @keyframes smoothWave1 {
+  0%   { transform: translateY(0) scaleX(1.05) scaleY(1) rotate(-2deg);}
+  20%  { transform: translateY(-30px) scaleX(1.08) scaleY(1.03) rotate(0deg);}
+  40%  { transform: translateY(-60px) scaleX(1.12) scaleY(1.05) rotate(2deg);}
+  60%  { transform: translateY(-30px) scaleX(1.08) scaleY(1.03) rotate(0deg);}
+  80%  { transform: translateY(0) scaleX(1.05) scaleY(1) rotate(-2deg);}
+  100% { transform: translateY(0) scaleX(1.05) scaleY(1) rotate(-2deg);}
 }
-@keyframes wave2 {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(20px) scale(1.01);
-  }
+@keyframes smoothWave2 {
+  0%   { transform: translateY(0) scaleX(1) scaleY(1) rotate(2deg);}
+  25%  { transform: translateY(-20px) scaleX(1.03) scaleY(1.01) rotate(0deg);}
+  50%  { transform: translateY(-40px) scaleX(1.06) scaleY(1.03) rotate(-2deg);}
+  75%  { transform: translateY(-20px) scaleX(1.03) scaleY(1.01) rotate(0deg);}
+  100% { transform: translateY(0) scaleX(1) scaleY(1) rotate(2deg);}
 }
-@keyframes wave3 {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.03);
-  }
+@keyframes smoothWave3 {
+  0%   { transform: translateY(0) scaleX(1) scaleY(1) rotate(0deg);}
+  20%  { transform: translateY(20px) scaleX(0.98) scaleY(1.01) rotate(2deg);}
+  50%  { transform: translateY(40px) scaleX(0.96) scaleY(1.03) rotate(-2deg);}
+  80%  { transform: translateY(20px) scaleX(0.98) scaleY(1.01) rotate(2deg);}
+  100% { transform: translateY(0) scaleX(1) scaleY(1) rotate(0deg);}
+
+} */
+
+
+
+/* @keyframes smoothWave1 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(30%); }
+  100% { transform: translateY(0); }
 }
-.animate-wave1 {
-  animation: wave1 12s ease-in-out infinite;
+
+@keyframes smoothWave2 {
+  0% { transform: translateX(0); }
+  100% { transform: translate(-60%, 10%); }
 }
-.animate-wave2 {
-  animation: wave2 16s ease-in-out infinite;
+
+@keyframes smoothWave3 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
 }
-.animate-wave3 {
-  animation: wave3 20s ease-in-out infinite;
+
+.smooth-animate-wave1 {
+  animation: smoothWave1 10s linear infinite;
+}
+
+.smooth-animate-wave2 {
+  animation: smoothWave2 15s linear infinite;
+}
+
+.smooth-animate-wave3 {
+  animation: smoothWave3 18s linear infinite;
+} */
+
+
+/* Xóa các class animate-wave1/2/3 và keyframes wave1/2/3 nếu còn */
+/* .animate-wave1, .animate-wave2, .animate-wave3 { animation: none !important; }
+@keyframes wave1 {}
+@keyframes wave2 {}
+@keyframes wave3 {} */
+
+
+@keyframes waveMove1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes waveMove2 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+@keyframes waveMove3 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+.wave1 {
+  background-image: url('/vector 4.svg');
+  background-repeat: repeat-x;
+  background-size: 60% 100px;
+  animation: waveMove1 20s linear infinite;
+}
+
+.wave2 {
+  background-image: url('/vector 5.svg');
+  background-repeat: repeat-x;
+  background-size: 50% 100px;
+  animation: waveMove2 25s linear infinite;
+  opacity: 0.6;
+}
+
+.wave3 {
+  background-image: url('/vector 6.svg');
+  background-repeat: repeat-x;
+  background-size: 50% 100px;
+  animation: waveMove3 30s linear infinite;
+  opacity: 0.3;
+}
+
+
+.wave1 {
+  @apply absolute bottom-0 left-0 w-[500%] h-full;
+  background-image: url('/vector 4.svg');
+  background-repeat: repeat-x;
+  background-size: 60% 100px;
+  animation: waveMove1 20s linear infinite;
+}
+
+.wave2 {
+  @apply absolute bottom-0 left-0 w-[500%] h-full;
+  background-image: url('/vector 5.svg');
+  background-repeat: repeat-x;
+  background-size: 50% 100px;
+  animation: waveMove2 25s linear infinite;
+  opacity: 0.6;
+}
+
+.wave3 {
+  @apply absolute bottom-0 left-0 w-[500%] h-full;
+  background-image: url('/vector 6.svg');
+  background-repeat: repeat-x;
+  background-size: 50% 100px;
+  animation: waveMove3 30s linear infinite;
+  opacity: 0.3;
 }

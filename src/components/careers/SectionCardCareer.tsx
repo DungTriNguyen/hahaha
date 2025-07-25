@@ -5,6 +5,7 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 const careerDetail = [
   {
@@ -56,8 +57,8 @@ const SectionCardCareer = () => {
         </p>
       </div>
 
-      <div className="relative z-10 lg:pt-16 lg:pb-20 ">
-        <div className="px-4 md:px-6 lg:px-0 overflow-hidden  ">
+      <div className="relative z-10 lg:pt-16 lg:pb-20">
+        <div className="px-4 md:px-6 lg:px-0 overflow-hidden py-8">
           <Swiper
             modules={[Pagination]}
             pagination={{
@@ -76,11 +77,12 @@ const SectionCardCareer = () => {
               paddingLeft: "0px",
               paddingRight: "0px",
             }}
-            className="custom-swiper swiper-custom-pagination lg:w-[1400px] w-[100%] md:w-[800px] "
+            className="custom-swiper swiper-custom-pagination lg:w-[1400px] w-[100%] md:w-[800px]"
           >
             {careerDetail.map((career) => (
               <SwiperSlide key={career.id}>
-                <div className="group bg-[#0C0B10] border border-[#2A2F3C] rounded-3xl flex px-6 py-12 flex-col shadow-lg w-full h-[444px] mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[#1A4CD8]">
+               <Link href={`/careers/${career.id}`}>
+               <div className="group bg-[#0C0B10] border border-[#2A2F3C] rounded-3xl flex px-6 py-12 flex-col shadow-lg w-full h-[444px] mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[#1A4CD8]">
                   <div className="flex items-center gap-2 justify-between">
                     <span className="text-[#10B981] text-sm uppercase tracking-wider">
                       {career.times}
@@ -144,6 +146,7 @@ const SectionCardCareer = () => {
                     </div>
                   </button>
                 </div>
+               </Link>
               </SwiperSlide>
             ))}
           </Swiper>
