@@ -57,6 +57,26 @@ body {
   }
 }
 
+/* Swiper Responsive Padding */
+@media (min-width: 1024px) {
+  .custom-swiper {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .custom-swiper {
+    overflow: unset !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .custom-swiper {
+    padding-left: 290px !important;
+    padding-right: 0px !important;
+  }
+}
+
 .swiper-pagination {
   display: flex !important;
   justify-content: center !important;
@@ -77,15 +97,82 @@ body {
   background-color: #fff !important;
 }
 
+.swiper-slide {
+}
+.swiper-slide {
+}
 .animated-iframe {
   animation: slowMove 7000s linear infinite;
 }
 
-@keyframes slowMove {
+/* @keyframes wave1 {
+  0%   { transform: translateX(0%) translateY(0); }
+  50%  { transform: translateX(-2%) translateY(-10px); }
+  100% { transform: translateX(-4%) translateY(0); }
+}
+
+@keyframes wave2 {
+  0%   { transform: translateX(0%) translateY(0); }
+  50%  { transform: translateX(2%) translateY(-8px); }
+  100% { transform: translateX(4%) translateY(0); }
+}
+
+@keyframes wave3 {
+  0%   { transform: translateX(0%) translateY(0); }
+  50%  { transform: translateX(-1%) translateY(-5px); }
+  100% { transform: translateX(-2%) translateY(0); }
+}
+
+.smooth-animate-wave1 {
+  animation: wave1 10s ease-in-out infinite alternate;
+}
+
+.smooth-animate-wave2 {
+  animation: wave2 14s ease-in-out infinite alternate-reverse;
+}
+
+.smooth-animate-wave3 {
+  animation: wave3 12s ease-in-out infinite alternate;
+} */
+
+/* @keyframes waveTopAnim {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(0); /* hoặc bất kỳ hướng di chuyển nào */
+    transform: translateX(500px);
   }
 }
+
+@keyframes waveMiddleAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+
+@keyframes waveBottomAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+
+.waveTop {
+  animation: waveTopAnim 10s linear infinite;
+  will-change: transform;
+}
+
+.waveMiddle {
+  animation: waveMiddleAnim 10s linear infinite;
+  will-change: transform;
+}
+
+.waveBottom {
+  animation: waveBottomAnim 10s linear infinite;
+  will-change: transform;
+} */

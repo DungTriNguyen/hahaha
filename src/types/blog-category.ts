@@ -5,7 +5,7 @@ export interface BlogCategory {
     itemUrl: string;
     customId: number;
     description: string;
-    createdDate: string; // hoặc Date nếu parse
+    createdDate: string; 
     updatedDate: string;
   }
 

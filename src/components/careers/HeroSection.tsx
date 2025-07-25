@@ -3,77 +3,60 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 
-
 const HeroSection = () => {
   return (
-    <section className="relative z-20 w-full pt-40 bg-[#0C0B10]">
-      <iframe
-        src="https://my.spline.design/untitled-RB1SJwTPp4QHGyj70yzQOkIR/"
-        className="absolute w-full h-full object-cover z-10 pointer-events-none"
-        style={{
-          pointerEvents: "none",
-          left: 0,
-          top: 0,
-          bottom: 0,
-          position: "absolute",
-        }}
-        allowFullScreen
-      />
-      <div
-        className="absolute inset-0 z-10 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 0%, rgba(12, 11, 16, 0.8) 50%, rgba(12, 11, 16, 1) 100%)",
-        }}
-      />
+    <section className="relative z-20 w-full pt-10 lg:pb-8 ">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 text-white px-4 md:px-8">
+        <div className="flex-1 max-w-2xl w-full">
+          <p className="text-[#B3CCFF] text-xs md:text-sm font-semibold tracking-widest uppercase mb-2">
+            SERVICES
+          </p>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl uppercase font-coda mb-6 leading-tight">
+            Where Great People Do Great Work
+          </h2>
+          <p className="text-base md:text-lg text-white/90 leading-relaxed mb-8">
+            Whether you&apos;re a designer, developer, or strategist, your voice
+            matters here.
+          </p>
 
-      <div className="relative z-30 pt-16 pb-20">
-      <div className="container relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-white">
-        <div className="flex-1 max-w-2xl">
-          <div className="mb-9">
-            <p className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase mb-2">
-              SERVICES
-            </p>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase font-coda mb-9">
-            WE BUILD BEYOND BRIEFS
-            </h2>
-            <p className="text-lg text-white/90 leading-relaxed">
-            Whether you're a designer, developer, or strategist, your voice matters here.
-            </p>
-          </div>
-
-          <div className="bg-[#2468FF] rounded-2xl flex items-center justify-between p-2 w-fit">
-            <span className="px-6 py-4 font-semibold">SEE OPEN ROLES</span>
-            <div className="p-3 rounded-xl bg-[#1A4CD8]">
-              <Image
-                src="/rocket.svg"
-                alt="rocket"
-                width={26}
-                height={26}
-                className="block hover:hidden"
-              />
-              <Image
-                src="/right.svg"
-                alt="arrow"
-                width={8}
-                height={16}
-                className="hidden hover:block"
-              />
-            </div>
-          </div>
+          <button className="relative z-10 bg-[#2468FF] rounded-2xl flex items-center gap-4 px-2 py-3 overflow-hidden group cursor-pointer shadow-lg transition-colors">
+            <span className="font-semibold tracking-wide px-2">
+              SEE OPEN ROLES
+            </span>
+            <span className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden">
+              <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
+                <Image
+                  src="/right.svg"
+                  alt="right"
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 md:w-8 md:h-8"
+                />
+              </span>
+              <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+                <Image
+                  src="/row.svg"
+                  alt="row"
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 md:w-8 md:h-8"
+                />
+              </span>
+            </span>
+          </button>
         </div>
 
-        <div className="flex-1 relative">
-          <div className="relative w-full h-[600px] lg:h-[622px]">
+        <div className="flex-1 w-full flex justify-center items-center">
+          <div className="relative w-full max-w-[350px] md:max-w-[420px] lg:max-w-[500px] xl:max-w-[600px] aspect-[5/6]">
             <Image
               src="/careers/hero_section.png"
               fill
               alt="service banner"
               className="object-contain rounded-lg"
+              priority
             />
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

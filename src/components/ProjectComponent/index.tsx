@@ -3,12 +3,13 @@ import { Projects } from "../main-content/ProjectSection";
 
 const ProjectComponent = ({ data }: { data: Projects[] }) => {
   return (
-    <div className="flex flex-col gap-4 w-full max-w-[1440px] mx-auto">
+    <div className="flex flex-col gap-4 w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
       {data.map((project, index) => (
         <div
           key={project.id || index}
-          className={`flex flex-col lg:flex-row items-stretch bg-[#0C0B10] rounded-lg overflow-hidden group ${project.id % 2 === 0 ? "lg:flex-row-reverse " : ""
-            }`}
+          className={`flex flex-col lg:flex-row items-stretch bg-[#0C0B10] rounded-lg overflow-hidden group ${
+            project.id % 2 === 0 ? "lg:flex-row-reverse " : ""
+          }`}
           style={{ minHeight: "513px" }}
         >
           {/* Image Section - Fixed width like Figma */}
@@ -26,14 +27,15 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
           {/* Content Section - Fixed width like Figma */}
           <div className="flex-1 flex flex-col justify-center py-4 lg:p-12 max-w-[744px]">
             <div
-              className={`flex flex-col gap-6 ${project.id % 2 === 0
+              className={`flex flex-col gap-6 ${
+                project.id % 2 === 0
                   ? "lg:items-end lg:text-right"
                   : "lg:items-start"
-                }`}
+              }`}
             >
               <div className="flex flex-col gap-2">
                 {/* Project Number */}
-                <p className="text-[#1A4CD8] text-6xl lg:text-8xl xl:text-9xl font-coda font-normal">
+                <p className="text-[#1A4CD8] group-hover:text-[#B3CCFF] text-6xl lg:text-8xl xl:text-9xl font-coda font-normal">
                   {project.numberIndex}
                 </p>
 
@@ -44,8 +46,9 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
 
                 {/* Project Tags */}
                 <div
-                  className={`flex flex-wrap gap-2 ${project.id % 2 === 0 ? "lg:justify-end" : "lg:justify-start"
-                    }`}
+                  className={`flex flex-wrap gap-2 ${
+                    project.id % 2 === 0 ? "lg:justify-end" : "lg:justify-start"
+                  }`}
                 >
                   {project.scrumb.split(" / ").map((tag, tagIndex) => (
                     <div key={tagIndex} className="flex items-center gap-2">
@@ -68,7 +71,9 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
               {/* More Button */}
               <div className="relative w-fit group-hover:cursor-pointer">
                 <div className="flex items-center gap-2 z-10 relative">
-                  <span className="text-gray-400 text-sm font-semibold">More</span>
+                  <span className="text-gray-400 text-sm font-semibold">
+                    More
+                  </span>
                 </div>
 
                 {/* Animated underline */}

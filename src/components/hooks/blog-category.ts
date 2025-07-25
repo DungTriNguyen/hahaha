@@ -5,6 +5,8 @@ import type { BlogCategoryResponse } from "@/types/blog-category";
 interface UseBlogCategoryOptions {
   id?: string;
   ParentId?: string;
+  PageIndex?: number;
+  PageSize?: number;
 }
 
 export function useBlogCategory(options?: UseBlogCategoryOptions) {
@@ -23,6 +25,8 @@ export function useBlogCategory(options?: UseBlogCategoryOptions) {
           url += `/${options.id}`;
         } else if (options?.ParentId) {
           url += `?ParentId=${options.ParentId}`;
+        } else if (options?.PageIndex && options?.PageSize) {
+          url += `?PageIndex=${options.PageIndex}&PageSize=${options.PageSize}`;
         }
 
         const res = await fetch(url, {
@@ -46,7 +50,7 @@ export function useBlogCategory(options?: UseBlogCategoryOptions) {
     };
 
     fetchData();
-  }, [options?.id, options?.ParentId]);
+  }, [options?.id, options?.ParentId, options?.PageIndex, options?.PageSize]);
 
   return { data, loading, error };
 }

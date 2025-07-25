@@ -5,7 +5,7 @@ import ContactSection from "@/components/main-content/ContactSection";
 
 const ArticlePage = () => {
   return (
-    <div className="">
+    <div className="bg-[#0C0B10]">
       <BackgroundComponent />
       <HeroSlideSecton />
       <CategorySlideSection />

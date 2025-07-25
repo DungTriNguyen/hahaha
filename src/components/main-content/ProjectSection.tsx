@@ -1,5 +1,6 @@
 import { describe } from "node:test";
 import ProjectComponent from "../ProjectComponent";
+import { useBlog } from "../hooks/blog";
 
 export interface Projects {
   id: number;
@@ -59,10 +60,14 @@ const projects: Projects[] = [
 ];
 
 const ProjectSection = () => {
+
+
+  // const {data: projectsBlog} =useBlog({
+  //   BlogCategoryId: process.env.NEXT_PUBLIC_CATEGORY_PROJECT_ID,
+  // })
   return (
-    <section className="relative z-20 w-full bg-[#0C0B10] text-white">
-      <div className="container flex flex-col items-center gap-14 pt-44 pb-20">
-        {/* Header Section */}
+    <section className="relative z-20 w-full bg-[#0C0B10] text-white" id="projects">
+      <div className="flex flex-col items-center gap-14 pt-44 pb-20">
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl">
           <div className="flex flex-col gap-2">
             <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
@@ -79,7 +84,6 @@ const ProjectSection = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="w-full">
           <ProjectComponent data={projects} />
         </div>

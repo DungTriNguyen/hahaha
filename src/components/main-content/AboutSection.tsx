@@ -31,7 +31,7 @@ const slides = [
 
 const AboutSection = () => {
   return (
-    <section className="relative z-20 w-full pt-40 bg-[#0C0B10]">
+    <section className="relative z-20 w-full lg:pt-40 bg-[#0C0B10] overflow-hidden" id="about">
       <iframe
         src="https://my.spline.design/particleplanet-d7SCh4sTgE3E99WaGUflMxS9/"
         className="absolute w-full h-full object-cover z-10 pointer-events-none animated-iframe"
@@ -45,7 +45,7 @@ const AboutSection = () => {
         allowFullScreen
       />
       <div
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-10 pointer-events-none "
         style={{
           background:
             "linear-gradient(to bottom, transparent 0%, rgba(12, 11, 16, 0.8) 50%, rgba(12, 11, 16, 1) 100%)",
@@ -67,51 +67,54 @@ const AboutSection = () => {
       </div>
 
       <div className="relative z-30 pt-16 pb-20">
-        <Swiper
-          modules={[Pagination]}
-          pagination={{
-            clickable: true,
-            el: ".custom-swiper-pagination",
-            bulletClass: "swiper-pagination-bullet",
-            bulletActiveClass: "swiper-pagination-bullet-active",
-          }}
-          spaceBetween={24}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 1, spaceBetween: 24 },
-            1024: { slidesPerView: 1.5, spaceBetween: 32 },
-            1440: { slidesPerView: 2, spaceBetween: 48 },
-          }}
-          style={{
-            paddingLeft: "290px",
-          }}
-          className="custom-swiper swiper-custom-pagination"
-        >
-          {slides.map((slide, idx) => (
-            <SwiperSlide key={idx}>
-              <div className="rounded-2xl bg-[#121620] flex flex-col md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
-                <div className="w-full md:w-1/2 h-48 md:h-full relative">
-                  <Image
-                    src={slide.img}
-                    fill
-                    alt={slide.title}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+        <div className="px-4 md:px-6 lg:px-0">
+          <Swiper
+            modules={[Pagination]}
+            pagination={{
+              clickable: true,
+              el: ".custom-swiper-pagination",
+              bulletClass: "swiper-pagination-bullet",
+              bulletActiveClass: "swiper-pagination-bullet-active",
+            }}
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1, spaceBetween: 24 },
+              1024: { slidesPerView: 1.5, spaceBetween: 32 },
+              1440: { slidesPerView: 2, spaceBetween: 48 },
+            }}
+            style={{
+              paddingLeft: "0px",
+              paddingRight: "0px",
+            }}
+            className="custom-swiper swiper-custom-pagination"
+          >
+            {slides.map((slide, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="rounded-2xl bg-[#121620] flex flex-col md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                  <div className="w-full md:w-1/2 h-48 md:h-full relative">
+                    <Image
+                      src={slide.img}
+                      fill
+                      alt={slide.title}
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-8">
+                    <h3 className="text-2xl md:text-3xl text-white font-coda mb-4">
+                      {slide.title}
+                    </h3>
+                    <div className="w-12 h-1 bg-white rounded mb-4" />
+                    <p className="text-base text-white/80 leading-relaxed">
+                      {slide.desc}
+                    </p>
+                  </div>
                 </div>
-                <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-8">
-                  <h3 className="text-2xl md:text-3xl text-white font-coda mb-4">
-                    {slide.title}
-                  </h3>
-                  <div className="w-12 h-1 bg-white rounded mb-4" />
-                  <p className="text-base text-white/80 leading-relaxed">
-                    {slide.desc}
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
         <div className="custom-swiper-pagination mt-10 flex justify-center" />
       </div>
     </section>

@@ -1,10 +1,10 @@
-// components/ProjectSlider.js
+
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 
-// Import Swiper styles
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -42,16 +42,16 @@ const SlideComponent = () => {
   return (
     <div className="relative [&_.swiper]:pb-10 [&_.swiper-pagination]:bottom-0 [&_.swiper-button-prev]:top-[35%] [&_.swiper-button-next]:top-[35%]">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]} // Enable Swiper modules
-        spaceBetween={24} // Gap between slides (Tailwind's gap-6)
-        slidesPerView={1} // Show 1 slide on mobile
+        modules={[Navigation, Pagination, Autoplay]} 
+        spaceBetween={24} 
+        slidesPerView={1}
         breakpoints={{
-          480: { slidesPerView: 1 }, // 2 slides on xs (480px)
-          800: { slidesPerView: 3 }, // 3 slides on md (800px)
+          480: { slidesPerView: 1 }, 
+          800: { slidesPerView: 3 }, 
         }}
-        navigation // Enable navigation arrows
-        pagination={{ clickable: true }} // Enable clickable pagination dots
-        autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto-slide every 3s
+        navigation 
+        pagination={{ clickable: true }} 
+        autoplay={{ delay: 3000, disableOnInteraction: false }} 
         className="w-full"
       >
         {projects.map((project) => (
