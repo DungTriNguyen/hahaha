@@ -12,7 +12,7 @@ export interface CareerImage {
     itemUrl: string;
     customId: number;
     description: string;
-    createdDate: string; // ISO 8601 string
+    createdDate: string; 
     updatedDate: string;
     categoryId: string;
     categoryName: string;

@@ -23,7 +23,6 @@ const SecondComponent = () => {
     <section className="relative z-20 bg-[#1A4CD8] text-white bg-[url('/img_service_section_2.png')] bg-cover bg-no-repeat bg-center md:py-32 xl:py-[275px]">
       <div className="container px-4 md:px-6 lg:px-8 py-10">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
-          {/* Latest Technologies */}
           <div className="flex-1">
             <div className="mb-4 md:mb-6">
               <h3 className="text-xl md:text-2xl font-coda font-normal uppercase mb-4 md:mb-6 leading-tight">
@@ -50,7 +49,6 @@ const SecondComponent = () => {
             </div>
           </div>
 
-          {/* Partnering with Leading Suppliers */}
           <div className="flex-1">
             <div className="mb-4 md:mb-6">
               <h3 className="text-xl md:text-2xl font-coda font-normal uppercase mb-4 md:mb-6 leading-tight">

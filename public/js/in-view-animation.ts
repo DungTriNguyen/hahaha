@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function registerGSAPPlugins() {
   if (typeof window === "undefined") return;
-  // Only register if not already registered
   if (!(gsap as any).plugins?.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
   }

@@ -7,7 +7,6 @@ const HeroSection = () => {
   return (
     <section className="relative z-20 w-full pt-10 lg:pb-8 ">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 text-white px-4 md:px-8">
-        {/* Text content */}
         <div className="flex-1 max-w-2xl w-full">
           <p className="text-[#B3CCFF] text-xs md:text-sm font-semibold tracking-widest uppercase mb-2">
             SERVICES
@@ -25,7 +24,6 @@ const HeroSection = () => {
               SEE OPEN ROLES
             </span>
             <span className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden">
-              {/* Icon mặc định */}
               <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                 <Image
                   src="/right.svg"
@@ -35,7 +33,6 @@ const HeroSection = () => {
                   className="w-6 h-6 md:w-8 md:h-8"
                 />
               </span>
-              {/* Icon khi hover */}
               <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
                 <Image
                   src="/row.svg"
@@ -49,7 +46,6 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Image content */}
         <div className="flex-1 w-full flex justify-center items-center">
           <div className="relative w-full max-w-[350px] md:max-w-[420px] lg:max-w-[500px] xl:max-w-[600px] aspect-[5/6]">
             <Image

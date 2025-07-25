@@ -40,9 +40,9 @@ const HeroSection = () => {
           <div className="relative z-50 bg-[#2468FF] w-fit rounded-2xl flex items-center gap-8 p-2 overflow-hidden group cursor-pointer">
             <p className="ml-6">EXPLORE NOW</p>
 
-            {/* Container cho icon */}
+
             <div className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
-              {/* Icon mặc định (light.svg) */}
+          
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                 <Image
                   src="/starts.svg"
@@ -53,7 +53,7 @@ const HeroSection = () => {
                 />
               </div>
 
-              {/* Icon khi hover (right.svg) */}
+          
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
                 <Image
                   src="/right.svg"

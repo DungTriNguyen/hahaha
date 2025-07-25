@@ -3,42 +3,7 @@ import Image from "next/image";
 const FirstComponent = () => {
   return (
     <section className="relative z-20 bg-[#0C0B10] text-white pt-20 md:pt-32 lg:pt-44 pb-10 md:pb-16 lg:pb-20">
-      {/* Background image with gradient overlay */}
-      {/* <div className="absolute inset-0 z-0">
-        <Image
-          src="/img_service_section_1.png"
-          fill
-          alt="service background"
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(26, 76, 216, 1) 0%, rgba(26, 76, 216, 0) 100%)",
-          }}
-        />
-      </div> */}
-      {/* <div className="absolute inset-0 w-full h-[400px] pointer-events-none z-0 ">
-        <Image
-          src="/vector 4.svg"
-          fill
-          alt="service background"
-          className="object-cover smooth-animate-wave1"
-        />
-        <Image
-          src="/vector 5.svg"
-          fill
-          alt="service background"
-          className="object-cover smooth-animate-wave2"
-        />
-        <Image
-          src="/vector 6.svg"
-          fill
-          alt="service background"
-          className="object-cover smooth-animate-wave3"
-        />
-      </div> */}
+  
       {/* <div className="w-full h-[100px] absolute top-0 left-0 z-100 overflow-hidden bg-black ">
 
         <div className="absolute inset-x-0 bottom-[-1px] h-full w-full overflow-hidden bg-blue z-[15]">
@@ -62,11 +27,7 @@ const FirstComponent = () => {
           ></div>
         </div>
       </div> */}
-      <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[500%] h-full wave1" />
-        <div className="absolute bottom-0 left-0 w-[500%] h-full wave2" />
-        <div className="absolute bottom-0 left-0 w-[500%] h-full wave3" />
-      </div>
+      
 
 
       <div className="container relative z-10 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 md:px-6 lg:px-8">

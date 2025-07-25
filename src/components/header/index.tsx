@@ -9,19 +9,19 @@ const navItemsDesktop = [
   },
   {
     title: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     title: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     title: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
     title: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
   {
     title: "/",
@@ -42,15 +42,15 @@ const navItemsMobile = [
   },
   {
     title: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     title: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     title: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
     title: "Contact",
@@ -61,7 +61,7 @@ const navItemsMobile = [
   },
   {
     title: "Articles",
-    href: "#articles",
+    href: "/articles",
   },
   {
     title: "Careers",

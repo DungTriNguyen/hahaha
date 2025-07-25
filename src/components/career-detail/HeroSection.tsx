@@ -27,7 +27,7 @@ const HeroSection = () => {
               dangerouslySetInnerHTML={{ __html: content?.content || "" }}
             />
           ) : (
-            <p className="text-gray-400">Không có nội dung</p>
+            <p className="text-gray-400">Notfound content</p>
           )} */}
           </div>
         </div>

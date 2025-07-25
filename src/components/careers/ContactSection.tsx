@@ -5,7 +5,6 @@ const ContactSection = () => {
   return (
     <section className="relative z-10 w-full bg-[#0C0B10] text-white">
       <div className="container flex flex-col items-center justify-center gap-16 py-30 lg:pt-44 lg:pb-24 px-4 md:px-0">
-        {/* Main Contact Block */}
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl w-full">
           <div className="flex flex-col gap-2">
             <h2 className="text-white max-w-[800px] text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
@@ -20,7 +19,6 @@ const ContactSection = () => {
               Send Open Application
             </span>
             <div className="p-2 md:p-3 rounded-xl bg-[#1A4CD8] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
-              {/* Icon mặc định (light.svg) */}
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                 <Image
                   src="/luggage.svg"
@@ -30,8 +28,6 @@ const ContactSection = () => {
                   className="w-6 h-6 md:w-8 md:h-8"
                 />
               </div>
-
-              {/* Icon khi hover (right.svg) */}
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
                 <Image
                   src="/right.svg"
@@ -45,7 +41,6 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Contact Info */}
         <div className="flex flex-col items-center gap-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-4 text-white">
             <div className="flex items-center gap-4">

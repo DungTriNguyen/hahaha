@@ -191,52 +191,32 @@ body {
   100% { transform: translateX(-25%); }
 }
 
-.wave1 {
-  background-image: url('/vector 4.svg');
-  background-repeat: repeat-x;
-  background-size: 60% 100px;
-  animation: waveMove1 20s linear infinite;
-}
-
-.wave2 {
-  background-image: url('/vector 5.svg');
-  background-repeat: repeat-x;
-  background-size: 50% 100px;
-  animation: waveMove2 25s linear infinite;
-  opacity: 0.6;
-}
-
-.wave3 {
-  background-image: url('/vector 6.svg');
-  background-repeat: repeat-x;
-  background-size: 50% 100px;
-  animation: waveMove3 30s linear infinite;
-  opacity: 0.3;
-}
 
 
-.wave1 {
-  @apply absolute bottom-0 left-0 w-[500%] h-full;
-  background-image: url('/vector 4.svg');
-  background-repeat: repeat-x;
-  background-size: 60% 100px;
-  animation: waveMove1 20s linear infinite;
-}
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 
-.wave2 {
-  @apply absolute bottom-0 left-0 w-[500%] h-full;
-  background-image: url('/vector 5.svg');
-  background-repeat: repeat-x;
-  background-size: 50% 100px;
-  animation: waveMove2 25s linear infinite;
-  opacity: 0.6;
-}
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
 
-.wave3 {
-  @apply absolute bottom-0 left-0 w-[500%] h-full;
-  background-image: url('/vector 6.svg');
-  background-repeat: repeat-x;
-  background-size: 50% 100px;
-  animation: waveMove3 30s linear infinite;
-  opacity: 0.3;
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-marquee2 {
+    animation: marquee2 25s linear infinite;
+  }
 }

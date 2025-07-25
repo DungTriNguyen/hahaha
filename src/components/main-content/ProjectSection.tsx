@@ -68,7 +68,6 @@ const ProjectSection = () => {
   return (
     <section className="relative z-20 w-full bg-[#0C0B10] text-white" id="projects">
       <div className="flex flex-col items-center gap-14 pt-44 pb-20">
-        {/* Header Section */}
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl">
           <div className="flex flex-col gap-2">
             <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
@@ -85,7 +84,6 @@ const ProjectSection = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="w-full">
           <ProjectComponent data={projects} />
         </div>

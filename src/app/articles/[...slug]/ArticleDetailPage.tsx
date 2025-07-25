@@ -18,11 +18,11 @@ const ArticleDetailPage = ({ slug }: Props) => {
   const { data, loading, error } = useBlog({ id });
   const blog = data as BlogItem;
 
-  if (loading) return <p className="text-center py-10">Đang tải...</p>;
+  if (loading) return <p className="text-center py-10">Loading...</p>;
   if (error || !blog)
-    return <p className="text-center py-10">Đã xảy ra lỗi.</p>;
+    return <p className="text-center py-10">Error</p>;
   if (!blog)
-    return <p className="text-center py-10">Không tìm thấy bài viết.</p>;
+    return <p className="text-center py-10">Not found data</p>;
 
   return (
     <div>
