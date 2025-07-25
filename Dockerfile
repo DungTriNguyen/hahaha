@@ -12,7 +12,8 @@ RUN npm i
 FROM base AS builder
 COPY . .
 RUN rm -rf .env.*
-RUN if [ -f .env.production ]; then cp .env.production .env.production; fi
+# RUN if [ -f .env.production ]; then cp .env.production .env.production; fi
+COPY .env.production .env.production
 COPY --from=install /app/node_modules node_modules
 ENV NODE_ENV=production
 RUN npm run build
