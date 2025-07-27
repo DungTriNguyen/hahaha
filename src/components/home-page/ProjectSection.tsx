@@ -1,6 +1,7 @@
-import { describe } from "node:test";
-import ProjectComponent from "../ProjectComponent";
-import { useBlog } from "../hooks/blog";
+import ProjectComponent from "../project-component/ProjectComponent";
+import Description from "../ui/description";
+import SubTitle from "../ui/sub-title";
+import Title from "../ui/title";
 
 export interface Projects {
   id: number;
@@ -60,30 +61,26 @@ const projects: Projects[] = [
 ];
 
 const ProjectSection = () => {
-
-
   // const {data: projectsBlog} =useBlog({
   //   BlogCategoryId: process.env.NEXT_PUBLIC_CATEGORY_PROJECT_ID,
   // })
   return (
-    <section className="relative z-20 w-full bg-[#0C0B10] text-white" id="projects">
+    <section
+      className="relative z-20 w-full bg-[#0C0B10] text-white scroll-section"
+      id="projects"
+    >
       <div className="flex flex-col items-center gap-14 pt-44 pb-20">
         <div className="flex flex-col items-center gap-9 text-center max-w-4xl">
           <div className="flex flex-col gap-2">
-            <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
-              Projects
-            </span>
-            <h2 className="text-white text-4xl md:text-6xl lg:text-7xl font-coda uppercase">
-              OUR Bold
-              <br />
-              WORKS
-            </h2>
+            <Title title="Projects" />
+            <SubTitle
+              title="OUR Bold WORKS"
+              as="h2"
+              className="w-full max-w-[400px]"
+            />
           </div>
-          <p className="text-white/90 text-lg max-w-2xl">
-            Shaping brilliant ideas into life
-          </p>
+          <Description description="Shaping brilliant ideas into life" />
         </div>
-
         <div className="w-full">
           <ProjectComponent data={projects} />
         </div>

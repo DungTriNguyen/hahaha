@@ -8,6 +8,7 @@ export default function BackgroundComponent() {
         alt="background"
         width={1920}
         height={768}
+        className="w-full h-full object-contain lg:object-cover"
       />
     </div>
   );

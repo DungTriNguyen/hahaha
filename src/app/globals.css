@@ -11,13 +11,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter); /* Default sans font is Inter */
-  --font-coda: var(--font-coda); /* Define font-coda utility */
-  --font-mono: var(
-    --font-geist-mono,
-    "monospace"
-  ); /* Fallback for undefined --font-geist-mono */
-  --container-max-width: 1440px; /* Ensure consistency with your 1440px container */
+  --font-sans: var(--font-inter);
+  --font-coda: var(--font-coda);
+  --font-mono: var(--font-geist-mono, "monospace");
+  --container-max-width: 1440px;
   --container-padding: 1.5rem;
   --color-custom-blue: #2468ff;
   --color-dark-blue: #1a4cd8;
@@ -57,7 +54,6 @@ body {
   }
 }
 
-/* Swiper Responsive Padding */
 @media (min-width: 1024px) {
   .custom-swiper {
     padding-left: 100px !important;
@@ -176,3 +172,14 @@ body {
   animation: waveBottomAnim 10s linear infinite;
   will-change: transform;
 } */
+
+.header-blur-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(5px);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  pointer-events: none;
+}

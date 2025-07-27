@@ -1,6 +1,7 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import ArticleDetailPage from "./ArticleDetailPage";
+import CareerDetailPage from "./CareerDetailPage";
+
 import { SeoData } from "@/types/seo";
+import type { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -28,12 +29,9 @@ export async function generateMetadata(
     },
   };
 }
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string[] }>;
-}) {
+const Page = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
   const { slug } = await params;
-  return <ArticleDetailPage slug={slug} />;
-}
+  return <CareerDetailPage slug={slug} />;
+};
+
+export default Page;

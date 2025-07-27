@@ -34,7 +34,7 @@ const IconChat = () => {
           </button>
         </div>
       </Link>
-      <Link href={"/contact"}>
+      <Link href={"#"}>
         <div className="flex items-center justify-end group relative">
           <span className="mr-3 text-white font-semibold text-base whitespace-nowrap uppercase opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 absolute right-full">
             Live chat

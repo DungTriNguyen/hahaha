@@ -5,6 +5,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
+import Title from "../ui/title";
+import SubTitle from "../ui/sub-title";
+import Description from "../ui/description";
+import CardTitle from "../ui/card-title";
+import CardDescription from "../ui/card-description";
 
 const slides = [
   {
@@ -31,7 +36,10 @@ const slides = [
 
 const AboutSection = () => {
   return (
-    <section className="relative z-20 w-full lg:pt-40 bg-[#0C0B10] overflow-hidden" id="about">
+    <section
+      className="relative z-20 w-full lg:pt-40 bg-[#0C0B10] overflow-hidden scroll-section"
+      id="about"
+    >
       <iframe
         src="https://my.spline.design/particleplanet-d7SCh4sTgE3E99WaGUflMxS9/"
         className="absolute w-full h-full object-cover z-10 pointer-events-none animated-iframe"
@@ -53,17 +61,11 @@ const AboutSection = () => {
       />
 
       <div className="container relative z-30 flex flex-col items-center justify-center gap-9 text-center  mx-auto px-4">
-        <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase">
-          About
-        </span>
-        <h2 className="text-white max-w-[800px] text-4xl md:text-6xl lg:text-7xl uppercase font-coda">
-          WE BUILD BEYOND BRIEFS
-        </h2>
-        <p className="text-white/90 text-base md:text-lg max-w-2xl">
-          We craft scalable systems where clarity meets creativity
-          <br />
-          Human-focused. Tech-backed. Future-ready
-        </p>
+        <Title title="About" />
+        <SubTitle title="WE BUILD BEYOND BRIEFS" as="h2" />
+        <Description
+          description={`We craft scalable systems where clarity meets creativity <br /> Human-focused. Tech-backed. Future-ready`}
+        />
       </div>
 
       <div className="relative z-30 pt-16 pb-20">
@@ -91,8 +93,8 @@ const AboutSection = () => {
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
-                <div className="rounded-2xl bg-[#121620] flex flex-col md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
-                  <div className="w-full md:w-1/2 h-48 md:h-full relative">
+                <div className="rounded-2xl bg-[#121620] flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                  <div className="w-full lg:w-[318px] h-48 md:h-full relative">
                     <Image
                       src={slide.img}
                       fill
@@ -101,14 +103,13 @@ const AboutSection = () => {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-8">
-                    <h3 className="text-2xl md:text-3xl text-white font-coda mb-4">
-                      {slide.title}
-                    </h3>
+                  <div className="w-full md:w-1/2 flex flex-col justify-center p-4 lg:p-0">
+                    <CardTitle title={slide.title} as="h3" className="mb-4" />
                     <div className="w-12 h-1 bg-white rounded mb-4" />
-                    <p className="text-base text-white/80 leading-relaxed">
-                      {slide.desc}
-                    </p>
+                    <CardDescription
+                      description={slide.desc}
+                      className="italic"
+                    />
                   </div>
                 </div>
               </SwiperSlide>

@@ -40,7 +40,7 @@ const SecondComponent = () => {
                       width={0}
                       height={0}
                       alt="technology icon"
-                      className="w-auto h-auto max-w-[60px] max-h-[60px] md:max-w-[70px] md:max-h-[70px] lg:max-w-[80px] lg:max-h-[80px]"
+                      className="w-auto h-auto max-w-[60px] max-h-[60px] md:max-w-[70px] md:max-h-[70px] lg:max-w-[180px] lg:max-h-[180px]"
                       style={{ width: "auto", height: "auto" }}
                     />
                   </div>
@@ -66,7 +66,7 @@ const SecondComponent = () => {
                       width={0}
                       height={0}
                       alt="partner icon"
-                      className="w-auto h-auto max-w-[60px] max-h-[60px] md:max-w-[70px] md:max-h-[70px] lg:max-w-[80px] lg:max-h-[80px]"
+                      className="w-auto h-auto max-w-[60px] max-h-[60px] md:max-w-[70px] md:max-h-[70px] lg:max-w-[180px] lg:max-h-[180px]"
                       style={{ width: "auto", height: "auto" }}
                     />
                   </div>

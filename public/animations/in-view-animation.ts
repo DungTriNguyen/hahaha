@@ -1,13 +1,11 @@
 "use client";
 import gsap from "gsap";
-import { ScrollTrigger} from "gsap/ScrollTrigger";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 function registerGSAPPlugins() {
   if (typeof window === "undefined") return;
-  if (!(gsap as any).plugins?.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 function fadeUpAnimation() {
@@ -100,15 +98,14 @@ function hoverScaleUp() {
 function floatAnimation() {
   document.querySelectorAll(".float-item").forEach((el) => {
     gsap.to(el, {
-      y: 10,               // dịch lên 10px
-      duration: 2,         // thời gian một vòng
-      ease: "sine.inOut",  // hiệu ứng mượt mà
-      repeat: -1,          // lặp vô hạn
-      yoyo: true,          // quay lại vị trí ban đầu
+      y: 10, // dịch lên 10px
+      duration: 2, // thời gian một vòng
+      ease: "sine.inOut", // hiệu ứng mượt mà
+      repeat: -1, // lặp vô hạn
+      yoyo: true, // quay lại vị trí ban đầu
     });
   });
 }
-
 
 function scrollSectionRevealAnimation() {
   document.querySelectorAll(".scroll-section").forEach((el) => {
@@ -128,6 +125,29 @@ function scrollSectionRevealAnimation() {
   });
 }
 
+function scrollToSectionOnClick() {
+  gsap.registerPlugin(ScrollToPlugin);
+
+  document.querySelectorAll("[data-scroll-to]").forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const targetSelector = (trigger as HTMLElement).getAttribute(
+        "data-scroll-to"
+      );
+      const targetEl = document.querySelector(targetSelector!);
+
+      if (targetEl) {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: targetEl },
+          ease: "power2.out",
+        });
+      }
+    });
+  });
+}
+
 export default function initAnimations() {
   if (typeof window === "undefined") return;
 
@@ -139,4 +159,5 @@ export default function initAnimations() {
   hoverScaleUp();
   floatAnimation();
   scrollSectionRevealAnimation();
+  scrollToSectionOnClick();
 }

@@ -9,18 +9,22 @@ const navItemsDesktop = [
   },
   {
     title: "Projects",
+    id: "#projects",
     href: "/#projects",
   },
   {
     title: "About",
+    id: "#about",
     href: "/#about",
   },
   {
     title: "Services",
+    id: "#services",
     href: "/#services",
   },
   {
     title: "Contact",
+    id: "#contact",
     href: "/#contact",
   },
   {
@@ -88,10 +92,7 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className="sticky top-0 left-0 w-full z-30 backdrop-blur-md bg-transparent"
-
-      >
+      <header className="sticky top-0 left-0 w-full z-40 bg-transparent header-blur-gradient">
         <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
           <div className="flex items-center">
             <Link href="/">
@@ -107,6 +108,7 @@ const Header = () => {
             {navItemsDesktop.map((item, index) => (
               <a
                 key={index}
+                data-scroll-to={item.id}
                 href={item.href}
                 className="text-white font-semibold text-[15px] uppercase px-2 py-1"
               >
@@ -147,6 +149,7 @@ const Header = () => {
             {navItemsMobile.map((item, index) => (
               <a
                 key={index}
+                data-scroll-to={item.href}
                 href={item.href}
                 className="flex text-lg font-coda font-medium text-white  py-2 justify-start gap-2 items-center"
                 onClick={() => setMobileOpen(false)}

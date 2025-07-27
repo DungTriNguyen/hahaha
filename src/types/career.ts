@@ -23,6 +23,7 @@ export interface CareerImage {
     content: string;
   }
   
-  export interface CareerResponse {
+export interface CareerResponse {
+  totalCount?: number;
     items: CareerItem[];
   }

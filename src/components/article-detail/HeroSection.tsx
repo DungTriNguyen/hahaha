@@ -1,6 +1,7 @@
-import { BlogItem } from "@/types/blog";
 import { formatDateToLongEN } from "@/utils/formatDate";
 import Image from "next/image";
+import Title from "../ui/title";
+import SubTitle from "../ui/sub-title";
 const HeroSection = ({
   title,
   image,
@@ -11,20 +12,24 @@ const HeroSection = ({
   createdDate: string;
 }) => {
   return (
-    <section className="relative z-2 w-full flex flex-col justify-center items-center text-white py-10 top-0">
-      <div className="container text-center space-y-2">
-        <p className="text-[#B3CCFF]">ARTICLES</p>
-        <h1 className="text-3xl lg:text-7xl font-coda">{title}</h1>
-        <p className="text-sm">
+    <section className="relative z-2 w-full flex flex-col justify-center items-center text-white  py-10 md:py-16 lg:py-20 top-0">
+      <div className="w-full lg:container text-center space-y-2 px-4">
+        <Title title="ARTICLES" />
+        <SubTitle
+          title={title ? title : "Not found title"}
+          as="h1"
+          className="max-w-full mb-9"
+        />
+        <p className="text-[15px] uppercase font-semibold mb-16">
           Digital Strategy • Minh Tran • {formatDateToLongEN(createdDate)}
         </p>
-        <div className="max-w-[840px] rounded-3xl mx-auto overflow-hidden shadow-lg mt-10">
+        <div className="max-w-[840px] rounded-2xl mx-auto overflow-hidden shadow-lg">
           <Image
             src={image || "/images/default-image.png"}
             width={840}
             height={336}
             alt=""
-            className="w-full h-[336px] object-cover rounded-3xl"
+            className="w-full h-[336px] object-cover"
             priority
           />
         </div>

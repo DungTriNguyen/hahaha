@@ -1,34 +1,42 @@
 "use client";
-import Image from "next/image";
+import CardDescription from "../ui/card-description";
+import SubTitle from "../ui/sub-title";
+import Title from "../ui/title";
 
-const HeroSection = () => {
+const HeroSection = ({
+  category,
+  title,
+  description,
+}: {
+  category: string;
+  title: string;
+  description: string;
+}) => {
   return (
-    <section className="relative w-full overflow-hidden pt-32 md:pt-40 flex flex-col items-center justify-center pb-30 lg:pb-[200px]">
-      <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-3xl mx-auto px-4">
-        <span className="text-[#B3CCFF] text-sm font-semibold tracking-widest uppercase opacity-80 mb-4">
-          Mid-Level
-        </span>
-        <h1 className="font-coda text-4xl md:text-6xl lg:text-7xl uppercase leading-tight text-white mb-6">
-          UI/UX Designer
-        </h1>
-        <div className="text-base md:text-lg text-[#CCCCCC]  uppercase font-semibold mb-16">
+    <section className="relative w-full overflow-hidden  py-10 md:py-16 lg:py-20 flex flex-col items-center justify-center pb-30 lg:pb-[200px]">
+      <div className=" w-full lg:container relative z-10 flex flex-col items-center justify-center text-center mx-auto px-4">
+        <Title
+          title={category ? category : "Not found category"}
+          className="mb-2"
+        />
+        <SubTitle
+          title={title ? title : "Not found title"}
+          as="h1"
+          className="mb-9 max-w-full"
+        />
+        <div className="text-base md:text-lg text-[#CCCCCC] uppercase font-semibold mb-6 lg:mb-16">
           Full-time • onsite • HCMC
         </div>
         <div className="relative flex items-start pl-4">
-          <div className="w-full flex flex-col gap-4">
-            <p className="text-lg text-[#CCCCCC] leading-relaxed mb-2 border-l border-l-[#2468FF] ml-6 p-4">
-              Build seamless, beautiful interfaces for millions of
-              users. Collaborate closely with engineers and product teams to
-              shape product vision.
-            </p>
-            {/* {content?.content ? (
-            <div
-              className="prose prose-invert max-w-none text-white text-base md:text-lg leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: content?.content || "" }}
-            />
-          ) : (
-            <p className="text-gray-400">Notfound content</p>
-          )} */}
+          <div className="max-w-3xl flex flex-col gap-4 p-2 lg:p-6">
+            {description ? (
+              <CardDescription
+                description={description}
+                className="border-l-2 border-l-[#2468FF] text-start lg:ml-6 p-4 text-lg italic"
+              />
+            ) : (
+              <p className="text-gray-400">Not found description</p>
+            )}
           </div>
         </div>
       </div>

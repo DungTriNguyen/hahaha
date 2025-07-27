@@ -1,9 +1,8 @@
-// app/articles/[...slug]/ArticleDetailPage.tsx
 "use client";
 
-import ContactSection from "@/components/article-detail/ContactSection";
+import ContactSection from "@/components/home-page/ContactSection";
 import HeroSection from "@/components/article-detail/HeroSection";
-import SlideComponent from "@/components/article-detail/SlideSection";
+import SlideComponent from "@/components/article-detail/RelatedArticle";
 import ArticleContent from "@/components/article-detail/ArticleContent";
 import { useBlog } from "@/components/hooks/blog";
 import { BlogItem } from "@/types/blog";
@@ -19,27 +18,33 @@ const ArticleDetailPage = ({ slug }: Props) => {
   const blog = data as BlogItem;
 
   if (loading) return <p className="text-center py-10">Loading...</p>;
-  if (error || !blog)
-    return <p className="text-center py-10">Error</p>;
-  if (!blog)
-    return <p className="text-center py-10">Not found data</p>;
+  if (error || !blog) return <p className="text-center py-10">Error</p>;
+  if (!blog) return <p className="text-center py-10">Not found data</p>;
 
   return (
-    <div>
+    <div className="bg-[#0C0B10]">
       <BackgroundComponent />
       <HeroSection
         title={blog.title}
         image={blog.imageUrl}
         createdDate={blog.createdDate}
       />
-
       <ArticleContent
         image={blog.imageUrl}
         description={blog.description}
         id={id}
       />
       <SlideComponent />
-      <ContactSection />
+      <ContactSection
+        subtitle="Got an idea to build?"
+        description="Tell us about your desires"
+        button={{
+          text: "Start your MVP",
+          href: "#",
+          icon1: "/light.svg",
+          icon2: "/right.svg",
+        }}
+      />
     </div>
   );
 };

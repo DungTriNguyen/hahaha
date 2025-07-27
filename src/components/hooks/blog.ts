@@ -66,6 +66,7 @@ export function useBlog(options?: UseBlogOptions) {
     options?.BlogCategoryId,
     options?.PageIndex,
     options?.PageSize,
+    options?.content,
   ]);
 
   return { data, loading, error };

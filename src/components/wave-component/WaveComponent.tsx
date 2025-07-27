@@ -59,12 +59,12 @@ export default function WaveComponent({
       className={`${className} absolute bottom-0 left-0 w-[1200%] md:w-[600%] h-[100px]`}
     >
       <Swiper
-        modules={[Autoplay]},
-        loop
+        modules={[Autoplay]}
+        loop={true}
         autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-        }},
+          disableOnInteraction: false,
+        }}
+        speed={1000}
         slidesPerView={1}
         effect="slide"
         className=""
