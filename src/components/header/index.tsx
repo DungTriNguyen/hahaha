@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
 const navItemsDesktop = [
   {
@@ -95,26 +94,26 @@ const Header = () => {
       <header className="sticky top-0 left-0 w-full z-40 bg-transparent header-blur-gradient">
         <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
           <div className="flex items-center">
-            <Link href="/">
+            <a href="/">
               <Image
                 src="/logo_white 1.png"
                 alt="Logo"
                 width={250}
                 height={48}
               />
-            </Link>
+            </a>
           </div>
           <nav className="hidden lg:flex items-center gap-7">
             {navItemsDesktop.map((item, index) =>
               item.href ? (
-                <Link
+                <a
                   key={index}
                   data-scroll-to={item.id}
                   href={item.href}
                   className="text-white font-semibold text-[15px] uppercase px-2 py-1"
                 >
                   {item.title}
-                </Link>
+                </a>
               ) : (
                 <span
                   key={index}
@@ -139,14 +138,14 @@ const Header = () => {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-black flex  flex-col h-full lg:hidden animate-fade-in drop-text">
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
-            <Link href="/">
+            <a href="/">
               <Image
                 src="/logo_white 1.png"
                 alt="Logo"
                 width={120}
                 height={32}
               />
-            </Link>
+            </a>
             <button
               className="p-2"
               aria-label="Close mobile menu"
@@ -158,7 +157,7 @@ const Header = () => {
           <nav className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 items-center">
             {navItemsMobile.map((item, index) =>
               item.href ? (
-                <Link
+                <a
                   key={index}
                   data-scroll-to={item.href}
                   href={item.href}
@@ -166,7 +165,7 @@ const Header = () => {
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.title}
-                </Link>
+                </a>
               ) : (
                 <span
                   key={index}

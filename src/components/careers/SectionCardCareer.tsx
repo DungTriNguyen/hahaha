@@ -11,6 +11,7 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Description from "../ui/description";
 import SubTitle from "../ui/sub-title";
+import Button from "../ui/button";
 
 const careerDetail = [
   {
@@ -93,7 +94,7 @@ const SectionCardCareer = () => {
             {temp.items?.map((career, index) => (
               <SwiperSlide key={index}>
                 <Link href={`/careers/${career.itemUrl}`}>
-                  <div className="group bg-[#0C0B10] border border-[#2A2F3C] rounded-3xl flex px-6 py-12 flex-col shadow-lg w-full h-[444px] mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[#1A4CD8]">
+                  <div className="group bg-[var(--background)] border border-[#2A2F3C] rounded-3xl flex px-6 py-12 flex-col shadow-lg w-full h-[444px] mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[var(--button-color)]">
                     <div className="flex items-center gap-2 justify-between">
                       <span className="text-[var(--date-card)] text-sm font-semibold uppercase tracking-wider">
                         {formatDateToLongEN(career.createdDate)}
@@ -123,41 +124,41 @@ const SectionCardCareer = () => {
                           <span className="text-sm text-white font-semibold">
                             {info.label}
                           </span>
-                        </div> 
+                        </div>
                       ))}
                     </div>
 
-                    {/* <button className="mt-auto w-full flex items-center gap-4 bg-[#121620] group-hover:bg-white transition-colors px-2 py-3 rounded-2xl text-base font-semibold uppercase text-white group-hover:text-black shadow-md justify-between overflow-hidden relative">
-                      <span className="tracking-widest whitespace-nowrap transition-colors duration-300 group-hover:text-black">
+                    <button className="flex bg-[#121620] items-center gap-8 justify-between w-full p-1 rounded-2xl" >
+                      <span className="text-white pl-5 font-semibold tracking-widest uppercase text-sm md:text-[15px] whitespace-nowrap">
                         JOIN US
                       </span>
-
-                      <div className="relative w-10 h-10 md:w-14 md:h-14 overflow-hidden flex-shrink-0 rounded-2xl transition-colors duration-300 group-hover:bg-white">
+                      <div className="p-1 rounded-xl bg-[var(--button-icon)] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
                         <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                           <Image
                             src="/send.svg"
-                            alt="send"
-                            width={24}
-                            height={24}
-                            className="w-8 h-8 md:w-8 md:h-8"
+                            alt="icon1"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 md:w-8 md:h-8"
                           />
                         </div>
 
-                        <div className="absolute inset-0 flex items-center justify-center transition-all group-hover:bg-[#1A4CD8] duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+                        <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
                           <Image
                             src="/right.svg"
-                            alt="right icon"
-                            width={24}
-                            height={24}
-                            className="w-8 h-8 md:w-8 md:h-8"
+                            alt="icon2"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 md:w-8 md:h-8"
                           />
                         </div>
                       </div>
-                    </button> */}
+                    </button>
+
                     {/* <Button
                       href={`/careers/${career.itemUrl}`}
-                      icon1="/right.svg"
-                      icon2="/row.svg"
+                      icon1="/send.svg"
+                      icon2="/right.svg"
                       text="JOIN US"
                       className="w-full"
                     /> */}

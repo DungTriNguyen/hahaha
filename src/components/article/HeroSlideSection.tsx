@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
@@ -78,7 +77,8 @@ const HeroSlideSecton = () => {
               <SwiperSlide key={idx}>
                 <Link href={`/articles/${item.itemUrl}`}>
                   <div className="rounded-xl w-full max-w-[320px] md:max-w-[480px] lg:max-w-[600px] xl:max-w-[720px] h-[200px] md:h-[300px] lg:h-[400px] xl:h-[540px] overflow-hidden mx-auto relative">
-                    <Image
+                    <img
+                      loading="lazy"
                       src={item.imageUrl}
                       width={720}
                       height={540}
@@ -95,7 +95,8 @@ const HeroSlideSecton = () => {
                           title={item.title}
                           className="text-start text-shadow-lg/40 lg:text-4xl"
                         />
-                        <Image
+                        <img
+                          loading="lazy"
                           src="/arrow_up_right.svg"
                           alt="arrow_up_right"
                           width={26}

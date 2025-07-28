@@ -1,8 +1,7 @@
-import Image from "next/image";
-import React from "react";
 import { ButtonProps } from "@/types/button";
-import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
   return (

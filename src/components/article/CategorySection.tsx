@@ -1,15 +1,14 @@
 "use client";
 import { BlogResponse } from "@/types/blog";
 import { formatDateToLongEN } from "@/utils/formatDate";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { useBlog } from "../hooks/blog";
 import { useBlogCategory } from "../hooks/blog-category";
-import CardTitle from "../ui/card-title";
 import CardDescription from "../ui/card-description";
+import CardTitle from "../ui/card-title";
 import MoreButton from "../ui/more-button";
-import { twMerge } from "tailwind-merge"
 
 const CategorySlideSection = () => {
   const { data: category } = useBlogCategory({
@@ -60,7 +59,8 @@ const CategorySlideSection = () => {
                   <Link href={`/articles/${article.itemUrl}`} key={index}>
                     <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8 group items-center">
                       <div className="w-full md:w-[300px] lg:w-[440px] h-[200px] md:h-[250px] lg:h-[330px] flex-shrink-0">
-                        <Image
+                        <img
+                          loading="lazy"
                           src={article.imageUrl || "/articles/article.png"}
                           height={330}
                           width={440}
