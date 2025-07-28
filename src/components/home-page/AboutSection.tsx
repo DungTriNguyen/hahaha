@@ -60,9 +60,9 @@ const AboutSection = () => {
         }}
       />
 
-      <div className="container relative z-30 flex flex-col items-center justify-center gap-2 text-center mx-auto px-4">
+      <div className="container relative z-30 flex flex-col items-center justify-center gap-1 text-center mx-auto px-4">
         <Title title="About" />
-        <SubTitle title="WE BUILD BEYOND BRIEFS" as="h2" />
+        <SubTitle title="WE BUILD BEYOND BRIEFS" as="h2" className="pb-4"/>
         <Description
           description={`We craft scalable systems where clarity meets creativity <br /> Human-focused. Tech-backed. Future-ready`}
         />
@@ -93,7 +93,7 @@ const AboutSection = () => {
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
-                <div className="rounded-2xl bg-card flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                <div className="rounded-2xl bg-[var(--card-color)] flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
                   <div className="w-full lg:w-[318px] h-48 md:h-full relative">
                     <Image
                       src={slide.img}

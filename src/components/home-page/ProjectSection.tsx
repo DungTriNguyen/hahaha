@@ -70,8 +70,8 @@ const ProjectSection = () => {
       id="projects"
     >
       <div className="flex flex-col items-center gap-14 pt-44 pb-20">
-        <div className="flex flex-col items-center gap-9 text-center max-w-4xl">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
+          <div className="flex flex-col gap-1">
             <Title title="Projects" />
             <SubTitle
               title="OUR Bold WORKS"

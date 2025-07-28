@@ -8,35 +8,56 @@ function registerGSAPPlugins() {
 }
 
 function fadeUpAnimation() {
-  document.querySelectorAll(".fade-up").forEach((el) => {
-    gsap.set(el, { opacity: 0, y: 70 });
 
-    gsap.to(el, {
+    const iframeWrapper = document.querySelector(".drop-iframe");
+  
+    if (!iframeWrapper) return;
+  
+    gsap.from(iframeWrapper, {
       scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
+        trigger: iframeWrapper,
+        start: "top 90%", // khi phần tử sắp hiện ra
         toggleActions: "play none none none",
       },
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
+      y: 200, // từ dưới lên
+      opacity: 0,
+      duration: 1.2,
+      ease: "bounce.out", // nhún nhẹ
     });
-  });
 }
 
-function dropTextAnimation() {
+ function dropTextAnimation() {
   document.querySelectorAll(".drop-text").forEach((el) => {
-    gsap.from(el, {
+    const title = el.querySelector(".drop-title");
+    const desc = el.querySelector(".drop-desc");
+    const button = el.querySelector(".drop-btn");
+
+    if (!title || !desc || !button) return;
+
+    // Rơi từ trên xuống với hiệu ứng bounce
+    gsap.from([title, desc, button], {
       scrollTrigger: {
         trigger: el,
         start: "top 90%",
         toggleActions: "play none none none",
       },
-      y: -100,
+      y: -200, // từ rất cao
       opacity: 0,
-      duration: 0.8,
-      ease: "bounce.out",
+      duration: 1,
+      ease: "bounce.out", // hiệu ứng nhún nhẹ
+      stagger: 0.05, // từng phần tử rơi nối tiếp 1 chút
+    });
+
+    // Button hiện rõ dần ra sau cùng
+    gsap.to(button, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 90%",
+      },
+      opacity: 1,
+      delay: 1, // sau khi rơi xong mới hiện
+      duration: 1.2,
+      ease: "power1.out",
     });
   });
 }
@@ -125,6 +146,7 @@ function scrollToSectionOnClick() {
     });
   });
 }
+
 
 export default function initAnimations() {
   if (typeof window === "undefined") return;

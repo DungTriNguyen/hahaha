@@ -95,7 +95,7 @@ const SectionCardCareer = () => {
                 <Link href={`/careers/${career.itemUrl}`}>
                   <div className="group bg-[#0C0B10] border border-[#2A2F3C] rounded-3xl flex px-6 py-12 flex-col shadow-lg w-full h-[444px] mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-[#1A4CD8]">
                     <div className="flex items-center gap-2 justify-between">
-                      <span className="text-[#10B981] text-sm font-semibold uppercase tracking-wider">
+                      <span className="text-[var(--date-card)] text-sm font-semibold uppercase tracking-wider">
                         {formatDateToLongEN(career.createdDate)}
                       </span>
                     </div>
@@ -123,7 +123,7 @@ const SectionCardCareer = () => {
                           <span className="text-sm text-white font-semibold">
                             {info.label}
                           </span>
-                        </div>
+                        </div> 
                       ))}
                     </div>
 

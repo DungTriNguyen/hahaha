@@ -27,8 +27,8 @@ const slides = [
 const FirstComponent = () => {
   return (
     <section className="relative bg-[var(--background)] text-white pt-20 md:pt-32 lg:pt-44 z-30">
-      <div className="container relative z-20 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 md:px-6 lg:px-8">
-        <div className="flex-1 max-w-2xl">
+      <div className="container relative z-20 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 lg:px-0">
+        <div className="flex-1 w-full">
           <div className="mb-6 md:mb-8 lg:mb-9">
             <Title title="Services" />
             <SubTitle
@@ -99,6 +99,7 @@ const FirstComponent = () => {
           />
         ))}
       </div> */}
+      <WaveComponent />
     </section>
   );
 };

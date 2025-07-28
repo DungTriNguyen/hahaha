@@ -26,9 +26,9 @@ const ContactSection = ({
       className="relative z-10 w-full bg-[#0C0B10] text-white data-scroll-to"
       id={id}
     >
-      <div className="container flex flex-col items-center justify-center gap-16 py-40 lg:pt-80 lg:pb-56 px-4 md:px-0">
+      <div className="container flex flex-col items-center justify-center gap-14 py-40 lg:pt-80 lg:pb-56 px-4 md:px-0">
         <div className="flex flex-col items-center gap-8 text-center w-full">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1">
             {title && <Title title={title} />}
             {subtitle && <SubTitle title={subtitle} as="h2" />}
           </div>

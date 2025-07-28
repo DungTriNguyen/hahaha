@@ -9,7 +9,7 @@ import { useBlogCategory } from "../hooks/blog-category";
 import CardTitle from "../ui/card-title";
 import CardDescription from "../ui/card-description";
 import MoreButton from "../ui/more-button";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge"
 
 const CategorySlideSection = () => {
   const { data: category } = useBlogCategory({

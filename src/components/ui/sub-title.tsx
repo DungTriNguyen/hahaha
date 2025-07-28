@@ -12,7 +12,7 @@ const SubTitle = ({ title, className, as = "h1" }: SubTitleProps) => {
   return (
     <Component
       className={twMerge(
-        "text-4xl md:text-[72px] font-coda max-w-[800px] text-center leading-tight uppercase",
+        "text-white text-4xl  md:text-[72px] font-coda max-w-[800px] text-center leading-tight uppercase",
         className
       )}
     >
