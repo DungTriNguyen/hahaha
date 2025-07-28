@@ -27,6 +27,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
                 sizes="(min-width: 1024px) 912px, 100vw"
                 className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                 alt={`Project ${project.title} image`}
+                unoptimized
               />
             </div>
           </div>

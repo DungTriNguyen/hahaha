@@ -50,6 +50,8 @@ const AboutSection = () => {
           bottom: 0,
           position: "absolute",
         }}
+        loading="lazy"
+        title="3D Interactive Spline Animation of Particle Planet"
         allowFullScreen
       />
       <div
@@ -62,7 +64,7 @@ const AboutSection = () => {
 
       <div className="container relative z-30 flex flex-col items-center justify-center gap-1 text-center mx-auto px-4">
         <Title title="About" />
-        <SubTitle title="WE BUILD BEYOND BRIEFS" as="h2" className="pb-4"/>
+        <SubTitle title="WE BUILD BEYOND BRIEFS" as="h2" className="pb-4" />
         <Description
           description={`We craft scalable systems where clarity meets creativity <br /> Human-focused. Tech-backed. Future-ready`}
         />
@@ -101,6 +103,7 @@ const AboutSection = () => {
                       alt={slide.title}
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      unoptimized
                     />
                   </div>
                   <div className="w-full md:w-1/2 flex flex-col justify-center p-4 lg:p-0">

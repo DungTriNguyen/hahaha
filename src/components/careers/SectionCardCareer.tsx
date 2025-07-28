@@ -120,6 +120,7 @@ const SectionCardCareer = () => {
                             alt={info.label}
                             width={20}
                             height={20}
+                            unoptimized
                           />
                           <span className="text-sm text-white font-semibold">
                             {info.label}
@@ -128,7 +129,7 @@ const SectionCardCareer = () => {
                       ))}
                     </div>
 
-                    <button className="flex bg-[#121620] items-center gap-8 justify-between w-full p-1 rounded-2xl" >
+                    <button className="flex bg-[#121620] items-center gap-8 justify-between w-full p-1 rounded-2xl">
                       <span className="text-white pl-5 font-semibold tracking-widest uppercase text-sm md:text-[15px] whitespace-nowrap">
                         JOIN US
                       </span>

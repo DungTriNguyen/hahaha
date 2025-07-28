@@ -25,6 +25,7 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
               width={32}
               height={32}
               className="w-6 h-6 md:w-8 md:h-8"
+              unoptimized
             />
           </div>
 
@@ -35,6 +36,7 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
               width={32}
               height={32}
               className="w-6 h-6 md:w-8 md:h-8"
+              unoptimized
             />
           </div>
         </div>

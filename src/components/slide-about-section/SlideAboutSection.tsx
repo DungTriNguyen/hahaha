@@ -61,6 +61,7 @@ const SlideComponent = () => {
                 height={300}
                 alt={project.title}
                 className="w-full h-48 object-cover"
+                unoptimized
               />
               <div className="p-6 font-coda">
                 <h3 className="text-xl font-extrabold mb-2">{project.title}</h3>
