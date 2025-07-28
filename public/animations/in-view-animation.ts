@@ -1,7 +1,6 @@
 "use client";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 function registerGSAPPlugins() {
   if (typeof window === "undefined") return;
@@ -107,27 +106,7 @@ function floatAnimation() {
   });
 }
 
-function scrollSectionRevealAnimation() {
-  document.querySelectorAll(".scroll-section").forEach((el) => {
-    gsap.set(el, { opacity: 0, y: 100 });
-
-    gsap.to(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-    });
-  });
-}
-
 function scrollToSectionOnClick() {
-  gsap.registerPlugin(ScrollToPlugin);
-
   document.querySelectorAll("[data-scroll-to]").forEach((trigger) => {
     trigger.addEventListener("click", (e) => {
       e.preventDefault();
@@ -138,10 +117,9 @@ function scrollToSectionOnClick() {
       const targetEl = document.querySelector(targetSelector!);
 
       if (targetEl) {
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: { y: targetEl },
-          ease: "power2.out",
+        targetEl.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }
     });
@@ -158,6 +136,5 @@ export default function initAnimations() {
   slideInFromRight();
   hoverScaleUp();
   floatAnimation();
-  scrollSectionRevealAnimation();
   scrollToSectionOnClick();
 }

@@ -85,7 +85,7 @@ const HeroSlideSecton = () => {
                       alt={item.title}
                       className="w-full relative h-full object-cover brightness-75 transition-transform duration-500 ease-in-out hover:scale-110"
                     />
-                    <div className="absolute z-10 flex flex-col gap-1 p-12 bottom-0 right-0 left-0">
+                    <div className="absolute z-10 flex flex-col gap-1 p-4 lg:p-12 bottom-0 right-0 left-0">
                       <Description
                         description="Blockchain / AI / Web3"
                         className="text-start font-semibold lg:text-sm mb-2"

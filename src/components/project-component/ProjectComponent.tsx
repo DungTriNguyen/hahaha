@@ -14,7 +14,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
         <div
           key={project.id || index}
           className={twMerge(
-            "flex flex-col lg:flex-row items-stretch bg-[#0C0B10] rounded-lg overflow-hidden group",
+            "flex flex-col lg:flex-row items-stretch bg-[var(--background)] rounded-lg overflow-hidden group",
             project.id % 2 === 0 ? "lg:flex-row-reverse " : ""
           )}
           style={{ minHeight: "513px" }}
@@ -24,6 +24,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
               <Image
                 src={project.img}
                 fill
+                sizes="(min-width: 1024px) 912px, 100vw"
                 className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                 alt={`Project ${project.title} image`}
               />
@@ -52,18 +53,24 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
                     <div key={tagIndex} className="flex items-center gap-2">
                       <Tag title={tag} />
                       {tagIndex < project.scrumb.split(" / ").length - 1 && (
-                        <Image
-                          src="/line.svg"
-                          alt="line"
-                          width={6}
-                          height={6}
-                        />
+                        <div className="">
+                          <Image
+                            src="/line.svg"
+                            alt="line"
+                            width={6}
+                            height={6}
+                            className="w-full h-auto"
+                          />
+                        </div>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
-              <CardDescription description={project.description} />
+              <CardDescription
+                description={project.description}
+                className="line-clamp-3"
+              />
               <MoreButton />
             </div>
           </div>

@@ -28,7 +28,6 @@ export function useBlogCategory(options?: UseBlogCategoryOptions) {
         } else if (options?.PageIndex && options?.PageSize) {
           url += `?PageIndex=${options.PageIndex}&PageSize=${options.PageSize}`;
         }
-
         const res = await fetch(url, {
           method: "GET",
           headers: {

@@ -10,7 +10,7 @@ const Title = ({ title, className }: TitleProps) => {
   return (
     <span
       className={twMerge(
-        "text-[#B3CCFF] text-xs md:text-sm font-semibold tracking-widest uppercase mb-2",
+        "text-[#CCE0FF] text-xs md:text-sm font-semibold tracking-widest uppercase mb-2",
         className
       )}
     >

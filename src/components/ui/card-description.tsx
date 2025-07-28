@@ -10,7 +10,7 @@ const CardDescription = ({ description, className }: CardDescriptionProps) => {
   return (
     <p
       className={twMerge(
-        "text-base text-[#CCCCCC] leading-loose tracking-normal",
+        "text-base text-[var(--description-card)] leading-loose tracking-normal",
         className
       )}
       dangerouslySetInnerHTML={{ __html: description }}

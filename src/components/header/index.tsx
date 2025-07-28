@@ -105,16 +105,26 @@ const Header = () => {
             </Link>
           </div>
           <nav className="hidden lg:flex items-center gap-7">
-            {navItemsDesktop.map((item, index) => (
-              <a
-                key={index}
-                data-scroll-to={item.id}
-                href={item.href}
-                className="text-white font-semibold text-[15px] uppercase px-2 py-1"
-              >
-                {item.title}
-              </a>
-            ))}
+            {navItemsDesktop.map((item, index) =>
+              item.href ? (
+                <Link
+                  key={index}
+                  data-scroll-to={item.id}
+                  href={item.href}
+                  className="text-white font-semibold text-[15px] uppercase px-2 py-1"
+                >
+                  {item.title}
+                </Link>
+              ) : (
+                <span
+                  key={index}
+                  className="text-white font-semibold text-[15px] uppercase px-2 py-1 opacity-70 cursor-default"
+                  aria-disabled="true"
+                >
+                  {item.title}
+                </span>
+              )
+            )}
           </nav>
           <button
             className="lg:hidden p-2"
@@ -146,17 +156,28 @@ const Header = () => {
             </button>
           </div>
           <nav className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 items-center">
-            {navItemsMobile.map((item, index) => (
-              <a
-                key={index}
-                data-scroll-to={item.href}
-                href={item.href}
-                className="flex text-lg font-coda font-medium text-white  py-2 justify-start gap-2 items-center"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.title}
-              </a>
-            ))}
+            {navItemsMobile.map((item, index) =>
+              item.href ? (
+                <Link
+                  key={index}
+                  data-scroll-to={item.href}
+                  href={item.href}
+                  className="flex text-lg font-coda font-medium text-white py-2 justify-start gap-2 items-center"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              ) : (
+                <span
+                  key={index}
+                  className="flex text-lg font-coda font-medium text-white py-2 justify-start gap-2 items-center opacity-70 cursor-default"
+                  aria-disabled="true"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.title}
+                </span>
+              )
+            )}
           </nav>
         </div>
       )}

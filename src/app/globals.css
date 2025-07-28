@@ -2,7 +2,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #0c0b10;
+  --title-color: #b3ccff;
+  --card-color: #121620;
+  --number-card: #1a4cd8;
+  --number-card-hover: #b3ccff;
+  --description-card: #cccccc;
+  --button-color: #2468ff;
+  --button-icon: #1a4cd8;
+  --date-card: #10b981;
+
   --foreground: #171717;
   --font-coda: "Coda", var(--font-geist-sans), Inter, sans-serif;
   --font-inter: "Inter", var(--font-geist-sans), sans-serif;

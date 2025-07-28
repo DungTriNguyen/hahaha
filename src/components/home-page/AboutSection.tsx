@@ -37,7 +37,7 @@ const slides = [
 const AboutSection = () => {
   return (
     <section
-      className="relative z-20 w-full lg:pt-40 bg-[#0C0B10] overflow-hidden scroll-section"
+      className="relative z-20 w-full lg:pt-40 bg-[var(--background)] overflow-hidden data-scroll-to"
       id="about"
     >
       <iframe
@@ -56,11 +56,11 @@ const AboutSection = () => {
         className="absolute inset-0 z-10 pointer-events-none "
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0%, rgba(12, 11, 16, 0.8) 50%, rgba(12, 11, 16, 1) 100%)",
+            "linear-gradient(to bottom, transparent 0%, rgba(12, 11, 16, 0.93) 50%, rgba(12, 11, 16, 1) 100%)",
         }}
       />
 
-      <div className="container relative z-30 flex flex-col items-center justify-center gap-9 text-center  mx-auto px-4">
+      <div className="container relative z-30 flex flex-col items-center justify-center gap-2 text-center mx-auto px-4">
         <Title title="About" />
         <SubTitle title="WE BUILD BEYOND BRIEFS" as="h2" />
         <Description
@@ -93,7 +93,7 @@ const AboutSection = () => {
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
-                <div className="rounded-2xl bg-[#121620] flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                <div className="rounded-2xl bg-card flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
                   <div className="w-full lg:w-[318px] h-48 md:h-full relative">
                     <Image
                       src={slide.img}

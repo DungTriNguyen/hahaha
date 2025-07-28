@@ -22,18 +22,14 @@ const ArticleDetailPage = ({ slug }: Props) => {
   if (!blog) return <p className="text-center py-10">Not found data</p>;
 
   return (
-    <div className="bg-[#0C0B10]">
+    <div className="bg-[var(--background)]">
       <BackgroundComponent />
       <HeroSection
         title={blog.title}
         image={blog.imageUrl}
         createdDate={blog.createdDate}
       />
-      <ArticleContent
-        image={blog.imageUrl}
-        description={blog.description}
-        id={id}
-      />
+      <ArticleContent description={blog.description} id={id} />
       <SlideComponent />
       <ContactSection
         subtitle="Got an idea to build?"

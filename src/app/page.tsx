@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import HomePageClient from "@/components/home-page/HomePage";
 export const metadata: Metadata = {
   title: "Home",
+  description:
+    "Hoạt động trong lĩnh vực phát triển, sản xuất và cung cấp các sản phẩm, dịch vụ hoặc giải pháp công nghệ thông tin",
   alternates: {
     canonical: "https://hubcom.tech/",
   },

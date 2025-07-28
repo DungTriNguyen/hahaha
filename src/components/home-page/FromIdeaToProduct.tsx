@@ -2,7 +2,7 @@ import SubTitle from "../ui/sub-title";
 
 const FromIdeaToProduct = () => {
   return (
-    <section className="relative w-full h-[2560px] flex items-center justify-center overflow-hidden scroll-section">
+    <section className="relative w-full h-[2560px] flex items-center justify-center overflow-hidden data-scroll-to">
       <div
         className="absolute inset-0"
         style={{

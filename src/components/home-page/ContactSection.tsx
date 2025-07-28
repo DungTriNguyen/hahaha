@@ -23,10 +23,10 @@ const ContactSection = ({
 }: ContactSectionProps) => {
   return (
     <section
-      className="relative z-10 w-full bg-[#0C0B10] text-white scroll-section"
+      className="relative z-10 w-full bg-[#0C0B10] text-white data-scroll-to"
       id={id}
     >
-      <div className="container flex flex-col items-center justify-center gap-16 py-40 lg:pt-80 lg:pb-50 px-4 md:px-0">
+      <div className="container flex flex-col items-center justify-center gap-16 py-40 lg:pt-80 lg:pb-56 px-4 md:px-0">
         <div className="flex flex-col items-center gap-8 text-center w-full">
           <div className="flex flex-col gap-2">
             {title && <Title title={title} />}
@@ -35,7 +35,6 @@ const ContactSection = ({
           {description && <Description description={description} />}
           {button && <Button {...button} />}
         </div>
-
         <div className="flex flex-col items-center gap-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-4 text-white">
             <Link href="tel:+84966868574">

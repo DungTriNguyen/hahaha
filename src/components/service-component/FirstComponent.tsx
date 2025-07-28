@@ -26,7 +26,7 @@ const slides = [
 
 const FirstComponent = () => {
   return (
-    <section className="relative bg-[#0C0B10] text-white pt-20 md:pt-32 lg:pt-44 z-30">
+    <section className="relative bg-[var(--background)] text-white pt-20 md:pt-32 lg:pt-44 z-30">
       <div className="container relative z-20 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 md:px-6 lg:px-8">
         <div className="flex-1 max-w-2xl">
           <div className="mb-6 md:mb-8 lg:mb-9">
@@ -42,7 +42,7 @@ const FirstComponent = () => {
             />
           </div>
           <div className="mb-6 md:mb-8">
-            <ul className="space-y-2 list-disc pl-8 text-white/90 text-sm md:text-[15px] font-semibold">
+            <ul className="space-y-2 list-disc pl-8 text-white text-sm md:text-[15px] font-semibold">
               <li>MVP to Market</li>
               <li>BUILD FOR SCALE</li>
               <li>READY FOR MILLION USERS</li>
@@ -53,7 +53,7 @@ const FirstComponent = () => {
               Launch your idea
             </span>
 
-            <div className="rounded-xl bg-[#0C0B10] hover:bg-[#1A4CD8] relative w-[48px] h-[48px] md:w-[56px] md:h-[56px] overflow-hidden">
+            <div className="rounded-xl bg-[var(--background)] hover:bg-[var(--number-card)] relative w-[48px] h-[48px] md:w-[56px] md:h-[56px] overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                 <Image
                   src="/rocket.svg"
@@ -83,6 +83,7 @@ const FirstComponent = () => {
               src="/img_service_section_1.png"
               fill
               alt="service banner"
+              sizes="(min-width: 1024px) 912px, 100vw"
               className="object-contain rounded-lg float-item"
             />
           </div>
