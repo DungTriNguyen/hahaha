@@ -8,7 +8,7 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
     <Link href={href}>
       <div
         className={twMerge(
-          "bg-[var(--button-color)] text-white rounded-2xl flex items-center gap-8 justify-between p-1 w-fit group cursor-pointer transition-all duration-300 max-w-full",
+          "bg-button text-white rounded-2xl flex items-center gap-8 justify-between p-1 w-fit group cursor-pointer transition-all duration-300 max-w-full",
           className
         )}
       >
@@ -17,7 +17,7 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
             {text}
           </span>
         )}
-        <div className="p-1 rounded-xl bg-[var(--button-icon)] relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
+        <div className="p-1 rounded-xl bg-buttonIcon relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
           <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
             <Image
               src={icon1 || ""}
@@ -25,7 +25,6 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
               width={32}
               height={32}
               className="w-6 h-6 md:w-8 md:h-8"
-              unoptimized
             />
           </div>
 
@@ -36,7 +35,6 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
               width={32}
               height={32}
               className="w-6 h-6 md:w-8 md:h-8"
-              unoptimized
             />
           </div>
         </div>

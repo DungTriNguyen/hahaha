@@ -49,7 +49,7 @@ const CategorySlideSection = () => {
     setPageIndex(0);
   };
   return (
-    <section className="bg-[#0C0B10] text-white lg:py-32 relative z-2">
+    <section className="text-white lg:py-32 relative z-1">
       <div className="container px-4 md:px-6 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row lg:justify-between gap-8 lg:gap-12">
           <div className="lg:flex-1 flex flex-col gap-6">

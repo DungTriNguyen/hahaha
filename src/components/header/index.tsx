@@ -60,7 +60,7 @@ const navItemsMobile = [
     href: "#contact",
   },
   {
-    title: "————",
+    title: <Image src="/line_header.svg" alt="Logo" width={100} height={32} />,
   },
   {
     title: "Articles",
@@ -71,7 +71,7 @@ const navItemsMobile = [
     href: "/careers",
   },
   {
-    title: "X",
+    title: <Image src="/close_header.svg" alt="Logo" width={48} height={48} />,
   },
 ];
 
@@ -161,7 +161,7 @@ const Header = () => {
                   key={index}
                   data-scroll-to={item.href}
                   href={item.href}
-                  className="flex text-lg font-coda font-medium text-white py-2 justify-start gap-2 items-center"
+                  className="flex text-2xl font-coda font-medium text-white py-2 justify-start gap-2 items-center"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.title}

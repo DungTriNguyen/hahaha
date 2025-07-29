@@ -8,25 +8,24 @@ function registerGSAPPlugins() {
 }
 
 function fadeUpAnimation() {
+  const iframeWrapper = document.querySelector(".drop-iframe");
 
-    const iframeWrapper = document.querySelector(".drop-iframe");
-  
-    if (!iframeWrapper) return;
-  
-    gsap.from(iframeWrapper, {
-      scrollTrigger: {
-        trigger: iframeWrapper,
-        start: "top 90%", // khi phần tử sắp hiện ra
-        toggleActions: "play none none none",
-      },
-      y: 200, // từ dưới lên
-      opacity: 0,
-      duration: 1.2,
-      ease: "bounce.out", // nhún nhẹ
-    });
+  if (!iframeWrapper) return;
+
+  gsap.from(iframeWrapper, {
+    scrollTrigger: {
+      trigger: iframeWrapper,
+      start: "top 90%", // khi phần tử sắp hiện ra
+      toggleActions: "play none none none",
+    },
+    y: 300, // từ dưới lên
+    opacity: 0,
+    duration: 2.7,
+    ease: "bounce.out", // nhún nhẹ
+  });
 }
 
- function dropTextAnimation() {
+function dropTextAnimation() {
   document.querySelectorAll(".drop-text").forEach((el) => {
     const title = el.querySelector(".drop-title");
     const desc = el.querySelector(".drop-desc");
@@ -41,9 +40,9 @@ function fadeUpAnimation() {
         start: "top 90%",
         toggleActions: "play none none none",
       },
-      y: -200, // từ rất cao
+      y: -300, // từ rất cao
       opacity: 0,
-      duration: 1,
+      duration: 2.5,
       ease: "bounce.out", // hiệu ứng nhún nhẹ
       stagger: 0.05, // từng phần tử rơi nối tiếp 1 chút
     });
@@ -55,7 +54,7 @@ function fadeUpAnimation() {
         start: "top 90%",
       },
       opacity: 1,
-      delay: 1, // sau khi rơi xong mới hiện
+      delay: 2.5, // sau khi rơi xong mới hiện
       duration: 1.2,
       ease: "power1.out",
     });
@@ -147,7 +146,47 @@ function scrollToSectionOnClick() {
   });
 }
 
+function fromIdeaToProductAnimation() {
+  const section = document.querySelector(
+    "section[data-scroll-to]"
+  ) as HTMLElement;
+  const gradientOverlay = section?.querySelector(
+    "div[style*='linear-gradient']"
+  ) as HTMLElement;
+  const text = section?.querySelector("h2");
 
+  if (!section || !gradientOverlay || !text) return;
+
+  // Animate gradient opacity on scroll
+  gsap.to(gradientOverlay, {
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom", // khi section bắt đầu vào
+      end: "center center", // khi giữa section đến giữa viewport
+      scrub: true, // mượt theo cuộn
+    },
+    opacity: 1,
+    ease: "power1.inOut",
+  });
+
+  // Delay scroll khi text vào giữa viewport
+  ScrollTrigger.create({
+    trigger: text,
+    start: "center center",
+    end: "center center+=1", // đoạn delay nhỏ
+    onEnter: (self) => {
+      // Freeze scroll trong 0.2s
+      const scrollY = window.scrollY;
+      document.body.style.overflow = "hidden";
+
+      setTimeout(() => {
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY); // tránh nhảy
+        self.kill(); // chỉ delay 1 lần
+      }, 200);
+    },
+  });
+}
 export default function initAnimations() {
   if (typeof window === "undefined") return;
 
@@ -159,4 +198,5 @@ export default function initAnimations() {
   hoverScaleUp();
   floatAnimation();
   scrollToSectionOnClick();
+  fromIdeaToProductAnimation();
 }

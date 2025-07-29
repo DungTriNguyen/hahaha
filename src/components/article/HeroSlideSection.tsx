@@ -118,7 +118,6 @@ const HeroSlideSecton = () => {
         <div className="custom-swiper-pagination mt-6 md:mt-8 lg:mt-10 flex justify-center" />
       </div>
 
-
       {/* <div className="relative z-10 lg:pt-16 lg:pb-20">
         <div className="px-4 md:px-6 lg:px-0 overflow-hidden py-8">
           <Swiper

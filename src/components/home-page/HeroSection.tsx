@@ -2,6 +2,7 @@
 import SubTitle from "@/components/ui/sub-title";
 import Button from "../ui/button";
 import Description from "../ui/description";
+import Image from "next/image";
 const HeroSection = () => {
   return (
     <>
@@ -34,6 +35,27 @@ const HeroSection = () => {
               icon1="/starts.svg"
               icon2="/right.svg"
               text="EXPLORE NOW"
+            />
+          </div>
+        </div>
+        <div className="absolute w-full flex flex-col gap-2.5 bottom-0 z-10 justify-center items-center">
+          <div className="w-6 h-full flex items-center justify-center">
+            <Image
+              src="/line_explore.svg"
+              alt="line_explore"
+              width={2}
+              height={24}
+            />
+          </div>
+          <div>
+            <p className="uppercase text-descriptionCard">Scroll to explore</p>
+          </div>
+          <div className="w-6 h-full flex items-center justify-center">
+            <Image
+              src="/line_explore.svg"
+              alt="line_explore"
+              width={2}
+              height={24}
             />
           </div>
         </div>

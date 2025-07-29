@@ -26,34 +26,34 @@ const slides = [
 
 const FirstComponent = () => {
   return (
-    <section className="relative bg-[var(--background)] text-white pt-20 md:pt-32 lg:pt-44 z-30">
-      <div className="container relative z-20 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 lg:px-0">
+    <section className="relative bg-background text-white pt-20 md:pt-32 lg:pt-44 z-30">
+      <div className="max-w-[1440px] w-full relative z-20 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 items-center mx-auto">
         <div className="flex-1 w-full">
-          <div className="mb-6 md:mb-8 lg:mb-9">
-            <Title title="Services" />
+          <div className="mb-6">
+            <Title title="Services" className="mb-2" />
             <SubTitle
               title="Bring your Ideas to real World"
               as="h2"
-              className="text-start mb-6 md:mb-8 lg:mb-9"
+              className="text-start mb-6 md:mb-8 lg:mb-8"
             />
             <Description
               description="We turn your marvelous ideas to market in a very short time, but also ready for scale"
-              className="text-start"
+              className="text-start mb-4"
             />
           </div>
-          <div className="mb-6 md:mb-8">
-            <ul className="space-y-2 list-disc pl-8 text-white text-sm md:text-[15px] font-semibold">
+          <div className="mb-6">
+            <ul className="space-y-4 list-disc pl-6 text-white text-sm md:text-[15px] font-semibold uppercase tracking-wider">
               <li>MVP to Market</li>
               <li>BUILD FOR SCALE</li>
               <li>READY FOR MILLION USERS</li>
             </ul>
           </div>
           <div className="bg-white text-black rounded-2xl flex items-center justify-between p-1 w-fit gap-8 group cursor-pointer">
-            <span className="ml-4 font-semibold text-sm md:text-base uppercase">
+            <span className="ml-4 font-semibold text-sm md:text-base uppercase tracking-wider">
               Launch your idea
             </span>
 
-            <div className="rounded-xl bg-[var(--background)] hover:bg-[var(--number-card)] relative w-[48px] h-[48px] md:w-[56px] md:h-[56px] overflow-hidden">
+            <div className="rounded-xl bg-black hover:bg-numberCard relative w-[48px] h-[48px] md:w-[56px] md:h-[56px] overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
                 <Image
                   src="/rocket.svg"

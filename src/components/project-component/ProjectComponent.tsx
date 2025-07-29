@@ -14,7 +14,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
         <div
           key={project.id || index}
           className={twMerge(
-            "flex flex-col lg:flex-row items-stretch bg-[var(--background)] rounded-lg overflow-hidden group",
+            "flex flex-col lg:flex-row items-stretch bg-background rounded-lg overflow-hidden group",
             project.id % 2 === 0 ? "lg:flex-row-reverse " : ""
           )}
           style={{ minHeight: "513px" }}
@@ -27,7 +27,6 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
                 sizes="(min-width: 1024px) 912px, 100vw"
                 className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                 alt={`Project ${project.title} image`}
-                unoptimized
               />
             </div>
           </div>

@@ -22,7 +22,7 @@ const ArticleDetailPage = ({ slug }: Props) => {
   if (!blog) return <p className="text-center py-10">Not found data</p>;
 
   return (
-    <div className="bg-[var(--background)]">
+    <div className="bg-background">
       <BackgroundComponent />
       <HeroSection
         title={blog.title}

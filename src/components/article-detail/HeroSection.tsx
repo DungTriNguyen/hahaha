@@ -12,8 +12,8 @@ const HeroSection = ({
   createdDate: string;
 }) => {
   return (
-    <section className="relative z-2 w-full flex flex-col justify-center items-center text-white  py-10 md:py-16 lg:py-20 top-0">
-      <div className="w-full lg:container text-center space-y-2 px-4">
+    <section className="w-full flex flex-col justify-center items-center text-white  py-10 md:py-16 lg:py-20 top-0 ">
+      <div className="w-full lg:container relative z-2 text-center space-y-2 px-4">
         <Title title="ARTICLES" />
         <SubTitle
           title={title ? title : "Not found title"}
@@ -31,6 +31,7 @@ const HeroSection = ({
             alt=""
             className="w-full h-[336px] object-cover"
             priority
+            unoptimized
           />
         </div>
       </div>

@@ -37,7 +37,7 @@ const slides = [
 const AboutSection = () => {
   return (
     <section
-      className="relative z-20 w-full lg:pt-40 bg-[var(--background)] overflow-hidden data-scroll-to"
+      className="relative z-20 w-full lg:pt-40 bg-background overflow-hidden data-scroll-to"
       id="about"
     >
       <iframe
@@ -95,7 +95,7 @@ const AboutSection = () => {
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
-                <div className="rounded-2xl bg-[var(--card-color)] flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                <div className="rounded-2xl bg-card flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
                   <div className="w-full lg:w-[318px] h-48 md:h-full relative">
                     <Image
                       src={slide.img}
@@ -103,7 +103,6 @@ const AboutSection = () => {
                       alt={slide.title}
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized
                     />
                   </div>
                   <div className="w-full md:w-1/2 flex flex-col justify-center p-4 lg:p-0">

@@ -66,7 +66,7 @@ const ProjectSection = () => {
   // })
   return (
     <section
-      className="relative z-20 w-full bg-[var(--background)] text-white data-scroll-to"
+      className="relative z-20 w-full bg-background text-white data-scroll-to"
       id="projects"
     >
       <div className="flex flex-col items-center gap-14 pt-44 pb-20">

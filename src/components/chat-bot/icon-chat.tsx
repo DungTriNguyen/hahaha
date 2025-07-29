@@ -10,7 +10,7 @@ const IconChat = () => {
             Start a project
           </span>
           <button
-            className="group p-2 md:p-3 rounded-lg md:rounded-xl bg-[#2468FF] border-4 border-[#1A4CD8] relative w-[48px] h-[48px] lg:w-[64px]  lg:h-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
+            className="group p-2 md:p-3 rounded-lg md:rounded-xl bg-button border-4 border-numberCard relative w-[48px] h-[48px] lg:w-[64px]  lg:h-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
             aria-label="Start a project"
           >
             <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
@@ -40,7 +40,7 @@ const IconChat = () => {
             Live chat
           </span>
           <button
-            className="group p-2 md:p-3 rounded-lg md:rounded-xl bg-[#2468FF] border-4 border-[#1A4CD8] relative h-[48px] w-[48px] lg:h-[64px] lg:w-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
+            className="group p-2 md:p-3 rounded-lg md:rounded-xl bg-button border-4 border-numberCard relative h-[48px] w-[48px] lg:h-[64px] lg:w-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
             aria-label="Live chat"
           >
             <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">

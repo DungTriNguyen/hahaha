@@ -19,7 +19,7 @@ const CareerDetailPage = ({ slug }: Props) => {
   if (!careerBlog || !content)
     return <p className="text-center py-10">Not found data</p>;
   return (
-    <div className="bg-[#0C0B10]">
+    <div className="bg-background">
       <BackgroundComponent />
       <HeroSection
         category={careerBlog.categoryName}
@@ -29,7 +29,7 @@ const CareerDetailPage = ({ slug }: Props) => {
       <ContentSection content={contentData.content} />
       <ContactSection
         subtitle="Thanks! We’ll be in touch soon"
-        description={`“Got questions? Contact us at <a href="mailto:careers@hubcom.tech" class="underline text-[#2468FF]">careers@hubcom.tech</a>”`}
+        description={`“Got questions? Contact us at <a href="mailto:careers@hubcom.tech" class="underline text-button">careers@hubcom.tech</a>”`}
       />
     </div>
   );

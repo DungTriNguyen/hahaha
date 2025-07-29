@@ -24,7 +24,7 @@ const HeroSection = ({
           as="h1"
           className="mb-9 max-w-full"
         />
-        <div className="text-base md:text-lg text-[#CCCCCC] uppercase font-semibold mb-6 lg:mb-16">
+        <div className="text-base md:text-lg text-descriptionCard uppercase font-semibold mb-6 lg:mb-16">
           Full-time • onsite • HCMC
         </div>
         <div className="relative flex items-start pl-4">
@@ -32,7 +32,7 @@ const HeroSection = ({
             {description ? (
               <CardDescription
                 description={description}
-                className="border-l-2 border-l-[#2468FF] text-start lg:ml-6 p-4 text-lg italic"
+                className="border-l-2 border-l-button text-start lg:ml-6 p-4 text-lg italic"
               />
             ) : (
               <p className="text-gray-400">Not found description</p>

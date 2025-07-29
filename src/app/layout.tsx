@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Coda, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-
 export const metadata: Metadata = {
   title: {
     default: "Hubcom | Digital Transformation Solutions for Businesses",
@@ -45,8 +44,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.ico" ,
-    
+    icon: "/favicon.ico",
   },
 };
 

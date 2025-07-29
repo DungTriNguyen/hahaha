@@ -28,12 +28,12 @@ const slides = [
 
 const SlideSection = () => {
   return (
-    <section className=" relative z-2 bg-[#0C0B10] w-full flex flex-col justify-center items-center text-white lg:py-20 top-0">
+    <section className=" relative z-2 bg-background w-full flex flex-col justify-center items-center text-white lg:py-20 top-0">
       <div className="container text-start">
         <p className="text-4xl font-coda">RELATED ARTICLES</p>
       </div>
 
-      <div className="bg-[#0C0B10] pt-8 md:pt-12 lg:pt-16 w-full justify-center px-4 md:px-6 lg:px-8 overflow-hidden">
+      <div className="bg-background pt-8 md:pt-12 lg:pt-16 w-full justify-center px-4 md:px-6 lg:px-8 overflow-hidden">
         <Swiper
           modules={[Pagination]}
           pagination={{

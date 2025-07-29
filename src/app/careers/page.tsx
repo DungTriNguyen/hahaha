@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const CareersPage = () => {
   return (
-    <div className="bg-[#0C0B10]">
+    <div className="bg-background">
       <BackgroundComponent />
       <HeroSection />
       <SectionCardCareer />

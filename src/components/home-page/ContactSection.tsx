@@ -23,7 +23,7 @@ const ContactSection = ({
 }: ContactSectionProps) => {
   return (
     <section
-      className="relative z-10 w-full bg-[#0C0B10] text-white data-scroll-to"
+      className="relative z-10 w-full bg-background text-white data-scroll-to"
       id={id}
     >
       <div className="container flex flex-col items-center justify-center gap-14 py-40 lg:pt-80 lg:pb-56 px-4 md:px-0">

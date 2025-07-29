@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  content: ["./src/**/*.{ts,tsx,js,jsx,html}"],
   theme: {
     extend: {
       colors: {
@@ -16,7 +17,6 @@ const config: Config = {
       },
     },
   },
-  content: ["./src/**/*.{ts,tsx,js,jsx,html}"], // chỉnh đường dẫn đúng dự án
 };
 
 export default config;

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const ArticlePage = () => {
   return (
-    <div className="bg-[#0C0B10]">
+    <div className="bg-background">
       <BackgroundComponent />
       <HeroSlideSecton />
       <CategorySlideSection />

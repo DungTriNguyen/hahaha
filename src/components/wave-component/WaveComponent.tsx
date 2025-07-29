@@ -1,10 +1,10 @@
 export default function WaveComponent() {
   return (
-    <div className="w-full h-[100px] absolute bottom-[70] left-0 z-9 bg-[#0C0B10]">
+    <div className="w-full h-[100px] absolute bottom-[70] left-0 z-9 bg-background">
       {/* Wave Top */}
       <div className="absolute inset-x-0 bottom-[-1px] h-full w-full bg-blue z-20">
         <div
-          className="absolute bottom-0 left-0 h-full w-full waveTop will-change-transform scale-1400"
+          className="absolute bottom-0 left-0 h-full w-full waveTop will-change-transform scale-1500"
           style={{
             backgroundImage: 'url("/wave1.svg")',
             backgroundRepeat: "repeat-x",
@@ -16,7 +16,7 @@ export default function WaveComponent() {
       {/* Wave Middle */}
       <div className="absolute inset-x-0 bottom-[-1px] h-full w-full bg-blue z-[10] opacity-100">
         <div
-          className="absolute bottom-0 left-0 h-full w-full waveMiddle will-change-transform scale-1400"
+          className="absolute bottom-0 left-0 h-full w-full waveMiddle will-change-transform scale-1500"
           style={{
             backgroundImage: 'url("/wave2.svg")',
             backgroundRepeat: "repeat-x",
@@ -28,7 +28,7 @@ export default function WaveComponent() {
       {/* Wave Bottom */}
       <div className="absolute inset-x-0 bottom-[-1px] h-full w-full bg-blue opacity-100 z-[10]">
         <div
-          className="absolute bottom-0 left-0 h-full w-full waveBottom will-change-transform scale-1400"
+          className="absolute bottom-0 left-0 h-full w-full waveBottom will-change-transform scale-1500"
           style={{
             backgroundImage: 'url("/wave3.svg")',
             backgroundRepeat: "repeat-x",
