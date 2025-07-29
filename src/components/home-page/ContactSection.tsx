@@ -33,7 +33,7 @@ const ContactSection = ({
             {subtitle && <SubTitle title={subtitle} as="h2" />}
           </div>
           {description && <Description description={description} />}
-          {button && <Button {...button} />}
+          {button && <Button {...button} className="tracking-tight" />}
         </div>
         <div className="flex flex-col items-center gap-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-4 text-white">

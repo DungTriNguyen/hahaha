@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const navItemsDesktop = [
   {
     title: "Home",
-    href: "/",
+    href: "/#home",
   },
   {
     title: "Projects",
@@ -103,7 +103,7 @@ const Header = () => {
               />
             </a>
           </div>
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItemsDesktop.map((item, index) =>
               item.href ? (
                 <a
@@ -129,6 +129,7 @@ const Header = () => {
             className="lg:hidden p-2"
             aria-label="Toggle mobile menu"
             onClick={() => setMobileOpen(true)}
+            
           >
             <Image src="/menu.svg" alt="Menu" width={40} height={14} />
           </button>

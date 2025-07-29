@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <>
       <div className="h-screen pointer-events-none"></div>
-      <section className="fixed inset-0 z-0 data-scroll-to">
+      <section className="fixed inset-0 z-0 data-scroll-to" id="home">
         <div className="w-full relative inset-0 h-screen drop-iframe">
           <iframe
             src="https://my.spline.design/untitled-V0MRkb0fl4hWPlrsrdpTfhIB/"
@@ -22,40 +22,41 @@ const HeroSection = () => {
             }}
           />
         </div>
-        <div className="container absolute inset-0 flex flex-col justify-center items-center text-white z-10 gap-8 drop-text">
+        <div className="container absolute inset-0 flex flex-col justify-center items-center text-white z-10 gap-8 pb-[75px] drop-text ">
           <div className="drop-title">
             <SubTitle title="WHERE TECH MEETS CREATIVITY" as="h1" />
           </div>
           <div className="drop-desc">
             <Description description="We design intelligent digital platforms that grow with your business" />
           </div>
-          <div className="drop-btn opacity-0">
+          <div className="drop-btn opacity-0 ">
             <Button
               href="#"
               icon1="/starts.svg"
               icon2="/right.svg"
               text="EXPLORE NOW"
+              aria-label="EXPLORE NOW"
             />
           </div>
         </div>
-        <div className="absolute w-full flex flex-col gap-2.5 bottom-0 z-10 justify-center items-center">
-          <div className="w-6 h-full flex items-center justify-center">
+        <div className="absolute w-full flex flex-col gap-2.5 bottom-0 z-10 justify-center items-center fade-up hasDelay7000ms">
+          <div className="w-full h-auto flex items-center justify-center">
             <Image
               src="/line_explore.svg"
               alt="line_explore"
               width={2}
-              height={24}
+              height={5}
             />
           </div>
           <div>
             <p className="uppercase text-descriptionCard">Scroll to explore</p>
           </div>
-          <div className="w-6 h-full flex items-center justify-center">
+          <div className="w-full h-10 flex items-center justify-center">
             <Image
               src="/line_explore.svg"
               alt="line_explore"
               width={2}
-              height={24}
+              height={10}
             />
           </div>
         </div>

@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
 const ArticlePage = () => {
   return (
     <div className="bg-background">
@@ -36,6 +35,7 @@ const ArticlePage = () => {
           href: "#",
           icon1: "/light.svg",
           icon2: "/right.svg",
+          
         }}
       />
     </div>

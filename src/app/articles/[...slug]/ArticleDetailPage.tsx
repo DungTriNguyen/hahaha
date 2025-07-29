@@ -1,39 +1,53 @@
-"use client";
-
 import ContactSection from "@/components/home-page/ContactSection";
 import HeroSection from "@/components/article-detail/HeroSection";
 import SlideComponent from "@/components/article-detail/RelatedArticle";
 import ArticleContent from "@/components/article-detail/ArticleContent";
-import { useBlog } from "@/components/hooks/blog";
-import { BlogItem } from "@/types/blog";
 import BackgroundComponent from "@/components/article/BackgroundSection";
 
+import { getBlog } from "@/components/hooks/blog";
+import type { BlogItem, BlogResponse } from "@/types/blog";
+
 interface Props {
-  slug: string[];
+  params: { slug: string[] };
 }
 
-const ArticleDetailPage = ({ slug }: Props) => {
-  const [seoSlug, id] = slug || [];
-  const { data, loading, error } = useBlog({ id });
-  const blog = data as BlogItem;
-
-  if (loading) return <p className="text-center py-10">Loading...</p>;
-  if (error || !blog) return <p className="text-center py-10">Error</p>;
-  if (!blog) return <p className="text-center py-10">Not found data</p>;
-
+export default async function ArticleDetailPage({ params }: Props) {
+  const [seoSlug, id] = params.slug || [];
+  let blog: BlogItem | null = null;
+  try {
+    const data = await getBlog({ id });
+    blog = data as BlogItem;
+  } catch (error) {
+    return <p className="text-center py-10">Error loading article</p>;
+  }
+  if (!blog) {
+    return <p className="text-center py-10">Not found data</p>;
+  }
+  let articleRelatedData: BlogResponse | null = null;
+  try {
+    const related = await getBlog({
+      PageIndex: 0,
+      PageSize: 3,
+      ExcludeBlogId: blog.id,
+      BlogCategoryId: blog?.categoryId,
+    });
+    articleRelatedData = related as BlogResponse;
+  } catch (error) {
+    articleRelatedData = null;
+  }
+  console.log("articleRelatedData:::::", articleRelatedData);
   return (
     <div className="bg-background">
       <BackgroundComponent />
       <HeroSection
-        title={blog.title}
-        image={blog.imageUrl}
-        createdDate={blog.createdDate}
+        title={blog?.title}
+        image={blog?.imageUrl}
+        createdDate={blog?.createdDate}
       />
-      <ArticleContent description={blog.description} id={id} />
-      <SlideComponent />
+      <ArticleContent description={blog?.description} id={id} />
+      <SlideComponent articleRelatedData={articleRelatedData} />
       <ContactSection
         subtitle="Got an idea to build?"
-        description="Tell us about your desires"
         button={{
           text: "Start your MVP",
           href: "#",
@@ -43,6 +57,4 @@ const ArticleDetailPage = ({ slug }: Props) => {
       />
     </div>
   );
-};
-
-export default ArticleDetailPage;
+}

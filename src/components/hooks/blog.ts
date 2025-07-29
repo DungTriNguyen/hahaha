@@ -1,73 +1,53 @@
-"use client";
-import { useState, useEffect } from "react";
 import type { BlogResponse, BlogItem, BlogContent } from "@/types/blog";
 
-interface UseBlogOptions {
+interface GetBlogOptions {
   id?: string;
   BlogCategoryId?: string;
   content?: boolean;
   PageIndex?: number;
   PageSize?: number;
+  ExcludeBlogId?: string;
 }
 
-export function useBlog(options?: UseBlogOptions) {
-  const [data, setData] = useState<
-    BlogResponse | BlogItem | BlogContent | null
-  >(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export async function getBlog(
+  options?: GetBlogOptions
+): Promise<BlogResponse | BlogItem | BlogContent | null> {
+  try {
+    let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Blog/${process.env.NEXT_PUBLIC_TENANT_ID}`;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
+    if (options?.id) {
+      url += `/${options.id}${options.content ? "/content" : ""}`;
+    } else {
+      const params = [];
+      if (options?.BlogCategoryId)
+        params.push(`BlogCategoryId=${options.BlogCategoryId}`);
+      if (typeof options?.PageIndex === "number")
+        params.push(`PageIndex=${options.PageIndex}`);
+      if (typeof options?.PageSize === "number")
+        params.push(`PageSize=${options.PageSize}`);
+      if (options?.ExcludeBlogId)
+        params.push(`ExcludeBlogId=${options.ExcludeBlogId}`);
 
-      try {
-        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Blog/${process.env.NEXT_PUBLIC_TENANT_ID}`;
-
-        if (options?.id) {
-          url += `/${options.id}${options.content ? "/content" : ""}`;
-        } else {
-          const params = [];
-          if (options?.BlogCategoryId)
-            params.push(`BlogCategoryId=${options.BlogCategoryId}`);
-          if (typeof options?.PageIndex === "number")
-            params.push(`PageIndex=${options.PageIndex}`);
-          if (typeof options?.PageSize === "number")
-            params.push(`PageSize=${options.PageSize}`);
-          if (params.length > 0) {
-            url += `?${params.join("&")}`;
-          }
-        }
-
-        const res = await fetch(url, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : String(err));
-      } finally {
-        setLoading(false);
+      if (params.length > 0) {
+        url += `?${params.join("&")}`;
       }
-    };
+    }
 
-    fetchData();
-  }, [
-    options?.id,
-    options?.BlogCategoryId,
-    options?.PageIndex,
-    options?.PageSize,
-    options?.content,
-  ]);
+    const res = await fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store", // nếu muốn luôn fetch mới khi SSR
+    });
 
-  return { data, loading, error };
+    // Nếu API trả về lỗi thì log và trả về null
+    if (!res.ok) {
+      console.error(`getBlog: HTTP ${res.status} - ${res.statusText}`);
+      return null;
+    }
+
+    return (await res.json()) as BlogResponse | BlogItem | BlogContent;
+  } catch (error) {
+    console.error("getBlog: Error fetching blog:", error);
+    return null; 
+  }
 }

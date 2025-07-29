@@ -1,10 +1,12 @@
-import { SeoData } from "@/types/seo";
 import type { Metadata, ResolvingMetadata } from "next";
 import ArticleDetailPage from "./ArticleDetailPage";
+import { getBlog } from "@/components/hooks/blog";
+import { SeoData } from "@/types/seo";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
 };
+
 
 export async function generateMetadata(
   { params }: Props,
@@ -13,19 +15,11 @@ export async function generateMetadata(
   const parentMetadata = await parent;
   const { slug } = await params;
   const customId = slug?.[slug.length - 1];
+
   let seoData: Partial<SeoData> = {};
-
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Blog/${process.env.NEXT_PUBLIC_TENANT_ID}/${customId}`,
-      { cache: "no-store" }
-    );
-
-    if (res.ok) {
-      seoData = await res.json();
-    } else {
-      console.warn("SEO fetch failed:", res.status);
-    }
+    const blogData = await getBlog({ id: customId });
+    seoData = blogData as Partial<SeoData>;
   } catch (error) {
     console.error("Error fetching SEO metadata:", error);
   }
@@ -55,11 +49,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string[] }>;
-}) {
+export default async function Page({ params }: Props) {
   const { slug } = await params;
-  return <ArticleDetailPage slug={slug} />;
+  return <ArticleDetailPage params={{ slug }} />;
 }

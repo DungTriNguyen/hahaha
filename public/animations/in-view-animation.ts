@@ -1,10 +1,14 @@
 "use client";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+
 
 function registerGSAPPlugins() {
   if (typeof window === "undefined") return;
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollToPlugin);
 }
 
 function fadeUpAnimation() {
@@ -131,15 +135,16 @@ function scrollToSectionOnClick() {
     trigger.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const targetSelector = (trigger as HTMLElement).getAttribute(
-        "data-scroll-to"
-      );
+      const targetSelector = (trigger as HTMLElement).getAttribute("data-scroll-to");
       const targetEl = document.querySelector(targetSelector!);
 
       if (targetEl) {
-        targetEl.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
+        const targetY = targetEl.getBoundingClientRect().top + window.scrollY;
+
+        gsap.to(window, {
+          scrollTo: targetY,
+          duration: 3, // số giây → càng lớn càng chậm
+          ease: "power2.inOut"
         });
       }
     });
@@ -187,9 +192,72 @@ function fromIdeaToProductAnimation() {
     },
   });
 }
+
+ function observeFadeUpAnimation() {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      const el = entry.target as HTMLElement;
+
+      const hasDelay3000ms = el.classList.contains("hasDelay3000ms");
+      const hasDelay7000ms = el.classList.contains("hasDelay7000ms");
+
+      if (entry.isIntersecting) {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          delay: hasDelay3000ms ? 0.3 : hasDelay7000ms ? 2 : 0,
+        });
+        obs.unobserve(el);
+      }
+    });
+  });
+
+  document.querySelectorAll(".fade-up").forEach((el) => {
+    gsap.set(el, { opacity: 0, y: 70 });
+    observer.observe(el);
+  });
+}
+
+
+function ScrollTriggerAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sections = document.querySelectorAll(".scroll-section");
+
+  sections.forEach((section) => {
+    const title = section.querySelector(".section-title");
+    if (!title) return;
+
+    // Pin nguyên section để giữ trong 1 khoảng cuộn dài
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: "+=300%",
+      pin: true,
+      scrub: true
+    });
+
+    // Timeline cho hiệu ứng title
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: title,
+        start: "center center", // Khi title vào giữa viewport
+        end: "+=200%", // Tổng thời gian cho giữ + di chuyển
+        scrub: true
+      }
+    });
+
+    // Bước 1: Giữ title ở giữa 2 lần cuộn
+    tl.to({}, { duration: 1.5 });
+
+    // Bước 2: Sau khi giữ, di chuyển title lên trên
+    tl.to(title, { y: "-150%", ease: "none", duration: 1 });
+  });
+}
 export default function initAnimations() {
   if (typeof window === "undefined") return;
-
   registerGSAPPlugins();
   fadeUpAnimation();
   dropTextAnimation();
@@ -199,4 +267,6 @@ export default function initAnimations() {
   floatAnimation();
   scrollToSectionOnClick();
   fromIdeaToProductAnimation();
+  observeFadeUpAnimation();
+  ScrollTriggerAnimation();
 }

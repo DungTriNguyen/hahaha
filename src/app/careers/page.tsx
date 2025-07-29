@@ -32,6 +32,7 @@ const CareersPage = () => {
         description="We’re always open to great people."
         button={{
           text: "Send Open Application",
+          className: "tracking-tight",
           href: "#",
           icon1: "/luggage.svg",
           icon2: "/right.svg",

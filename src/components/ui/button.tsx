@@ -11,6 +11,7 @@ const Button = ({ text, href, icon1, icon2, className }: ButtonProps) => {
           "bg-button text-white rounded-2xl flex items-center gap-8 justify-between p-1 w-fit group cursor-pointer transition-all duration-300 max-w-full",
           className
         )}
+        aria-label={text || "button"}
       >
         {text && (
           <span className="pl-4 font-semibold tracking-widest uppercase text-sm md:text-[15px] whitespace-nowrap">

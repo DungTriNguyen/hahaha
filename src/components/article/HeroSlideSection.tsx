@@ -6,29 +6,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { BlogResponse } from "@/types/blog";
 import Link from "next/link";
-import { useBlog } from "../hooks/blog";
+import { getBlog } from "../hooks/blog";
 import CardTitle from "../ui/card-title";
 import Description from "../ui/description";
 import SubTitle from "../ui/sub-title";
 import Title from "../ui/title";
+import { useEffect, useState } from "react";
 
-const slides = [
-  {
-    img: "/articles/article_1.png",
-  },
-  {
-    img: "/articles/article_2.png",
-  },
-  {
-    img: "/articles/article_3.png",
-  },
-];
 
 const HeroSlideSecton = () => {
-  const { data } = useBlog({
-    PageSize: 3,
-  });
-  const dataBlog = data as BlogResponse;
+  const [dataBlog, setDataBlog] = useState<BlogResponse | null>(null);
+
+  useEffect(() => {
+    getBlog({
+      PageSize: 3,
+    }).then((data) => {
+      setDataBlog(data as BlogResponse);
+    });
+  }, []);
   console.log("data", dataBlog);
 
   return (
@@ -73,7 +68,7 @@ const HeroSlideSecton = () => {
           className="custom-swiper swiper-custom-pagination px-5 md:px-10 lg:px-20 xl:px-[290px]"
         >
           {dataBlog?.items ? (
-            dataBlog.items.map((item, idx) => (
+            dataBlog?.items?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <Link href={`/articles/${item.itemUrl}`}>
                   <div className="rounded-xl w-full max-w-[320px] md:max-w-[480px] lg:max-w-[600px] xl:max-w-[720px] h-[200px] md:h-[300px] lg:h-[400px] xl:h-[540px] overflow-hidden mx-auto relative">

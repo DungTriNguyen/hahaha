@@ -1,17 +1,18 @@
-import { useBlog } from "@/components/hooks/blog";
+import { getBlog } from "@/components/hooks/blog";
 import { BlogContent } from "@/types/blog";
 import CardDescription from "../ui/card-description";
 import Description from "../ui/description";
 
-const ArticleContent = ({
+const ArticleContent = async ({
   description,
   id,
 }: {
   description: string;
   id: string;
 }) => {
-  const { data } = useBlog({ id: id, content: true });
+  const data = await getBlog({ id: id, content: true });
   const content = data as BlogContent;
+  console.log("content", content);
   return (
     <section className="bg-background flex flex-col items-center justify-center px-4 pb-16">
       <div className="w-full max-w-[840px] relative z-2 flex flex-col items-center gap-8">

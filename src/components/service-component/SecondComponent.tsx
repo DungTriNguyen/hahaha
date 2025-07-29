@@ -20,18 +20,18 @@ const technologies2 = [
 
 const SecondComponent = () => {
   return (
-    <section className="relative z-20 bg-numberCard text-white bg-[url('/img_service_section_2.png')] bg-cover bg-no-repeat bg-center md:py-32 xl:py-[275px]">
-      <div className="container px-4 md:px-6 lg:px-8 py-10">
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
+    <section className="relative z-20 bg-numberCard text-white bg-[url('/img_service_section_2.png')] bg-cover bg-no-repeat bg-center md:py-32 xl:pt-[275px] xl:pb-[135px]">
+      <div className="container py-10">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12  justify-center items-center">
           <div className="flex-1">
-            <div className="mb-4 md:mb-6">
+            <div className="mb-14">
               <h3 className="text-xl md:text-2xl font-coda font-normal uppercase mb-4 md:mb-6 leading-tight">
                 Latest technologies
                 <br />
                 we build with
               </h3>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 xl:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-18 ">
               {technologies1.map((item, index) => (
                 <div key={index} className="flex justify-center items-center">
                   <div className="w-auto h-auto">
@@ -50,14 +50,14 @@ const SecondComponent = () => {
           </div>
 
           <div className="flex-1">
-            <div className="mb-4 md:mb-6">
+            <div className="mb-14">
               <h3 className="text-xl md:text-2xl font-coda font-normal uppercase mb-4 md:mb-6 leading-tight">
                 Partnering with
                 <br />
                 leading suppliers
               </h3>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 xl:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-18 ">
               {technologies2.map((item, index) => (
                 <div key={index} className="flex justify-center items-center">
                   <div className="w-auto h-auto">

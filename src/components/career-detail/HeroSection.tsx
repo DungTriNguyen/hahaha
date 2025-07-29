@@ -27,8 +27,8 @@ const HeroSection = ({
         <div className="text-base md:text-lg text-descriptionCard uppercase font-semibold mb-6 lg:mb-16">
           Full-time • onsite • HCMC
         </div>
-        <div className="relative flex items-start pl-4">
-          <div className="max-w-3xl flex flex-col gap-4 p-2 lg:p-6">
+        <div className="relative flex items-start pl-3">
+          <div className="max-w-4xl flex flex-col gap-4 p-2 lg:p-6">
             {description ? (
               <CardDescription
                 description={description}

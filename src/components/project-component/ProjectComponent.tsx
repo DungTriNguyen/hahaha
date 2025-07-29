@@ -9,7 +9,7 @@ import MoreButton from "../ui/more-button";
 
 const ProjectComponent = ({ data }: { data: Projects[] }) => {
   return (
-    <div className="flex flex-col gap-4 w-full max-w-[1440px] mx-auto px-4 lg:px-0">
+    <div className="flex flex-col gap-4 w-full container mx-auto px-4 lg:px-0">
       {data.map((project, index) => (
         <div
           key={project.id || index}
@@ -42,7 +42,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
             >
               <div className="flex flex-col gap-2">
                 <CardNumber number={project.numberIndex} />
-                <CardTitle title={project.title} as="h3" />
+                <CardTitle title={project.title} as="h3" className="leading-snug"/>
                 <div
                   className={twMerge(
                     "flex flex-wrap gap-2",
