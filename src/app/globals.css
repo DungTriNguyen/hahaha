@@ -2,7 +2,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #0C0B10;
+  --title-color: #b3ccff;
+  --card-color: #121620;
+  --number-card: #1a4cd8;
+  --number-card-hover: #b3ccff;
+  --description-card: #cccccc;
+  --button-color: #2468ff;
+  --button-icon: #1a4cd8;
+  --date-card: #10b981;
+  --title-color: #cce0ff;
   --foreground: #171717;
   --font-coda: "Coda", var(--font-geist-sans), Inter, sans-serif;
   --font-inter: "Inter", var(--font-geist-sans), sans-serif;
@@ -10,22 +19,22 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-title: var(--title-color);
+  --color-card: var(--card-color);
+  --color-numberCard: var(--number-card);
+  --color-numberCardHover: var(--number-card-hover);
+  --color-descriptionCard: var(--description-card);
+  --color-button: var(--button-color);
+  --color-buttonIcon: var(--button-icon);
+  --color-dateCard: var(--date-card);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter); /* Default sans font is Inter */
-  --font-coda: var(--font-coda); /* Define font-coda utility */
-  --font-mono: var(
-    --font-geist-mono,
-    "monospace"
-  ); /* Fallback for undefined --font-geist-mono */
-  --container-max-width: 1440px; /* Ensure consistency with your 1440px container */
+  --font-sans: var(--font-inter);
+  --font-coda: var(--font-coda);
+  --font-mono: var(--font-geist-mono, "monospace");
+  --container-max-width: 1440px;
   --container-padding: 1.5rem;
   --color-custom-blue: #2468ff;
   --color-dark-blue: #1a4cd8;
-  --background-image-hero-mobile: url("/images/mobile-hero.jpg");
-  --background-image-hero-desktop: url("/images/desktop-hero.jpg");
-  --background-image-header-bg: url("/images/header-bg.jpg");
-  --background-image-projects-bg: url("/images/projects-bg.jpg");
-  --background-image-contact-bg: url("/images/contact-bg.jpg");
   --breakpoint-xs: 480px;
   --breakpoint-md: 800px;
 }
@@ -45,11 +54,11 @@ body {
 
 @layer utilities {
   .container {
-    max-width: 1440px;
+    max-width: 1472px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: 100%;
   }
   .font-coda {
@@ -57,25 +66,24 @@ body {
   }
 }
 
-/* Swiper Responsive Padding */
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .custom-swiper {
     padding-left: 100px !important;
     padding-right: 100px !important;
   }
-}
+} */
 @media (min-width: 1200px) {
   .custom-swiper {
     overflow: unset !important;
   }
 }
 
-@media (min-width: 1440px) {
+/* @media (min-width: 1440px) {
   .custom-swiper {
     padding-left: 290px !important;
     padding-right: 0px !important;
   }
-}
+} */
 
 .swiper-pagination {
   display: flex !important;
@@ -105,37 +113,7 @@ body {
   animation: slowMove 7000s linear infinite;
 }
 
-/* @keyframes wave1 {
-  0%   { transform: translateX(0%) translateY(0); }
-  50%  { transform: translateX(-2%) translateY(-10px); }
-  100% { transform: translateX(-4%) translateY(0); }
-}
-
-@keyframes wave2 {
-  0%   { transform: translateX(0%) translateY(0); }
-  50%  { transform: translateX(2%) translateY(-8px); }
-  100% { transform: translateX(4%) translateY(0); }
-}
-
-@keyframes wave3 {
-  0%   { transform: translateX(0%) translateY(0); }
-  50%  { transform: translateX(-1%) translateY(-5px); }
-  100% { transform: translateX(-2%) translateY(0); }
-}
-
-.smooth-animate-wave1 {
-  animation: wave1 10s ease-in-out infinite alternate;
-}
-
-.smooth-animate-wave2 {
-  animation: wave2 14s ease-in-out infinite alternate-reverse;
-}
-
-.smooth-animate-wave3 {
-  animation: wave3 12s ease-in-out infinite alternate;
-} */
-
-/* @keyframes waveTopAnim {
+@keyframes waveTopAnim {
   0% {
     transform: translateX(0);
   }
@@ -175,4 +153,26 @@ body {
 .waveBottom {
   animation: waveBottomAnim 10s linear infinite;
   will-change: transform;
-} */
+}
+
+.header-blur-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(5px);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  pointer-events: none;
+}
+
+.section-blur-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(80px); /* hoặc 5px tùy bạn */
+  mask-image: linear-gradient(to top, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
+  pointer-events: none;
+}

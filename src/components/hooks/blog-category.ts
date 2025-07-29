@@ -1,56 +1,43 @@
-"use client";
-import { useState, useEffect } from "react";
 import type { BlogCategoryResponse } from "@/types/blog-category";
 
-interface UseBlogCategoryOptions {
+interface GetBlogCategoryOptions {
   id?: string;
   ParentId?: string;
   PageIndex?: number;
   PageSize?: number;
 }
 
-export function useBlogCategory(options?: UseBlogCategoryOptions) {
-  const [data, setData] = useState<BlogCategoryResponse | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export async function getBlogCategory(
+  options?: GetBlogCategoryOptions
+): Promise<BlogCategoryResponse | null> {
+  try {
+  let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/BlogCategory/${process.env.NEXT_PUBLIC_TENANT_ID}`;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/BlogCategory/${process.env.NEXT_PUBLIC_TENANT_ID}`;
+  if (options?.id) {
+    url += `/${options.id}`;
+  } else if (options?.ParentId) {
+    url += `?ParentId=${options.ParentId}`;
+  } else if (
+    typeof options?.PageIndex === "number" &&
+    typeof options?.PageSize === "number"
+  ) {
+    url += `?PageIndex=${options.PageIndex}&PageSize=${options.PageSize}`;
+  }
 
-        if (options?.id) {
-          url += `/${options.id}`;
-        } else if (options?.ParentId) {
-          url += `?ParentId=${options.ParentId}`;
-        } else if (options?.PageIndex && options?.PageSize) {
-          url += `?PageIndex=${options.PageIndex}&PageSize=${options.PageSize}`;
-        }
+  const res = await fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    cache: "no-store", // để luôn lấy mới khi SSR
+  });
 
-        const res = await fetch(url, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+    return null;
+  }
 
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : String(err));
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [options?.id, options?.ParentId, options?.PageIndex, options?.PageSize]);
-
-  return { data, loading, error };
+  return res.json();
+  } catch (error) {
+    console.error("Error fetching blog category:", error);
+    return null;
+  }
 }

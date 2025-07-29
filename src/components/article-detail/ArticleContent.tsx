@@ -1,32 +1,37 @@
-import Image from "next/image";
+import { getBlog } from "@/components/hooks/blog";
 import { BlogContent } from "@/types/blog";
-import { useBlog } from "../hooks/blog";
+import CardDescription from "../ui/card-description";
+import Description from "../ui/description";
 
-const ArticleContent = ({
-  image,
+const ArticleContent = async ({
   description,
   id,
 }: {
-  image: string;
   description: string;
   id: string;
 }) => {
-  const { data, loading, error } = useBlog({ id: id, content: true });
+  const data = await getBlog({ id: id, content: true });
   const content = data as BlogContent;
+  console.log("content", content);
   return (
-    <section className="relative z-2 bg-[#0C0B10] flex flex-col items-center justify-center px-4 pb-16  ">
-      <div className="w-full max-w-[840px] flex flex-col items-center gap-8">
-        <div className="w-full flex flex-col gap-4">
-          <p className="text-lg text-[#CCCCCC] leading-relaxed mb-2 border-l border-l-[#2468FF] ml-6 p-4">
-            {description}
-          </p>
-          {content?.content ? (
-            <div
-              className="prose prose-invert max-w-none text-white text-base md:text-lg leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: content?.content || "" }}
+    <section className="bg-background flex flex-col items-center justify-center px-4 pb-16">
+      <div className="w-full max-w-[840px] relative z-2 flex flex-col items-center gap-8">
+        <div className="w-full flex flex-col gap-4 ">
+          {description ? (
+            <CardDescription
+              description={description}
+              className="mb-6 border-l-2 border-l-button text-start ml-6 p-4 text-lg italic"
             />
           ) : (
-            <p className="text-gray-400">Không có nội dung</p>
+            <p className="text-gray-400">Not found description</p>
+          )}
+          {content?.content ? (
+            <Description
+              description={content?.content}
+              className="text-start"
+            />
+          ) : (
+            <p className="text-gray-400">Not found content</p>
           )}
         </div>
       </div>

@@ -1,9 +1,7 @@
-
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
-
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -42,16 +40,16 @@ const SlideComponent = () => {
   return (
     <div className="relative [&_.swiper]:pb-10 [&_.swiper-pagination]:bottom-0 [&_.swiper-button-prev]:top-[35%] [&_.swiper-button-next]:top-[35%]">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]} 
-        spaceBetween={24} 
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={24}
         slidesPerView={1}
         breakpoints={{
-          480: { slidesPerView: 1 }, 
-          800: { slidesPerView: 3 }, 
+          480: { slidesPerView: 1 },
+          800: { slidesPerView: 3 },
         }}
-        navigation 
-        pagination={{ clickable: true }} 
-        autoplay={{ delay: 3000, disableOnInteraction: false }} 
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         className="w-full"
       >
         {projects.map((project) => (
