@@ -3,9 +3,10 @@ import SubTitle from "../ui/sub-title";
 const FromIdeaToProduct = () => {
   return (
     <section
-      className="scroll-section relative w-full h-[2560px] flex items-center justify-center overflow-hidden data-scroll-to scroll-smooth"
+      className="scroll-section relative w-full h-[2560px] flex items-center justify-center data-scroll-to scroll-smooth"
       style={{
-       WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 50%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, transparent 0%, black 50%)",
         WebkitMaskRepeat: "no-repeat",
         WebkitMaskSize: "100% 100%",
         maskImage: "linear-gradient(to bottom, transparent 0%, black 30%)",
@@ -24,7 +25,7 @@ const FromIdeaToProduct = () => {
       />
 
       {/* Nội dung */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 md:px-8 section-title">
+      <div className="sticky z-10 flex flex-col items-center justify-center px-4 md:px-8 section-title">
         <SubTitle
           title="From ideas to products"
           as="h2"

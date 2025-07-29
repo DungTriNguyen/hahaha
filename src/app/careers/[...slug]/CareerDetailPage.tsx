@@ -1,4 +1,3 @@
-"use client";
 import BackgroundComponent from "@/components/article/BackgroundSection";
 import ContentSection from "@/components/career-detail/ContentSection";
 import HeroSection from "@/components/career-detail/HeroSection";

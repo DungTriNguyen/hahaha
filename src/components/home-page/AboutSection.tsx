@@ -70,8 +70,8 @@ const AboutSection = () => {
         />
       </div>
 
-      <div className="relative z-30 pt-16 pb-20">
-        <div className="px-4 md:px-6 lg:px-0">
+      <div className="container relative z-10 lg:pt-16 lg:pb-20">
+        <div className="py-8">
           <Swiper
             modules={[Pagination]}
             pagination={{
@@ -80,18 +80,13 @@ const AboutSection = () => {
               bulletClass: "swiper-pagination-bullet",
               bulletActiveClass: "swiper-pagination-bullet-active",
             }}
-            spaceBetween={24}
+            spaceBetween={48}
             slidesPerView={1}
             breakpoints={{
-              640: { slidesPerView: 1, spaceBetween: 24 },
-              1024: { slidesPerView: 1.5, spaceBetween: 32 },
-              1440: { slidesPerView: 2, spaceBetween: 48 },
+              640: { slidesPerView: 1.5, spaceBetween: 10 },
+              1024: { slidesPerView: 2, spaceBetween: 48 },
             }}
-            style={{
-              paddingLeft: "0px",
-              paddingRight: "0px",
-            }}
-            className="custom-swiper swiper-custom-pagination"
+            className="custom-swiper swiper-custom-pagination w-full"
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
@@ -105,7 +100,7 @@ const AboutSection = () => {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="w-full md:w-1/2 flex flex-col justify-center p-4 lg:p-0">
+                  <div className="w-full md:w-1/2 flex flex-col justify-center pr-6">
                     <CardTitle title={slide.title} as="h3" className="mb-4" />
                     <div className="w-12 h-1 bg-white rounded mb-4" />
                     <CardDescription

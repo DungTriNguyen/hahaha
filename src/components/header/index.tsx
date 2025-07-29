@@ -4,7 +4,8 @@ import React, { useState } from "react";
 const navItemsDesktop = [
   {
     title: "Home",
-    href: "/#home",
+    id: "#home",
+    href: "/",
   },
   {
     title: "Projects",
@@ -129,7 +130,6 @@ const Header = () => {
             className="lg:hidden p-2"
             aria-label="Toggle mobile menu"
             onClick={() => setMobileOpen(true)}
-            
           >
             <Image src="/menu.svg" alt="Menu" width={40} height={14} />
           </button>

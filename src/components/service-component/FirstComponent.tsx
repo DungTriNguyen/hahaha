@@ -26,9 +26,9 @@ const slides = [
 
 const FirstComponent = () => {
   return (
-    <section className="relative bg-[var(--background)] text-white pt-20 md:pt-32 lg:pt-44 z-30 ">
+    <section className="relative bg-background text-white pt-20 md:pt-32 lg:pt-44 z-30 ">
       <div className="container relative z-20 flex flex-col-reverse lg:flex-row gap-8 md:gap-12 lg:gap-16 items-center px-4 lg:px-0">
-        <div className="flex-1 w-full">
+        <div className="flex-1 w-full mb-[-200px]">
           <div className="mb-6 ">
             <Title title="Services" />
             <SubTitle
@@ -77,7 +77,7 @@ const FirstComponent = () => {
           </div>
         </div>
 
-        <div className="flex-1 relative w-full">
+        <div className="flex-1 relative w-full mb-[-100px]">
           <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] ">
             <Image
               src="/img_service_section_1.png"
