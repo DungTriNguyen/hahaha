@@ -6,25 +6,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { BlogResponse } from "@/types/blog";
 import Link from "next/link";
-import { getBlog } from "../hooks/blog";
 import CardTitle from "../ui/card-title";
 import Description from "../ui/description";
 import SubTitle from "../ui/sub-title";
 import Title from "../ui/title";
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useBlogQuery } from "../hooks/blog";
 
 const HeroSlideSecton = () => {
-  const [dataBlog, setDataBlog] = useState<BlogResponse | null>(null);
-
-  useEffect(() => {
-    getBlog({
-      PageSize: 3,
-    }).then((data) => {
-      setDataBlog(data as BlogResponse);
-    });
-  }, []);
-  console.log("data", dataBlog);
+  const {
+    data: dataBlog,
+    isLoading,
+    error,
+  } = useBlogQuery({
+    PageSize: 3,
+  });
+  const blogResponse = dataBlog as BlogResponse | null;
+  console.log("data", blogResponse);
 
   return (
     <section className="container relative z-2 w-full flex flex-col justify-center items-center text-white py-10 md:py-16 lg:py-20">
@@ -54,8 +52,16 @@ const HeroSlideSecton = () => {
             }}
             className="custom-swiper swiper-custom-pagination w-full"
           >
-            {dataBlog?.items ? (
-              dataBlog?.items?.map((item, idx) => (
+            {isLoading ? (
+              <div className="flex justify-center items-center h-[200px] md:h-[300px] lg:h-[400px] xl:h-[540px]">
+                <p className="text-gray-400">Loading...</p>
+              </div>
+            ) : error ? (
+              <div className="flex justify-center items-center h-[200px] md:h-[300px] lg:h-[400px] xl:h-[540px]">
+                <p className="text-gray-400">Error loading data</p>
+              </div>
+            ) : blogResponse?.items ? (
+              blogResponse.items.map((item, idx) => (
                 <SwiperSlide key={idx}>
                   <Link href={`/articles/${item.itemUrl}`}>
                     <div className="rounded-xl w-full overflow-hidden mx-auto relative">

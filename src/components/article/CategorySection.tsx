@@ -1,8 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { getBlog } from "../hooks/blog";
-import { getBlogCategory } from "../hooks/blog-category";
+import { useState, useEffect } from "react";
 import { BlogItem, BlogResponse } from "@/types/blog";
 import Link from "next/link";
 import CardTitle from "../ui/card-title";
@@ -12,48 +9,68 @@ import MoreButton from "../ui/more-button";
 import { twMerge } from "tailwind-merge";
 import { BlogCategory, BlogCategoryResponse } from "@/types/blog-category";
 import Image from "next/image";
+import { useBlogQuery } from "../hooks/blog";
+import { useBlogCategoryQuery } from "../hooks/blog-category";
 
 export default function CategorySlideSection() {
-  const [category, setCategory] = useState<BlogCategoryResponse | null>(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
     null
   );
-  const [dataBlog, setDataBlog] = useState<BlogResponse | null>(null);
   const [pageIndex, setPageIndex] = useState(0);
   const [allItems, setAllItems] = useState<BlogItem[]>([]);
   const PAGE_SIZE = 3;
 
-  useEffect(() => {
-    getBlogCategory({
-      ParentId: process.env.NEXT_PUBLIC_CATEGORY_ARTICLE_ID,
-    }).then((res) => {
-      setCategory(res);
-      if (res?.items?.length && res.items.length > 0 && !selectedCategoryId) {
-        setSelectedCategoryId(res.items[0].id);
-      }
-    });
-  }, []);
+  // Fetch blog categories
+  const {
+    data: category,
+    isLoading: isLoadingCategory,
+    error: categoryError,
+  } = useBlogCategoryQuery({
+    ParentId: process.env.NEXT_PUBLIC_CATEGORY_ARTICLE_ID,
+  });
 
+  // Type guard to ensure we have BlogCategoryResponse
+  const categoryResponse = category as BlogCategoryResponse | null;
+
+  // Set initial selected category when categories are loaded
   useEffect(() => {
-    if (!selectedCategoryId) return;
-    getBlog({
-      BlogCategoryId: selectedCategoryId,
-      PageIndex: pageIndex,
-      PageSize: PAGE_SIZE,
-    }).then((res) => {
-      const blogResponse = res as BlogResponse;
-      setDataBlog(blogResponse);
+    if (
+      categoryResponse?.items?.length &&
+      categoryResponse.items.length > 0 &&
+      !selectedCategoryId
+    ) {
+      setSelectedCategoryId(categoryResponse.items[0].id);
+    }
+  }, [categoryResponse, selectedCategoryId]);
+
+  // Fetch blog data for selected category
+  const {
+    data: dataBlog,
+    isLoading: isLoadingBlog,
+    error: blogError,
+  } = useBlogQuery({
+    BlogCategoryId: selectedCategoryId || undefined,
+    PageIndex: pageIndex,
+    PageSize: PAGE_SIZE,
+  });
+
+  // Type guard to ensure we have BlogResponse
+  const blogResponse = dataBlog as BlogResponse | null;
+
+  // Update allItems when dataBlog changes
+  useEffect(() => {
+    if (blogResponse && selectedCategoryId) {
       if (pageIndex === 0) {
         setAllItems(blogResponse?.items || []);
       } else {
         setAllItems((prev) => [...prev, ...(blogResponse?.items || [])]);
       }
-    });
-  }, [selectedCategoryId, pageIndex]);
+    }
+  }, [blogResponse, selectedCategoryId, pageIndex]);
 
-  console.log("dataBlog:::::", dataBlog);
+  console.log("dataBlog:::::", blogResponse);
 
-  const totalCount = dataBlog?.totalCount || 0;
+  const totalCount = blogResponse?.totalCount || 0;
   const hasMoreItems = allItems.length < totalCount;
 
   const handleLoadMore = () => {
@@ -73,7 +90,15 @@ export default function CategorySlideSection() {
       <div className="container px-4 md:px-6 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row lg:justify-between gap-8 lg:gap-12">
           <div className="lg:flex-1 flex flex-col gap-6">
-            {allItems && allItems.length > 0 ? (
+            {isLoadingBlog ? (
+              <div className="text-white bg-opacity-10 px-3 py-2 rounded">
+                Loading articles...
+              </div>
+            ) : blogError ? (
+              <div className="text-white bg-opacity-10 px-3 py-2 rounded">
+                Error loading articles
+              </div>
+            ) : allItems && allItems.length > 0 ? (
               <>
                 {allItems.map((article, index) => (
                   <Link href={`/articles/${article.itemUrl}`} key={index}>
@@ -132,26 +157,37 @@ export default function CategorySlideSection() {
                 CATEGORY
               </p>
               <ul className="flex flex-wrap lg:flex-col gap-3 md:gap-4 lg:gap-6">
-                {category?.items && category.items.length > 0 ? (
-                  category.items.map((item: BlogCategory, index: number) => (
-                    <li
-                      key={index}
-                      className="cursor-pointer text-sm md:text-base transition-colors uppercase"
-                      onClick={() => handleCategoryClick(item.id)}
-                    >
-                      <span
-                        className={twMerge(
-                          `relative pb-1 ${
-                            selectedCategoryId === item.id
-                              ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
-                              : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
-                          }`
-                        )}
+                {isLoadingCategory ? (
+                  <li className="text-white bg-opacity-10 px-3 py-2 rounded">
+                    Loading categories...
+                  </li>
+                ) : categoryError ? (
+                  <li className="text-white bg-opacity-10 px-3 py-2 rounded">
+                    Error loading categories
+                  </li>
+                ) : categoryResponse?.items &&
+                  categoryResponse.items.length > 0 ? (
+                  categoryResponse.items.map(
+                    (item: BlogCategory, index: number) => (
+                      <li
+                        key={index}
+                        className="cursor-pointer text-sm md:text-base transition-colors uppercase"
+                        onClick={() => handleCategoryClick(item.id)}
                       >
-                        {item.title}
-                      </span>
-                    </li>
-                  ))
+                        <span
+                          className={twMerge(
+                            `relative pb-1 ${
+                              selectedCategoryId === item.id
+                                ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
+                                : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
+                            }`
+                          )}
+                        >
+                          {item.title}
+                        </span>
+                      </li>
+                    )
+                  )
                 ) : (
                   <li className="text-white bg-opacity-10 px-3 py-2 rounded">
                     No data found

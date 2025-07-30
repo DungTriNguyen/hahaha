@@ -1,12 +1,11 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import ArticleDetailPage from "./ArticleDetailPage";
-import { getBlog } from "@/components/hooks/blog";
+import { getBlog } from "@/services/blog";
 import { SeoData } from "@/types/seo";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
 };
-
 
 export async function generateMetadata(
   { params }: Props,

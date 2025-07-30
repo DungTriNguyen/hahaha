@@ -1,51 +1,66 @@
+"use client";
+
 import ContactSection from "@/components/home-page/ContactSection";
 import HeroSection from "@/components/article-detail/HeroSection";
 import SlideComponent from "@/components/article-detail/RelatedArticle";
 import ArticleContent from "@/components/article-detail/ArticleContent";
 import BackgroundComponent from "@/components/article/BackgroundSection";
 
-import { getBlog } from "@/components/hooks/blog";
 import type { BlogItem, BlogResponse } from "@/types/blog";
+import { useBlogQuery } from "@/components/hooks/blog";
 
 interface Props {
   params: { slug: string[] };
 }
 
-export default async function ArticleDetailPage({ params }: Props) {
+export default function ArticleDetailPage({ params }: Props) {
   const [seoSlug, id] = params.slug || [];
-  let blog: BlogItem | null = null;
-  try {
-    const data = await getBlog({ id });
-    blog = data as BlogItem;
-  } catch (error) {
+
+  // Fetch main article data
+  const {
+    data: blog,
+    isLoading: isLoadingBlog,
+    error: blogError,
+  } = useBlogQuery({ id });
+
+  const blogItem = blog as BlogItem | null;
+
+  // Fetch related articles data
+  const {
+    data: articleRelatedData,
+    isLoading: isLoadingRelated,
+    error: relatedError,
+  } = useBlogQuery({
+    PageIndex: 0,
+    PageSize: 3,
+    ExcludeBlogId: blogItem?.id,
+    BlogCategoryId: blogItem?.categoryId,
+  });
+
+  const relatedData = articleRelatedData as BlogResponse | null;
+
+  console.log("articleRelatedData:::::", relatedData);
+
+  // Show loading state
+  if (isLoadingBlog) {
+    return <p className="text-center py-10">Loading article...</p>;
+  }
+
+  // Show error state
+  if (blogError || !blogItem) {
     return <p className="text-center py-10">Error loading article</p>;
   }
-  if (!blog) {
-    return <p className="text-center py-10">Not found data</p>;
-  }
-  let articleRelatedData: BlogResponse | null = null;
-  try {
-    const related = await getBlog({
-      PageIndex: 0,
-      PageSize: 3,
-      ExcludeBlogId: blog.id,
-      BlogCategoryId: blog?.categoryId,
-    });
-    articleRelatedData = related as BlogResponse;
-  } catch (error) {
-    articleRelatedData = null;
-  }
-  console.log("articleRelatedData:::::", articleRelatedData);
+
   return (
     <div className="bg-background">
       <BackgroundComponent />
       <HeroSection
-        title={blog?.title}
-        image={blog?.imageUrl}
-        createdDate={blog?.createdDate}
+        title={blogItem?.title}
+        image={blogItem?.imageUrl}
+        createdDate={blogItem?.createdDate}
       />
-      <ArticleContent description={blog?.description} id={id} />
-      <SlideComponent articleRelatedData={articleRelatedData} />
+      <ArticleContent description={blogItem?.description} id={id} />
+      <SlideComponent articleRelatedData={relatedData} />
       <ContactSection
         subtitle="Got an idea to build?"
         button={{

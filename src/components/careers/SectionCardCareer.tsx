@@ -1,5 +1,5 @@
 "use client";
-import { getBlog } from "@/components/hooks/blog";
+import { getBlog } from "@/services/blog";
 import { CareerResponse } from "@/types/career";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
