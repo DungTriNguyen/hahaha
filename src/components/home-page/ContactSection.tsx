@@ -39,12 +39,12 @@ const ContactSection = ({
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-4 text-white">
             <Link href="tel:+84966868574">
               <div className="flex items-center gap-4">
-                <Image src="/phone.svg" width={20} height={20} alt="phone" />
+                <Image src="/icons/phone.svg" width={20} height={20} alt="phone" />
                 <span className="text-sm">[+84] 966 868 574</span>
               </div>
             </Link>
             <Image
-              src="/line.svg"
+              src="/icons/line.svg"
               width={7}
               height={25}
               alt="line"
@@ -52,12 +52,12 @@ const ContactSection = ({
             />
             <Link href="mailto:contact@hubcom.tech">
               <div className="flex items-center gap-4">
-                <Image src="/email.svg" width={20} height={20} alt="email" />
+                <Image src="/icons/email.svg" width={20} height={20} alt="email" />
                 <span className="text-sm">contact@hubcom.tech</span>
               </div>
             </Link>
             <Image
-              src="/line.svg"
+              src="/icons/line.svg"
               width={7}
               height={25}
               alt="line"
@@ -66,7 +66,7 @@ const ContactSection = ({
             <Link href="https://maps.app.goo.gl/DXyB8WwwZN6TsKCS7">
               <div className="flex items-center gap-4">
                 <Image
-                  src="/marker_pin.svg"
+                  src="/icons/marker_pin.svg"
                   width={20}
                   height={20}
                   alt="location"

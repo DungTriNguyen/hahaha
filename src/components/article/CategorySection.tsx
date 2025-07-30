@@ -20,7 +20,6 @@ export default function CategorySlideSection() {
   const [allItems, setAllItems] = useState<BlogItem[]>([]);
   const PAGE_SIZE = 3;
 
-  // Fetch blog categories
   const {
     data: category,
     isLoading: isLoadingCategory,
@@ -29,10 +28,8 @@ export default function CategorySlideSection() {
     ParentId: process.env.NEXT_PUBLIC_CATEGORY_ARTICLE_ID,
   });
 
-  // Type guard to ensure we have BlogCategoryResponse
   const categoryResponse = category as BlogCategoryResponse | null;
 
-  // Set initial selected category when categories are loaded
   useEffect(() => {
     if (
       categoryResponse?.items?.length &&
@@ -43,7 +40,7 @@ export default function CategorySlideSection() {
     }
   }, [categoryResponse, selectedCategoryId]);
 
-  // Fetch blog data for selected category
+
   const {
     data: dataBlog,
     isLoading: isLoadingBlog,
@@ -52,12 +49,13 @@ export default function CategorySlideSection() {
     BlogCategoryId: selectedCategoryId || undefined,
     PageIndex: pageIndex,
     PageSize: PAGE_SIZE,
-  });
+  },
+  );
 
-  // Type guard to ensure we have BlogResponse
+
   const blogResponse = dataBlog as BlogResponse | null;
 
-  // Update allItems when dataBlog changes
+
   useEffect(() => {
     if (blogResponse && selectedCategoryId) {
       if (pageIndex === 0) {
@@ -68,7 +66,6 @@ export default function CategorySlideSection() {
     }
   }, [blogResponse, selectedCategoryId, pageIndex]);
 
-  console.log("dataBlog:::::", blogResponse);
 
   const totalCount = blogResponse?.totalCount || 0;
   const hasMoreItems = allItems.length < totalCount;
@@ -86,8 +83,8 @@ export default function CategorySlideSection() {
   };
 
   return (
-    <section className="text-white lg:py-32 relative z-1">
-      <div className="container px-4 md:px-6 lg:px-8">
+    <section className="text-white relative z-1 pb-10">
+      <div className="lg:max-w-[1285px] mx-auto px-4">
         <div className="flex flex-col-reverse lg:flex-row lg:justify-between gap-8 lg:gap-12">
           <div className="lg:flex-1 flex flex-col gap-6">
             {isLoadingBlog ? (
@@ -102,21 +99,21 @@ export default function CategorySlideSection() {
               <>
                 {allItems.map((article, index) => (
                   <Link href={`/articles/${article.itemUrl}`} key={index}>
-                    <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8 group items-center">
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-6 group items-center">
                       <div className="w-full md:w-[300px] lg:w-[440px] h-[200px] md:h-[250px] lg:h-[330px] flex-shrink-0">
                         <Image
                           unoptimized
                           width={440}
                           height={330}
-                          src={article.imageUrl || "/articles/article.png"}
+                          src={article.imageUrl || "/articles/default.webp"}
                           alt={article.title}
                           className="w-full h-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110"
                         />
                       </div>
-                      <div className="flex-1 space-y-3 md:space-y-4 min-w-0 ">
+                      <div className="flex-1 space-y-3 md:space-y-6 min-w-0 text-start">
                         <CardTitle
                           title={article.title}
-                          className="text-xl lg:text-2xl uppercase tracking-normal"
+                          className="text-xl lg:text-2xl uppercase tracking-normal text-start"
                         />
                         <div className="flex items-center gap-2 text-xs md:text-sm font-semibold text-white">
                           <span>
@@ -151,8 +148,8 @@ export default function CategorySlideSection() {
             )}
           </div>
 
-          <div className="lg:border-l lg:border-[#2A2F3C] lg:pl-8 xl:pl-10 lg:w-[280px] xl:w-[320px] flex-shrink-0">
-            <div className="lg:sticky lg:top-8">
+          <div className="lg:border-l lg:border-[#2A2F3C] lg:pl-8 xl:pl-12 lg:w-[280px] xl:w-[320px] flex-shrink-0">
+            <div className="lg:sticky lg:top-8 lg:mt-30">
               <p className="text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6 font-coda">
                 CATEGORY
               </p>
@@ -176,10 +173,9 @@ export default function CategorySlideSection() {
                       >
                         <span
                           className={twMerge(
-                            `relative pb-1 ${
-                              selectedCategoryId === item.id
-                                ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
-                                : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
+                            `relative pb-1 ${selectedCategoryId === item.id
+                              ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
+                              : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
                             }`
                           )}
                         >

@@ -4,7 +4,7 @@ export default function BackgroundComponent() {
   return (
     <div className="bg-background absolute top-0 left-0 w-full z-[1]">
       <Image
-        src="/img_background.png"
+        src="/home/img_background.webp"
         alt="background"
         width={1920}
         height={768}

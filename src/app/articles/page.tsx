@@ -33,8 +33,8 @@ const ArticlePage = () => {
         button={{
           text: "Share your idea NOW",
           href: "#",
-          icon1: "/light.svg",
-          icon2: "/right.svg",
+          icon1: "/icons/light.svg",
+          icon2: "/icons/right.svg",
           
         }}
       />

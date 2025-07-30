@@ -66,24 +66,13 @@ body {
   }
 }
 
-/* @media (min-width: 1024px) {
-  .custom-swiper {
-    padding-left: 100px !important;
-    padding-right: 100px !important;
-  }
-} */
+
 @media (min-width: 1200px) {
   .custom-swiper {
     overflow: unset !important;
   }
 }
 
-/* @media (min-width: 1440px) {
-  .custom-swiper {
-    padding-left: 290px !important;
-    padding-right: 0px !important;
-  }
-} */
 
 .swiper-pagination {
   display: flex !important;
@@ -105,10 +94,6 @@ body {
   background-color: #fff !important;
 }
 
-.swiper-slide {
-}
-.swiper-slide {
-}
 .animated-iframe {
   animation: slowMove 7000s linear infinite;
 }

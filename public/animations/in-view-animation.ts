@@ -4,31 +4,101 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 
-
 function registerGSAPPlugins() {
   if (typeof window === "undefined") return;
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
 }
 
+
 function fadeUpAnimation() {
   const iframeWrapper = document.querySelector(".drop-iframe");
 
   if (!iframeWrapper) return;
 
-  gsap.from(iframeWrapper, {
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: iframeWrapper,
-      start: "top 90%", // khi phần tử sắp hiện ra
+      start: "top 90%",
       toggleActions: "play none none none",
-    },
-    y: 300, // từ dưới lên
-    opacity: 0,
-    duration: 2.7,
-    ease: "bounce.out", // nhún nhẹ
+    }
   });
-}
 
+  // Từ dưới trượt lên cao hơn vị trí thật
+  tl.fromTo(
+    iframeWrapper,
+    {
+      y: 700,
+      opacity: 0
+    },
+    {
+      y: -200, // vượt lên nhẹ
+      opacity: 1,
+      duration: 1.2,
+      ease: "power2.out" // trượt lên mượt
+    }
+  )
+
+  // Rơi xuống và nhún lò xo cực mượt
+  .to(
+    iframeWrapper,
+    {
+      y: 0,
+      duration: 0.8,
+      ease: "spring(2, 60, 0.2, 0)" 
+      // Tham số spring:
+      // 1: mass (khối lượng) 
+      // 80: stiffness (độ cứng lò xo)
+      // 8: damping (giảm chấn - càng thấp nhún càng nhiều)
+      // 0: velocity (tốc độ ban đầu)
+    }
+  );
+}
+// function dropTextAnimation() {
+//   document.querySelectorAll(".drop-text").forEach((el) => {
+//     const title = el.querySelector(".drop-title");
+//     const desc = el.querySelector(".drop-desc");
+//     const button = el.querySelector(".drop-btn");
+
+//     if (!title || !desc || !button) return;
+
+//     const tl = gsap.timeline({
+//       scrollTrigger: {
+//         trigger: el,
+//         start: "top 90%",
+//         toggleActions: "play none none none",
+//       }
+//     });
+
+//     // 1️⃣ Rơi từ trên cao xuống (tự nhiên)
+//     tl.from([title, desc, button], {
+//       y: -500,
+//       opacity: 0,
+//       duration: 0.8,
+//       ease: "power2.in" // giống trọng lực
+//     })
+
+//     // 2️⃣ Vượt quá vị trí chuẩn (móc võng)
+//     .to([title, desc, button], {
+//       y: 150,          // xuống dưới một chút
+//       duration: 0.4,
+//       ease: "power1.out"
+//     })
+//     // 3️⃣ Bật ngược lên (nhún nhẹ)
+//     .to([title, desc, button], {
+//       y: 0,
+//       duration: 1.2,
+//       ease: "elastic.out(1, 1)" // bật lại tự nhiên
+//     });
+
+//     // 4️⃣ Làm nút hiện dần ra
+//     tl.to(button, {
+//       opacity: 1,
+//       duration: 1.5 ,
+//       ease: "power1.out"
+//     }, "-=0.5");
+//   });
+// }
 function dropTextAnimation() {
   document.querySelectorAll(".drop-text").forEach((el) => {
     const title = el.querySelector(".drop-title");
@@ -37,31 +107,46 @@ function dropTextAnimation() {
 
     if (!title || !desc || !button) return;
 
-    // Rơi từ trên xuống với hiệu ứng bounce
-    gsap.from([title, desc, button], {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
         start: "top 90%",
         toggleActions: "play none none none",
-      },
-      y: -300, // từ rất cao
-      opacity: 0,
-      duration: 2.5,
-      ease: "bounce.out", // hiệu ứng nhún nhẹ
-      stagger: 0.05, // từng phần tử rơi nối tiếp 1 chút
+      }
     });
 
-    // Button hiện rõ dần ra sau cùng
-    gsap.to(button, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 90%",
+    // 1️⃣ Rơi từ trên xuống (vượt quá vị trí)
+    tl.fromTo(
+      [title, desc],
+      {
+        y: -1000, // từ trên xuống
+        opacity: 0
       },
+      {
+        y: 80, // overshoot (vượt quá vị trí một chút)
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out", // rơi nhanh rồi chậm dần
+        stagger: 0.05 // tạo hiệu ứng trễ nhẹ giữa các phần tử
+      }
+    )
+
+    // 2️⃣ Nhún nhẹ bằng lò xo
+    .to(
+      [title, desc],
+      {
+        y: 0,
+        duration: 1.6,
+        ease: "spring(1, 80, 6, 0)", // lò xo vật lý mượt
+        stagger: 0.05
+      }
+      
+    );
+    tl.to(button, {
       opacity: 1,
-      delay: 2.5, // sau khi rơi xong mới hiện
-      duration: 1.2,
-      ease: "power1.out",
-    });
+      duration: 1.5 ,
+      ease: "power1.out"
+    }, "-=0.5");
   });
 }
 
@@ -153,7 +238,7 @@ function scrollToSectionOnClick() {
 
 function fromIdeaToProductAnimation() {
   const section = document.querySelector(
-    "section[data-scroll-to]"
+    "section[scroll-smooth]"
   ) as HTMLElement;
   const gradientOverlay = section?.querySelector(
     "div[style*='linear-gradient']"
@@ -193,11 +278,12 @@ function fromIdeaToProductAnimation() {
   });
 }
 
+
+
  function observeFadeUpAnimation() {
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       const el = entry.target as HTMLElement;
-
       const hasDelay3000ms = el.classList.contains("hasDelay3000ms");
       const hasDelay7000ms = el.classList.contains("hasDelay7000ms");
 

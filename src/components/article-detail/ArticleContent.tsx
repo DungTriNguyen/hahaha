@@ -15,9 +15,7 @@ const ArticleContent = ({
     id: id,
     content: true,
   });
-
   const content = data as BlogContent;
-  console.log("content", content);
 
   return (
     <section className="bg-background flex flex-col items-center justify-center px-4 pb-16">

@@ -1,5 +1,4 @@
 import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
-// import { handleErrorMessage } from './errors';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,8 +16,6 @@ export const queryClient = new QueryClient({
   mutationCache: new MutationCache({
     onError: (error, _variables, _context, mutation) => {
       if (mutation.options.onError) return;
-
-      // const errorMessage = handleErrorMessage(error);
     },
   }),
 });

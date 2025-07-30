@@ -20,7 +20,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / DeFiPlatform / AITrading",
     description:
       "Empowering traders and businesses with a multi-chain DEX featuring token launchpad, AI trading, and built-in smart contract insurance.",
-    img: "/img_banner_1.png",
+    img: "/home/img_banner_1.webp",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_2.png",
+    img: "/home/img_banner_2.webp",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_3.png",
+    img: "/home/img_banner_3.webp",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_4.png",
+    img: "/home/img_banner_4.webp",
   },
   {
     id: 5,
@@ -56,14 +56,11 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_5.png",
+    img: "/home/img_banner_5.webp",
   },
 ];
 
 const ProjectSection = () => {
-  // const {data: projectsBlog} =useBlog({
-  //   BlogCategoryId: process.env.NEXT_PUBLIC_CATEGORY_PROJECT_ID,
-  // })
   return (
     <section
       className="relative z-20 w-full bg-background text-white data-scroll-to"

@@ -7,11 +7,12 @@ const HeroSection = () => {
   return (
     <>
       <div className="h-screen pointer-events-none"></div>
-      <section className="fixed inset-0 z-0 data-scroll-to" id="home">
-        <div className="w-full relative inset-0 h-screen drop-iframe">
+      <section className="fixed inset-0 pb-[200px] bg-background z-0 data-scroll-to" id="home">
+        <div className="relative pb-[170px]"> 
+        <div className="w-full relative inset-0 h-screen ">
           <iframe
             src="https://my.spline.design/untitled-V0MRkb0fl4hWPlrsrdpTfhIB/"
-            className="absolute top-[35%] right-[20%] w-full h-full pointer-events-none"
+            className="absolute top-[35%] right-[20%] w-full h-full pointer-events-none drop-iframe"
             loading="lazy"
             title="3D Interactive Spline Animation of Product Showcase"
             allow="autoplay; fullscreen"
@@ -32,28 +33,30 @@ const HeroSection = () => {
           <div className="drop-btn opacity-0 ">
             <Button
               href="#"
-              icon1="/starts.svg"
-              icon2="/right.svg"
+              icon1="/icons/starts.svg"
+              icon2="/icons/right.svg"
               text="EXPLORE NOW"
               aria-label="EXPLORE NOW"
             />
           </div>
         </div>
+        </div>
+
         <div className="absolute w-full flex flex-col gap-2.5 bottom-0 z-10 justify-center items-center fade-up hasDelay7000ms">
           <div className="w-full h-auto flex items-center justify-center">
             <Image
-              src="/line_explore.svg"
+              src="/icons/line_explore_1.svg"
               alt="line_explore"
               width={2}
               height={5}
             />
           </div>
           <div>
-            <p className="uppercase text-descriptionCard">Scroll to explore</p>
+            <p className="uppercase text-descriptionCard text-[15px]">Scroll to explore</p>
           </div>
           <div className="w-full h-10 flex items-center justify-center">
             <Image
-              src="/line_explore.svg"
+              src="/icons/line_explore_2.svg"
               alt="line_explore"
               width={2}
               height={10}

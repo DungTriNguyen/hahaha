@@ -39,7 +39,6 @@ export async function getBlog(
       cache: "no-store", // nếu muốn luôn fetch mới khi SSR
     });
 
-    // Nếu API trả về lỗi thì log và trả về null
     if (!res.ok) {
       console.error(`getBlog: HTTP ${res.status} - ${res.statusText}`);
       return null;

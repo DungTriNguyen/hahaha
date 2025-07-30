@@ -14,7 +14,6 @@ interface Props {
 export default function CareerDetailPage({ params }: Props) {
   const [seoSlug, id] = params.slug || [];
 
-  // Fetch career data
   const {
     data: careerBlog,
     isLoading: isLoadingCareer,
@@ -23,7 +22,6 @@ export default function CareerDetailPage({ params }: Props) {
 
   const careerItem = careerBlog as CareerItem | null;
 
-  // Fetch career content
   const {
     data: contentData,
     isLoading: isLoadingContent,
@@ -36,12 +34,10 @@ export default function CareerDetailPage({ params }: Props) {
     return <p className="text-center py-10">Not found data</p>;
   }
 
-  // Show loading state
   if (isLoadingCareer || isLoadingContent) {
     return <p className="text-center py-10">Loading career...</p>;
   }
 
-  // Show error state
   if (careerError || contentError || !careerItem || !content) {
     return <p className="text-center py-10">Error loading career</p>;
   }

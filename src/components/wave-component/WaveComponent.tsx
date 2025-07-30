@@ -6,7 +6,7 @@ export default function WaveComponent() {
         <div
           className="absolute bottom-0 left-0 h-full w-full waveTop will-change-transform scale-1600"
           style={{
-            backgroundImage: 'url("/wave1.svg")',
+            backgroundImage: 'url("/icons/wave1.svg")',
             backgroundRepeat: "repeat-x",
             backgroundPosition: "left bottom",
             backgroundSize: "500px 100px",
@@ -18,7 +18,7 @@ export default function WaveComponent() {
         <div
           className="absolute bottom-0 left-0 h-full w-full waveMiddle will-change-transform scale-1600"
           style={{
-            backgroundImage: 'url("/wave2.svg")',
+            backgroundImage: 'url("/icons/wave2.svg")',
             backgroundRepeat: "repeat-x",
             backgroundPosition: "left bottom",
             backgroundSize: "500px 100px",
@@ -30,7 +30,7 @@ export default function WaveComponent() {
         <div
           className="absolute bottom-0 left-0 h-full w-full waveBottom will-change-transform scale-1600"
           style={{
-            backgroundImage: 'url("/wave3.svg")',
+            backgroundImage: 'url("/icons/wave3.svg")',
             backgroundRepeat: "repeat-x",
             backgroundPosition: "left bottom",
             backgroundSize: "500px 100px",

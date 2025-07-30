@@ -3,7 +3,7 @@ import SubTitle from "../ui/sub-title";
 const FromIdeaToProduct = () => {
   return (
     <section
-      className="scroll-section relative w-full h-[2560px] flex items-center justify-center data-scroll-to scroll-smooth"
+      className="w-full scroll-section relative h-[2560px] flex items-center overflow-hidden justify-center data-scroll-to scroll-smooth"
       style={{
         WebkitMaskImage:
           "linear-gradient(to bottom, transparent 0%, black 50%)",
@@ -14,7 +14,6 @@ const FromIdeaToProduct = () => {
         maskSize: "100% 100%",
       }}
     >
-      {/* Overlay gradient nền (nếu muốn mờ thêm) */}
       <div
         className="absolute inset-0 pointer-events-none z-0 "
         style={{
@@ -24,8 +23,9 @@ const FromIdeaToProduct = () => {
         }}
       />
 
-      {/* Nội dung */}
-      <div className="sticky z-10 flex flex-col items-center justify-center px-4 md:px-8 section-title">
+      <div
+        className="sticky top-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center px-4 md:px-8 section-title"
+      >
         <SubTitle
           title="From ideas to products"
           as="h2"

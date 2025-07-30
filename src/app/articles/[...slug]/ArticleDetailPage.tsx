@@ -16,7 +16,6 @@ interface Props {
 export default function ArticleDetailPage({ params }: Props) {
   const [seoSlug, id] = params.slug || [];
 
-  // Fetch main article data
   const {
     data: blog,
     isLoading: isLoadingBlog,
@@ -25,7 +24,6 @@ export default function ArticleDetailPage({ params }: Props) {
 
   const blogItem = blog as BlogItem | null;
 
-  // Fetch related articles data
   const {
     data: articleRelatedData,
     isLoading: isLoadingRelated,
@@ -39,14 +37,12 @@ export default function ArticleDetailPage({ params }: Props) {
 
   const relatedData = articleRelatedData as BlogResponse | null;
 
-  console.log("articleRelatedData:::::", relatedData);
 
-  // Show loading state
   if (isLoadingBlog) {
     return <p className="text-center py-10">Loading article...</p>;
   }
 
-  // Show error state
+
   if (blogError || !blogItem) {
     return <p className="text-center py-10">Error loading article</p>;
   }
@@ -66,8 +62,8 @@ export default function ArticleDetailPage({ params }: Props) {
         button={{
           text: "Start your MVP",
           href: "#",
-          icon1: "/light.svg",
-          icon2: "/right.svg",
+          icon1: "/icons/light.svg",
+          icon2: "/icons/right.svg",
         }}
       />
     </div>

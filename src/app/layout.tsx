@@ -3,14 +3,7 @@ import Header from "@/components/header";
 import type { Metadata } from "next";
 import { Coda, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
 import { TanstackProvider } from "./providers/tanstack-provider";
-
-const queryClient = new QueryClient();
 
 export const metadata: Metadata = {
   title: {

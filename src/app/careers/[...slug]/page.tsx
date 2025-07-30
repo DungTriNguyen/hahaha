@@ -1,7 +1,7 @@
 import CareerDetailPage from "./CareerDetailPage";
 import { SeoData } from "@/types/seo";
 import type { Metadata, ResolvingMetadata } from "next";
-import { getBlog } from "@/services/blog"; // tái sử dụng service API
+import { getBlog } from "@/services/blog";
 
 type Props = {
   params: Promise<{ slug: string[] }>;

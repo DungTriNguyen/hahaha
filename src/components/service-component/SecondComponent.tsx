@@ -20,59 +20,55 @@ const technologies2 = [
 
 const SecondComponent = () => {
   return (
-    <section className="relative z-20 bg-numberCard text-white bg-[url('/img_service_section_2.png')] bg-cover bg-no-repeat bg-center md:py-32 xl:pt-[275px] xl:pb-[135px]">
-      <div className="container py-10">
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-12  justify-center items-center">
-          <div className="flex-1">
-            <div className="mb-14">
-              <h3 className="text-xl md:text-2xl font-coda font-normal uppercase mb-4 md:mb-6 leading-tight">
-                Latest technologies
-                <br />
-                we build with
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-18 ">
-              {technologies1.map((item, index) => (
-                <div key={index} className="flex justify-center items-center">
-                  <div className="w-auto h-auto">
-                    <Image
-                      src={item.icon}
-                      width={0}
-                      height={0}
-                      alt="technology icon"
-                      className="w-auto h-auto max-w-[60px] max-h-[60px] md:max-w-[70px] md:max-h-[70px] lg:max-w-[180px] lg:max-h-[180px]"
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section className="relative w-full z-20 bg-numberCard text-white bg-[url('/home/img_service_section_2.webp')] bg-cover bg-no-repeat bg-center md:py-32 lg:pt-[275px] lg:pb-[135px]">
+      <div className="container py-6 px-[10px] flex flex-col lg:flex-row gap-8 md:gap-12 justify-center items-center">
+        <div className="flex flex-col gap-6 w-auto">
 
-          <div className="flex-1">
-            <div className="mb-14">
-              <h3 className="text-xl md:text-2xl font-coda font-normal uppercase mb-4 md:mb-6 leading-tight">
-                Partnering with
-                <br />
-                leading suppliers
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-18 ">
-              {technologies2.map((item, index) => (
-                <div key={index} className="flex justify-center items-center">
-                  <div className="w-auto h-auto">
-                    <Image
-                      src={item.icon}
-                      width={0}
-                      height={0}
-                      alt="partner icon"
-                      className="w-auto h-auto max-w-[60px] max-h-[60px] md:max-w-[70px] md:max-h-[70px] lg:max-w-[180px] lg:max-h-[180px]"
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h3 className="text-xl md:text-2xl font-coda font-normal uppercase leading-tight">
+            Latest technologies
+            <br />
+            we build with
+          </h3>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-6 ">
+            {technologies1.map((item, index) => (
+              <div key={index} className="w-[175px] h-[98px] py-6 px-8 justify-center items-center ">
+
+                <Image
+                  src={item.icon}
+                  width={0}
+                  height={0}
+                  alt="partner icon"
+                  className="w-full h-full object-contain"
+                />
+
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6 w-auto">
+
+          <h3 className="text-xl md:text-2xl font-coda font-normal uppercase leading-tight">
+            Partnering with
+            <br />
+            leading suppliers
+          </h3>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-6 ">
+            {technologies2.map((item, index) => (
+              <div key={index} className="w-[175px] h-[98px] py-6 px-8 justify-center items-center ">
+
+                <Image
+                  src={item.icon}
+                  width={0}
+                  height={0}
+                  alt="partner icon"
+                  className="w-full h-full object-contain"
+                />
+
+              </div>
+            ))}
           </div>
         </div>
       </div>

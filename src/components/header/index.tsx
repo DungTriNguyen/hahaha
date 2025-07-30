@@ -4,7 +4,6 @@ import React, { useState } from "react";
 const navItemsDesktop = [
   {
     title: "Home",
-    id: "#home",
     href: "/",
   },
   {
@@ -61,7 +60,7 @@ const navItemsMobile = [
     href: "#contact",
   },
   {
-    title: <Image src="/line_header.svg" alt="Logo" width={100} height={32} />,
+    title: <Image src="/icons/line_header.svg" alt="line in menu" width={100} height={32} />,
   },
   {
     title: "Articles",
@@ -72,7 +71,7 @@ const navItemsMobile = [
     href: "/careers",
   },
   {
-    title: <Image src="/close_header.svg" alt="Logo" width={48} height={48} />,
+    title: <Image src="/icons/close_header.svg" alt="close menu" width={48} height={48} />,
   },
 ];
 
@@ -97,7 +96,7 @@ const Header = () => {
           <div className="flex items-center">
             <a href="/">
               <Image
-                src="/logo_white 1.png"
+                src="/home/logo.png"
                 alt="Logo"
                 width={250}
                 height={48}
@@ -131,7 +130,7 @@ const Header = () => {
             aria-label="Toggle mobile menu"
             onClick={() => setMobileOpen(true)}
           >
-            <Image src="/menu.svg" alt="Menu" width={40} height={14} />
+            <Image src="/icons/menu.svg" alt="Menu" width={40} height={14} />
           </button>
         </div>
       </header>
@@ -141,7 +140,7 @@ const Header = () => {
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
             <a href="/">
               <Image
-                src="/logo_white 1.png"
+                src="/home/logo.png"
                 alt="Logo"
                 width={120}
                 height={32}
@@ -152,7 +151,7 @@ const Header = () => {
               aria-label="Close mobile menu"
               onClick={() => setMobileOpen(false)}
             >
-              <Image src="/menu.svg" alt="Menu" width={40} height={14} />
+              <Image src="/icons/menu.svg" alt="Menu" width={40} height={14} />
             </button>
           </div>
           <nav className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 items-center">

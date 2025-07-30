@@ -13,22 +13,22 @@ import CardDescription from "../ui/card-description";
 
 const slides = [
   {
-    img: "/img_slide_1.png",
+    img: "/home/img_slide_1.webp",
     title: "Human-Centered",
     desc: "We craft digital products with empathy at the core — designed not just for users, but for people with real needs and emotions.",
   },
   {
-    img: "/img_slide_2.png",
+    img: "/home/img_slide_2.webp",
     title: "Insight-Driven",
     desc: "Our solutions are guided by research, data, and behavioral insight — turning complex problems into clear, meaningful experiences.",
   },
   {
-    img: "/img_slide_3.png",
+    img: "/home/img_slide_3.webp",
     title: "Creativity Meets Technology",
     desc: "We push the limits of digital possibilities with modern technology — from AI to blockchain — blending creativity with code.",
   },
   {
-    img: "/img_slide_4.png",
+    img: "/home/img_slide_4.webp",
     title: "Partnership",
     desc: "Every product we build aligns with your long-term goals — so it's not just beautiful, but scalable, strategic, and future-ready.",
   },
@@ -71,7 +71,7 @@ const AboutSection = () => {
       </div>
 
       <div className="container relative z-10 lg:pt-16 lg:pb-20">
-        <div className="py-8">
+        <div className="">
           <Swiper
             modules={[Pagination]}
             pagination={{
@@ -102,7 +102,7 @@ const AboutSection = () => {
                   </div>
                   <div className="w-full md:w-1/2 flex flex-col justify-center pr-6">
                     <CardTitle title={slide.title} as="h3" className="mb-4" />
-                    <div className="w-12 h-1 bg-white rounded mb-4" />
+                    <div className="w-12 h-0.5 bg-white mb-4" />
                     <CardDescription
                       description={slide.desc}
                       className="italic"
@@ -113,7 +113,7 @@ const AboutSection = () => {
             ))}
           </Swiper>
         </div>
-        <div className="custom-swiper-pagination mt-10 flex justify-center" />
+        <div className="custom-swiper-pagination mt-16 flex justify-center" />
       </div>
     </section>
   );

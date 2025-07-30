@@ -10,21 +10,21 @@ const IconChat = () => {
             Start a project
           </span>
           <button
-            className="group p-2 md:p-3 rounded-lg md:rounded-xl bg-button border-4 border-numberCard relative w-[48px] h-[48px] lg:w-[64px]  lg:h-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
+            className="group p-2 md:p-3 rounded-xl md:rounded-2xl bg-button border-4 border-numberCard relative w-[48px] h-[48px] lg:w-[64px] lg:h-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
             aria-label="Start a project"
           >
-            <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
+            <span className="absolute rounded-xl inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
               <Image
-                src="/rocket.svg"
+                src="/icons/rocket.svg"
                 alt="rocket"
                 width={24}
                 height={24}
                 className="md:w-8 md:h-8"
               />
             </span>
-            <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+            <span className="absolute rounded-xl inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
               <Image
-                src="/right.svg"
+                src="/icons/right.svg"
                 alt="arrow"
                 width={24}
                 height={24}
@@ -40,21 +40,21 @@ const IconChat = () => {
             Live chat
           </span>
           <button
-            className="group p-2 md:p-3 rounded-lg md:rounded-xl bg-button border-4 border-numberCard relative h-[48px] w-[48px] lg:h-[64px] lg:w-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
+            className="group p-2 md:p-3 rounded-xl md:rounded-2xl bg-button border-4 border-numberCard relative h-[48px] w-[48px] lg:h-[64px] lg:w-[64px] md:w-[56px] md:h-[56px] overflow-hidden transition-colors duration-300"
             aria-label="Live chat"
           >
-            <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
+            <span className="absolute rounded-xl inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
               <Image
-                src="/message.svg"
+                src="/icons/message.svg"
                 alt="message"
                 width={24}
                 height={24}
                 className="md:w-8 md:h-8"
               />
             </span>
-            <span className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+            <span className="absolute rounded-xl inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
               <Image
-                src="/right.svg"
+                src="/icons/right.svg"
                 alt="arrow"
                 width={24}
                 height={24}
