@@ -151,13 +151,5 @@ body {
   pointer-events: none;
 }
 
-.section-blur-gradient::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  backdrop-filter: blur(80px); /* hoặc 5px tùy bạn */
-  mask-image: linear-gradient(to top, black 70%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
-  pointer-events: none;
-}
+
+

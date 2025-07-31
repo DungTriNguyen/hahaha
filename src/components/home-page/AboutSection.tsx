@@ -70,49 +70,49 @@ const AboutSection = () => {
         />
       </div>
 
-      <div className="container relative z-10 lg:pt-16 lg:pb-20">
-        <div className="">
-          <Swiper
-            modules={[Pagination]}
-            pagination={{
-              clickable: true,
-              el: ".custom-swiper-pagination",
-              bulletClass: "swiper-pagination-bullet",
-              bulletActiveClass: "swiper-pagination-bullet-active",
-            }}
-            spaceBetween={48}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 1.5, spaceBetween: 10 },
-              1024: { slidesPerView: 2, spaceBetween: 48 },
-            }}
-            className="custom-swiper swiper-custom-pagination w-full"
-          >
-            {slides.map((slide, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="rounded-2xl bg-card flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
-                  <div className="w-full lg:w-[318px] h-48 md:h-full relative">
-                    <Image
-                      src={slide.img}
-                      fill
-                      alt={slide.title}
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <div className="w-full md:w-1/2 flex flex-col justify-center pr-6">
-                    <CardTitle title={slide.title} as="h3" className="mb-4" />
-                    <div className="w-12 h-0.5 bg-white mb-4" />
-                    <CardDescription
-                      description={slide.desc}
-                      className="italic"
-                    />
-                  </div>
+      <div className="container relative z-10 py-4 lg:pt-16 lg:pb-20">
+
+        <Swiper
+          modules={[Pagination]}
+          pagination={{
+            clickable: true,
+            el: ".custom-swiper-pagination",
+            bulletClass: "swiper-pagination-bullet",
+            bulletActiveClass: "swiper-pagination-bullet-active",
+          }}
+          spaceBetween={48}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 1.5, spaceBetween: 10 },
+            1024: { slidesPerView: 2, spaceBetween: 48 },
+          }}
+          className="custom-swiper swiper-custom-pagination w-full"
+        >
+          {slides.map((slide, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="rounded-2xl bg-card flex flex-col gap-9 md:flex-row h-auto md:h-[424px] shadow-lg overflow-hidden">
+                <div className="w-full lg:w-[318px] h-48 md:h-full relative">
+                  <Image
+                    src={slide.img}
+                    fill
+                    alt={slide.title}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+                <div className="w-full md:w-1/2 flex flex-col justify-center pr-6 p-2 lg:p-0 lg:pr-6">
+                  <CardTitle title={slide.title} as="h3" className="mb-4" />
+                  <div className="w-12 h-0.5 bg-white mb-4" />
+                  <CardDescription
+                    description={slide.desc}
+                    className="italic"
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
         <div className="custom-swiper-pagination mt-16 flex justify-center" />
       </div>
     </section>

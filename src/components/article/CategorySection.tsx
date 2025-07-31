@@ -108,7 +108,7 @@ export default function CategorySlideSection() {
                       <div className="flex-1 space-y-3 md:space-y-6 min-w-0 text-start">
                         <CardTitle
                           title={article.title}
-                          className="text-xl lg:text-2xl uppercase tracking-normal text-start"
+                          className="text-xl lg:text-2xl uppercase tracking-normal text-start "
                         />
                         <div className="flex items-center gap-2 text-xs md:text-sm font-semibold text-white">
                           <span>

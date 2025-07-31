@@ -62,27 +62,41 @@ const projects: Projects[] = [
 
 const ProjectSection = () => {
   return (
-    <section
-      className="relative z-20 w-full bg-background text-white data-scroll-to"
-      id="projects"
-    >
-      <div className="flex flex-col items-center gap-14 pt-44 pb-20">
-        <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
-          <div className="flex flex-col gap-1">
-            <Title title="Projects" />
-            <SubTitle
-              title="OUR Bold WORKS"
-              as="h2"
-              className="w-full max-w-[400px]"
-            />
+   <>
+    <div className="h-[250px] bg-background relative z-10"></div>
+      <section
+        className="relative z-20 w-full bg-background text-white data-scroll-to "
+        id="projects"
+        style={{
+          backgroundColor: "#0C0B10" // trùng màu base với section trên
+        }}
+      >
+        {/* Overlay gradient giống FromIdeaToProduct */}
+        <div
+          className="pointer-events-none absolute top-0 left-0 w-full"
+          style={{
+            height: "200px",
+            background: "linear-gradient(to bottom, rgba(12, 11, 16, 1) 0%, rgba(12, 11, 16, 0) 100%)",
+          }}
+        />
+        <div className="flex flex-col items-center gap-14 pt-44 pb-20">
+          <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
+            <div className="flex flex-col gap-1">
+              <Title title="Projects" />
+              <SubTitle
+                title="OUR Bold WORKS"
+                as="h2"
+                className="w-full max-w-[400px]"
+              />
+            </div>
+            <Description description="Shaping brilliant ideas into life" />
           </div>
-          <Description description="Shaping brilliant ideas into life" />
+          <div className="w-full">
+            <ProjectComponent data={projects} />
+          </div>
         </div>
-        <div className="w-full">
-          <ProjectComponent data={projects} />
-        </div>
-      </div>
-    </section>
+      </section>
+   </>
   );
 };
 

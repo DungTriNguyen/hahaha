@@ -39,20 +39,20 @@ function fadeUpAnimation() {
     }
   )
 
-  // Rơi xuống và nhún lò xo cực mượt
-  .to(
-    iframeWrapper,
-    {
-      y: 0,
-      duration: 0.8,
-      ease: "spring(2, 60, 0.2, 0)" 
-      // Tham số spring:
-      // 1: mass (khối lượng) 
-      // 80: stiffness (độ cứng lò xo)
-      // 8: damping (giảm chấn - càng thấp nhún càng nhiều)
-      // 0: velocity (tốc độ ban đầu)
-    }
-  );
+    // Rơi xuống và nhún lò xo cực mượt
+    .to(
+      iframeWrapper,
+      {
+        y: 0,
+        duration: 0.8,
+        ease: "spring(2, 60, 0.2, 0)"
+        // Tham số spring:
+        // 1: mass (khối lượng) 
+        // 80: stiffness (độ cứng lò xo)
+        // 8: damping (giảm chấn - càng thấp nhún càng nhiều)
+        // 0: velocity (tốc độ ban đầu)
+      }
+    );
 }
 // function dropTextAnimation() {
 //   document.querySelectorAll(".drop-text").forEach((el) => {
@@ -131,20 +131,20 @@ function dropTextAnimation() {
       }
     )
 
-    // 2️⃣ Nhún nhẹ bằng lò xo
-    .to(
-      [title, desc],
-      {
-        y: 0,
-        duration: 1.6,
-        ease: "spring(1, 80, 6, 0)", // lò xo vật lý mượt
-        stagger: 0.05
-      }
-      
-    );
+      // 2️⃣ Nhún nhẹ bằng lò xo
+      .to(
+        [title, desc],
+        {
+          y: 0,
+          duration: 1.6,
+          ease: "spring(1, 80, 6, 0)", // lò xo vật lý mượt
+          stagger: 0.05
+        }
+
+      );
     tl.to(button, {
       opacity: 1,
-      duration: 1.5 ,
+      duration: 1.5,
       ease: "power1.out"
     }, "-=0.5");
   });
@@ -236,6 +236,37 @@ function scrollToSectionOnClick() {
   });
 }
 
+
+
+function observeFadeUpAnimation() {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      const el = entry.target as HTMLElement;
+      const hasDelay3000ms = el.classList.contains("hasDelay3000ms");
+      const hasDelay7000ms = el.classList.contains("hasDelay7000ms");
+
+      if (entry.isIntersecting) {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          delay: hasDelay3000ms ? 0.3 : hasDelay7000ms ? 2 : 0,
+        });
+        obs.unobserve(el);
+      }
+    });
+  });
+
+  document.querySelectorAll(".fade-up").forEach((el) => {
+    gsap.set(el, { opacity: 0, y: 70 });
+    observer.observe(el);
+  });
+}
+
+
+
+
 function fromIdeaToProductAnimation() {
   const section = document.querySelector(
     "section[scroll-smooth]"
@@ -278,68 +309,32 @@ function fromIdeaToProductAnimation() {
   });
 }
 
-
-
- function observeFadeUpAnimation() {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      const el = entry.target as HTMLElement;
-      const hasDelay3000ms = el.classList.contains("hasDelay3000ms");
-      const hasDelay7000ms = el.classList.contains("hasDelay7000ms");
-
-      if (entry.isIntersecting) {
-        gsap.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          delay: hasDelay3000ms ? 0.3 : hasDelay7000ms ? 2 : 0,
-        });
-        obs.unobserve(el);
-      }
-    });
-  });
-
-  document.querySelectorAll(".fade-up").forEach((el) => {
-    gsap.set(el, { opacity: 0, y: 70 });
-    observer.observe(el);
-  });
-}
-
-
 function ScrollTriggerAnimation() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const sections = document.querySelectorAll(".scroll-section");
+  document.querySelectorAll(".scroll-section").forEach((section) => {
+    const overlay = section.querySelector(".section-overlay");
+    if (!overlay) return;
 
-  sections.forEach((section) => {
-    const title = section.querySelector(".section-title");
-    if (!title) return;
+    gsap.set(overlay, { opacity: 0, filter: "blur(0px)" });
 
-    // Pin nguyên section để giữ trong 1 khoảng cuộn dài
     ScrollTrigger.create({
       trigger: section,
-      start: "top top",
-      end: "+=300%",
-      pin: true,
-      scrub: true
-    });
-
-    // Timeline cho hiệu ứng title
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: title,
-        start: "center center", // Khi title vào giữa viewport
-        end: "+=200%", // Tổng thời gian cho giữ + di chuyển
-        scrub: true
+      start: "top top", // khi section chạm top màn hình
+      end: "+=100%",    // giữ pin thêm chiều cao 1 màn hình
+      scrub: true,      // mượt khi scroll
+      pin: true,        // giữ nguyên vị trí section khi scroll
+      anticipatePin: 1, // giúp tránh giật
+      onUpdate: (self) => {
+        // Tính tiến trình từ 0 -> 1
+        const progress = self.progress;
+        gsap.to(overlay, {
+          opacity: progress,
+          filter: `blur(${progress * 8}px)`,
+          overwrite: "auto"
+        });
       }
     });
-
-    // Bước 1: Giữ title ở giữa 2 lần cuộn
-    tl.to({}, { duration: 1.5 });
-
-    // Bước 2: Sau khi giữ, di chuyển title lên trên
-    tl.to(title, { y: "-150%", ease: "none", duration: 1 });
   });
 }
 export default function initAnimations() {

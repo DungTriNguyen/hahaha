@@ -66,7 +66,7 @@ export default function SectionCardCareer() {
 
                       <CardDescription
                         description={career.description}
-                        className="whitespace-pre-line line-clamp-3 pb-6"
+                        className="whitespace-pre-line line-clamp-3 mb-6"
                       />
                     </div>
 

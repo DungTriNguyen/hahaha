@@ -15,7 +15,8 @@ const SlideSection = ({
   articleRelatedData: BlogResponse | null;
 }) => {
   return (
-    <section className="container w-full px-4 md:px-0 py-16 md:py-20 flex flex-col lg:gap-12 ">
+    <div className="overflow-hidden">
+      <section className="container w-full px-4 md:px-0 py-16 md:py-20 flex flex-col lg:gap-12 ">
       <div className="text-start">
         <p className="text-4xl font-coda">RELATED ARTICLES</p>
       </div>
@@ -84,6 +85,7 @@ const SlideSection = ({
         <div className="custom-swiper-pagination mt-12 flex justify-center" />
       </div>
     </section>
+    </div>
   );
 };
 
