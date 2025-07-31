@@ -40,7 +40,6 @@ export default function CategorySlideSection() {
     }
   }, [categoryResponse, selectedCategoryId]);
 
-
   const {
     data: dataBlog,
     isLoading: isLoadingBlog,
@@ -49,12 +48,9 @@ export default function CategorySlideSection() {
     BlogCategoryId: selectedCategoryId || undefined,
     PageIndex: pageIndex,
     PageSize: PAGE_SIZE,
-  },
-  );
-
+  });
 
   const blogResponse = dataBlog as BlogResponse | null;
-
 
   useEffect(() => {
     if (blogResponse && selectedCategoryId) {
@@ -65,7 +61,6 @@ export default function CategorySlideSection() {
       }
     }
   }, [blogResponse, selectedCategoryId, pageIndex]);
-
 
   const totalCount = blogResponse?.totalCount || 0;
   const hasMoreItems = allItems.length < totalCount;
@@ -173,9 +168,10 @@ export default function CategorySlideSection() {
                       >
                         <span
                           className={twMerge(
-                            `relative pb-1 ${selectedCategoryId === item.id
-                              ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
-                              : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
+                            `relative pb-1 ${
+                              selectedCategoryId === item.id
+                                ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
+                                : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
                             }`
                           )}
                         >

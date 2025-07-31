@@ -34,7 +34,6 @@ const HeroSlideSecton = () => {
         />
       </div>
       <div className="relative z-10 lg:pt-12 w-full">
-
         <Swiper
           modules={[Pagination]}
           pagination={{

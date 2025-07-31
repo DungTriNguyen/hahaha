@@ -18,7 +18,7 @@ const ArticleContent = ({
   const content = data as BlogContent;
 
   return (
-    <section className="bg-background flex flex-col items-center justify-center px-4 pb-16">
+    <section className="bg-background flex flex-col items-center justify-center px-4 lg:pb-16">
       <div className="w-full max-w-[840px] relative z-2 flex flex-col items-center gap-8">
         <div className="w-full flex flex-col gap-4 ">
           {description ? (

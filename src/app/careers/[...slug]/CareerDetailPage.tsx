@@ -53,7 +53,7 @@ export default function CareerDetailPage({ params }: Props) {
       <ContentSection content={content?.content} />
       <ContactSection
         subtitle="Thanks! We'll be in touch soon"
-        description={`"Got questions? Contact us at <a href="mailto:careers@hubcom.tech" class="underline text-button">careers@hubcom.tech</a>"`}
+        description={`"Got questions? Contact us at <a href="mailto:careers@hubcom.tech" class="underline text-[#427BF5]">careers@hubcom.tech</a>"`}
       />
     </div>
   );

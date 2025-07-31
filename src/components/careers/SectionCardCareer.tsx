@@ -23,7 +23,11 @@ export default function SectionCardCareer() {
   const CareerResponse = dataCareers as CareerResponse | null;
   if (!CareerResponse || CareerResponse.items.length === 0) return null;
   const temp: CareerResponse = {
-    items: [...CareerResponse.items, ...CareerResponse.items, ...CareerResponse.items],
+    items: [
+      ...CareerResponse.items,
+      ...CareerResponse.items,
+      ...CareerResponse.items,
+    ],
   };
   return (
     <section className="container w-full px-4 md:px-0 py-16 md:py-20 flex flex-col lg:gap-12">
@@ -53,7 +57,6 @@ export default function SectionCardCareer() {
               <SwiperSlide key={index}>
                 <Link href={`/careers/${career.itemUrl}`}>
                   <div className="group bg-background border border-[#2A2F3C] rounded-3xl flex flex-col shadow-lg w-full min-h-[444px] mx-auto transition-all duration-300 ease-in-out hover:bg-button hover:min-h-[480px] px-6 pt-12 pb-12">
-
                     <div className="flex flex-col transition-all duration-300 ease-in-out group-hover:-translate-y-3">
                       <span className="text-dateCard text-sm font-semibold tracking-wider">
                         {formatDateToLongEN(career.createdDate)}
@@ -67,9 +70,7 @@ export default function SectionCardCareer() {
                       />
                     </div>
 
-                    <div
-                      className="transition-all duration-300 ease-in-out overflow-hidden h-0 group-hover:h-4"
-                    >
+                    <div className="transition-all duration-300 ease-in-out overflow-hidden h-0 group-hover:h-4">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-full w-full"></div>
                     </div>
 
@@ -80,7 +81,12 @@ export default function SectionCardCareer() {
                             key={info.label}
                             className="flex items-center gap-2 px-1 rounded-xl"
                           >
-                            <Image src={info.icon} alt={info.label} width={20} height={20} />
+                            <Image
+                              src={info.icon}
+                              alt={info.label}
+                              width={20}
+                              height={20}
+                            />
                             <span className="text-sm text-white font-semibold">
                               {info.label}
                             </span>
@@ -94,10 +100,22 @@ export default function SectionCardCareer() {
                         </span>
                         <div className="p-1 rounded-xl group-hover:bg-black relative w-12 h-12 md:w-[56px] md:h-[56px] overflow-hidden flex-shrink-0">
                           <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-x-full group-hover:opacity-0">
-                            <Image src="/icons/send.svg" alt="icon1" width={32} height={32} className="w-6 h-6 md:w-8 md:h-8" />
+                            <Image
+                              src="/icons/send.svg"
+                              alt="icon1"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 md:w-8 md:h-8"
+                            />
                           </div>
                           <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
-                            <Image src="/icons/right.svg" alt="icon2" width={32} height={32} className="w-6 h-6 md:w-8 md:h-8" />
+                            <Image
+                              src="/icons/right.svg"
+                              alt="icon2"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 md:w-8 md:h-8"
+                            />
                           </div>
                         </div>
                       </button>

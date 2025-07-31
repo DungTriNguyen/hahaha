@@ -21,7 +21,6 @@ const SlideSection = ({
       </div>
 
       <div className="relative z-10 ">
-
         <Swiper
           modules={[Pagination]}
           pagination={{
@@ -38,8 +37,7 @@ const SlideSection = ({
           }}
           className="custom-swiper swiper-custom-pagination w-full overflow-hidden"
         >
-          {articleRelatedData?.items &&
-            articleRelatedData?.items.length > 0 ? (
+          {articleRelatedData?.items && articleRelatedData?.items.length > 0 ? (
             articleRelatedData?.items?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <Link href={`/articles/${item.itemUrl}`}>

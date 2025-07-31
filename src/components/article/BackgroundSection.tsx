@@ -9,6 +9,7 @@ export default function BackgroundComponent() {
         width={1920}
         height={768}
         className="w-full h-full object-top lg:object-cover"
+        priority
       />
       <div
         className="absolute bottom-[-18%] w-full h-full blur-xl"

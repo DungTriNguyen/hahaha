@@ -42,7 +42,11 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
             >
               <div className="flex flex-col gap-2">
                 <CardNumber number={project.numberIndex} />
-                <CardTitle title={project.title} as="h3" className="leading-snug" />
+                <CardTitle
+                  title={project.title}
+                  as="h3"
+                  className="leading-snug"
+                />
                 <div
                   className={twMerge(
                     "flex flex-wrap gap-2",
