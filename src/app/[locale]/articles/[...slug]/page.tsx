@@ -1,5 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import ArticleDetailPage from "../../../components/article-detail/ArticleDetailPage";
+import ArticleDetailPage from "@/components/article-detail/ArticleDetailPage";
 import { getBlog } from "@/services/blog";
 import { SeoData } from "@/types/seo";
 

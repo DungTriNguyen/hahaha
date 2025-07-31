@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import { Coda, Geist, Geist_Mono } from "next/font/google";
-import { TanstackProvider } from "../providers/tanstack-provider";
-import "../globals.css";
+import { TanstackProvider } from "@/app/providers/tanstack-provider";
+import "@/app/globals.css";
 import Header from "@/components/header";
 import IconChat from "@/components/chat-bot/icon-chat";
 
@@ -51,7 +52,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -68,20 +68,26 @@ const geistMono = Geist_Mono({
 
 export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = await getLocale();
-  const messages = await getMessages();
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${coda.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${coda.variable} antialiased`}
+      >
         <TanstackProvider>
-          <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <IconChat />
+          <NextIntlClientProvider>
+            <Header />
+            {children}
+            <IconChat />
           </NextIntlClientProvider>
         </TanstackProvider>
       </body>

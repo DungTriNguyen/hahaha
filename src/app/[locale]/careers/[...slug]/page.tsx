@@ -1,4 +1,4 @@
-import CareerDetailPage from "../../../components/career-detail/CareerDetailPage";
+import CareerDetailPage from "@/components/career-detail/CareerDetailPage";
 import { SeoData } from "@/types/seo";
 import type { Metadata, ResolvingMetadata } from "next";
 import { getBlog } from "@/services/blog";

@@ -18,7 +18,8 @@ const FromIdeaToProduct = () => {
       <div
         className="absolute inset-0 z-10"
         style={{
-          background: "linear-gradient(to bottom, rgba(12, 11, 16, 0) 70%, rgba(12, 11, 16, 1) 100%)",
+          background:
+            "linear-gradient(to bottom, rgba(12, 11, 16, 0) 70%, rgba(12, 11, 16, 1) 100%)",
         }}
       />
       <div className="h-[48px]"></div>

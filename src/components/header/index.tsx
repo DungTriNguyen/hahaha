@@ -63,7 +63,14 @@ const navItemsMobile = [
     href: "#contact",
   },
   {
-    title: <Image src="/icons/line_header.svg" alt="line in menu" width={100} height={32} />,
+    title: (
+      <Image
+        src="/icons/line_header.svg"
+        alt="line in menu"
+        width={100}
+        height={32}
+      />
+    ),
   },
   {
     title: "Articles",
@@ -74,7 +81,14 @@ const navItemsMobile = [
     href: "/careers",
   },
   {
-    title: <Image src="/icons/close_header.svg" alt="close menu" width={48} height={48} />,
+    title: (
+      <Image
+        src="/icons/close_header.svg"
+        alt="close menu"
+        width={48}
+        height={48}
+      />
+    ),
   },
 ];
 
@@ -85,7 +99,7 @@ const Header = () => {
   const pathname = usePathname();
 
   const switchLanguage = (newLocale: string) => {
-    const currentPath = pathname.replace(`/${locale}`, '');
+    const currentPath = pathname.replace(`/${locale}`, "");
     router.push(`/${newLocale}${currentPath}`);
   };
 
@@ -106,12 +120,7 @@ const Header = () => {
         <div className="flex items-center justify-between px-12 py-7 ">
           <div className="flex items-center mr-5">
             <a href="/">
-              <Image
-                src="/home/logo.png"
-                alt="Logo"
-                width={250}
-                height={48}
-              />
+              <Image src="/home/logo.png" alt="Logo" width={250} height={48} />
             </a>
           </div>
           <nav className="hidden lg:flex items-center gap-6">
@@ -138,20 +147,24 @@ const Header = () => {
             {/* Language Switcher */}
             <div className="flex items-center gap-2 ml-4">
               <button
-                onClick={() => switchLanguage('en')}
+                onClick={() => switchLanguage("en")}
                 className={twMerge(
-                  "text-white font-semibold text-[15px] uppercase px-2 py-1 rounded",
-                  locale === 'en' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                  "text-white font-normal text-[15px] uppercase px-2 py-1 rounded",
+                  locale === "en"
+                    ? "bg-white bg-opacity-20 "
+                    : "hover:bg-white hover:bg-opacity-10 "
                 )}
               >
                 EN
               </button>
               <span className="text-white text-[15px]">|</span>
               <button
-                onClick={() => switchLanguage('vi')}
+                onClick={() => switchLanguage("vi")}
                 className={twMerge(
-                  "text-white font-semibold text-[15px] uppercase px-2 py-1 rounded",
-                  locale === 'vi' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                  "text-white font-normal text-[15px] uppercase px-2 py-1 rounded",
+                  locale === "vi"
+                    ? "bg-white bg-opacity-20 "
+                    : "hover:bg-white hover:bg-opacity-10 "
                 )}
               >
                 VI
@@ -172,12 +185,7 @@ const Header = () => {
         <div className="fixed inset-0 z-50 bg-black flex  flex-col h-full lg:hidden animate-fade-in drop-text">
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
             <a href="/">
-              <Image
-                src="/home/logo.png"
-                alt="Logo"
-                width={120}
-                height={32}
-              />
+              <Image src="/home/logo.png" alt="Logo" width={120} height={32} />
             </a>
             <button
               className="p-2"
@@ -214,12 +222,14 @@ const Header = () => {
             <div className="flex items-center gap-4 mt-4">
               <button
                 onClick={() => {
-                  switchLanguage('en');
+                  switchLanguage("en");
                   setMobileOpen(false);
                 }}
                 className={twMerge(
                   "text-white font-coda font-medium text-xl py-2 px-4 rounded",
-                  locale === 'en' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                  locale === "en"
+                    ? "bg-white bg-opacity-20 text-black"
+                    : "hover:bg-white hover:bg-opacity-10 text-black"
                 )}
               >
                 EN
@@ -227,12 +237,14 @@ const Header = () => {
               <span className="text-white text-xl">|</span>
               <button
                 onClick={() => {
-                  switchLanguage('vi');
+                  switchLanguage("vi");
                   setMobileOpen(false);
                 }}
                 className={twMerge(
                   "text-white font-coda font-medium text-xl py-2 px-4 rounded",
-                  locale === 'vi' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                  locale === "vi"
+                    ? "bg-white bg-opacity-20 text-black"
+                    : "hover:bg-white hover:bg-opacity-10 text-black"
                 )}
               >
                 VI
