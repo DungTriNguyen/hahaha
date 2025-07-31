@@ -25,7 +25,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
                 src={project.img}
                 fill
                 sizes="(min-width: 1024px) 912px, 100vw"
-                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                className="object-cover will-change-transform transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-120"
                 alt={`Project ${project.title} image`}
               />
             </div>
@@ -42,7 +42,11 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
             >
               <div className="flex flex-col gap-2">
                 <CardNumber number={project.numberIndex} />
-                <CardTitle title={project.title} as="h3" className="leading-snug"/>
+                <CardTitle
+                  title={project.title}
+                  as="h3"
+                  className="leading-snug"
+                />
                 <div
                   className={twMerge(
                     "flex flex-wrap gap-2",
@@ -55,7 +59,7 @@ const ProjectComponent = ({ data }: { data: Projects[] }) => {
                       {tagIndex < project.scrumb.split(" / ").length - 1 && (
                         <div className="">
                           <Image
-                            src="/line.svg"
+                            src="/icons/line.svg"
                             alt="line"
                             width={6}
                             height={6}

@@ -20,7 +20,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / DeFiPlatform / AITrading",
     description:
       "Empowering traders and businesses with a multi-chain DEX featuring token launchpad, AI trading, and built-in smart contract insurance.",
-    img: "/img_banner_1.png",
+    img: "/home/img_banner_1.webp",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_2.png",
+    img: "/home/img_banner_2.webp",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_3.png",
+    img: "/home/img_banner_3.webp",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_4.png",
+    img: "/home/img_banner_4.webp",
   },
   {
     id: 5,
@@ -56,36 +56,58 @@ const projects: Projects[] = [
     scrumb: "Blockchain / AI / Web3",
     description:
       "AI-powered blockchain tracker helping Web3 startups gain insights into asset flow and market shifts.",
-    img: "/img_banner_5.png",
+    img: "/home/img_banner_5.webp",
   },
 ];
 
 const ProjectSection = () => {
-  // const {data: projectsBlog} =useBlog({
-  //   BlogCategoryId: process.env.NEXT_PUBLIC_CATEGORY_PROJECT_ID,
-  // })
   return (
-    <section
-      className="relative z-20 w-full bg-background text-white data-scroll-to"
-      id="projects"
-    >
-      <div className="flex flex-col items-center gap-14 pt-44 pb-20">
-        <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
-          <div className="flex flex-col gap-1">
-            <Title title="Projects" />
-            <SubTitle
-              title="OUR Bold WORKS"
-              as="h2"
-              className="w-full max-w-[400px]"
-            />
-          </div>
-          <Description description="Shaping brilliant ideas into life" />
-        </div>
-        <div className="w-full">
-          <ProjectComponent data={projects} />
-        </div>
+    <>
+      <div className="h-[300px] bg-background relative z-10">
+        <div
+          // className="pointer-events-none absolute top-0 left-0 w-full"
+          // style={{
+          //   background: "linear-gradient(to bottom, rgba(12, 11, 16, 0) 70%, rgba(12, 11, 16, 1) 100%)",
+          // }}
+          className="relative z-20 w-full text-white -mt-1"
+          style={{
+            height: "200px",
+            background:
+              "linear-gradient(to bottom, rgba(12, 11, 16, 1) 0%, rgba(12, 11, 16, 0) 100%)",
+          }}
+        />
       </div>
-    </section>
+      <section
+        className="relative z-20 w-full bg-background text-white data-scroll-to "
+        id="projects"
+      >
+        {/* Overlay gradient giống FromIdeaToProduct */}
+        {/* <div
+          className="pointer-events-none absolute top-0 left-0 w-full"
+          style={{
+            height: "200px",
+            background:
+              "linear-gradient(to bottom, rgba(12, 11, 16, 1) 0%, rgba(12, 11, 16, 0) 100%)",
+          }}
+        /> */}
+        <div className="flex flex-col items-center gap-14 pt-44 pb-20">
+          <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
+            <div className="flex flex-col gap-1">
+              <Title title="Projects" />
+              <SubTitle
+                title="OUR Bold WORKS"
+                as="h2"
+                className="w-full max-w-[400px]"
+              />
+            </div>
+            <Description description="Shaping brilliant ideas into life" />
+          </div>
+          <div className="w-full">
+            <ProjectComponent data={projects} />
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

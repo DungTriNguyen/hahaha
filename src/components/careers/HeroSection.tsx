@@ -9,9 +9,9 @@ import Button from "../ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative z-20 w-full lg:pb-8 pt-28">
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-start justify-start gap-12 text-white">
-        <div className="w-full max-w-[800px] justify-items-start">
+    <section className="relative z-20 w-full lg:pb-8 lg:pt-44">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row  items-center lg:items-start  justify-center lg:justify-start  gap-12 text-white">
+        <div className="w-full max-w-[800px] justify-items-start ">
           <Title title="SERVICES" />
           <SubTitle
             title="Where Great People Do Great Work"
@@ -24,8 +24,8 @@ const HeroSection = () => {
           />
           <Button
             href="#"
-            icon1="/right.svg"
-            icon2="/row.svg"
+            icon1="/icons/right.svg"
+            icon2="/icons/row.svg"
             text="SEE OPEN ROLES"
             className="w-fit"
             aria-label="SEE OPEN ROLES"
@@ -35,12 +35,13 @@ const HeroSection = () => {
         <div className="flex justify-start items-start">
           <div className="relative w-full h-auto max-w-[592px]">
             <Image
-              src="/careers/hero_section.png"
+              src="/careers/hero_section.webp"
+              alt="service banner"
               width={592}
               height={622}
-              alt="service banner"
-              className="object-contain rounded-lg"
               priority
+              sizes="(max-width: 768px) 100vw, 592px"
+              className="object-contain rounded-lg"
             />
           </div>
         </div>

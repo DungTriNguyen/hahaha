@@ -20,12 +20,12 @@ const HeroSection = ({
           as="h1"
           className="max-w-full mb-9"
         />
-        <p className="text-[15px] uppercase font-semibold mb-20">
+        <p className="text-xs lg:text-[15px] uppercase font-semibold mb-20">
           Digital Strategy • Minh Tran • {formatDateToLongEN(createdDate)}
         </p>
         <div className="max-w-[840px] rounded-2xl mx-auto overflow-hidden shadow-lg">
           <Image
-            src={image || "/images/default-image.png"}
+            src={image || "/articles/default_detail.webp"}
             width={840}
             height={336}
             alt=""

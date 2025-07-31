@@ -7,6 +7,7 @@ import ProjectSection from "@/components/home-page/ProjectSection";
 import ServiceSection from "@/components/home-page/ServiceSection";
 import { useEffect } from "react";
 import initAnimations from "../../../public/animations/in-view-animation";
+
 export default function Home() {
   useEffect(() => {
     initAnimations();
@@ -26,8 +27,8 @@ export default function Home() {
         button={{
           text: "Share your idea NOW",
           href: "#",
-          icon1: "/light.svg",
-          icon2: "/right.svg",
+          icon1: "/icons/light.svg",
+          icon2: "/icons/right.svg",
         }}
       />
     </div>

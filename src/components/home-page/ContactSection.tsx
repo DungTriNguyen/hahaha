@@ -6,6 +6,7 @@ import { ButtonProps } from "@/types/button";
 import Title from "../ui/title";
 import SubTitle from "../ui/sub-title";
 import Description from "../ui/description";
+import CardDescription from "../ui/card-description";
 
 interface ContactSectionProps {
   title?: string;
@@ -36,44 +37,42 @@ const ContactSection = ({
           {button && <Button {...button} className="tracking-tight" />}
         </div>
         <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-4 text-white">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4  text-white">
             <Link href="tel:+84966868574">
-              <div className="flex items-center gap-4">
-                <Image src="/phone.svg" width={20} height={20} alt="phone" />
-                <span className="text-sm">[+84] 966 868 574</span>
+              <div className="flex items-center lg:gap-4">
+                <Image src="/icons/phone.svg" width={20} height={20} alt="phone" />
+                <CardDescription description="[+84] 966 868 574" className="text-sm md:text-left text-white hover:underline"/>
               </div>
             </Link>
             <Image
-              src="/line.svg"
+              src="/icons/line.svg"
               width={7}
               height={25}
               alt="line"
               className="hidden lg:block"
             />
             <Link href="mailto:contact@hubcom.tech">
-              <div className="flex items-center gap-4">
-                <Image src="/email.svg" width={20} height={20} alt="email" />
-                <span className="text-sm">contact@hubcom.tech</span>
+              <div className="flex items-center lg:gap-4">
+                <Image src="/icons/email.svg" width={20} height={20} alt="email" />
+                <CardDescription description="contact@hubcom.tech" className="text-sm md:text-left text-white hover:underline"/>
               </div>
             </Link>
             <Image
-              src="/line.svg"
+              src="/icons/line.svg"
               width={7}
               height={25}
               alt="line"
               className="hidden lg:block"
             />
             <Link href="https://maps.app.goo.gl/DXyB8WwwZN6TsKCS7">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center lg:gap-4">
                 <Image
-                  src="/marker_pin.svg"
+                  src="/icons/marker_pin.svg"
                   width={20}
                   height={20}
                   alt="location"
                 />
-                <span className="text-sm text-center md:text-left">
-                  5 No Trang Long St.,W7, Binh Thanh Dist., HCMC
-                </span>
+                <CardDescription description="5 No Trang Long St.,W7, Binh Thanh Dist., HCMC" className="text-sm text-center text-white hover:underline"/>
               </div>
             </Link>
           </div>

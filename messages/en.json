@@ -1,0 +1,20 @@
+{
+    "HomePage": {
+        "title": "WHERE TECH MEETS CREATIVITY",
+        "description": "We design intelligent digital platforms that grow with your business",
+        "button": "EXPLORE NOW",
+        "scroll_to_explore": "Scroll to explore"
+    },
+    "Header": {
+        "home": "Home",
+        "projects": "Projects",
+        "about": "About",
+        "services": "Services",
+        "contact": "Contact",
+        "articles": "Articles",
+        "careers": "Careers"
+    },
+    "Navigation": {
+        "language": "Language"
+    }
+}

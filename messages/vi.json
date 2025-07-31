@@ -1,0 +1,20 @@
+{
+    "HomePage": {
+        "title": "NƠI CÔNG NGHỆ GẶP GỠ SỰ SÁNG TẠO",
+        "description": "Chúng tôi thiết kế các nền tảng số thông minh phát triển cùng doanh nghiệp của bạn",
+        "button": "KHÁM PHÁ NGAY",
+        "scroll_to_explore": "Cuộn xuống để khám phá"
+    },
+    "Header": {
+        "home": "Trang chủ",
+        "projects": "Dự án",
+        "about": "Về chúng tôi",
+        "services": "Dịch vụ",
+        "contact": "Liên hệ",
+        "articles": "Bài viết",
+        "careers": "Tuyển dụng"
+    },
+    "Navigation": {
+        "language": "Ngôn ngữ"
+    }
+}

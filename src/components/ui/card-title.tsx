@@ -5,7 +5,7 @@ interface CardTitleProps {
   className?: string;
 }
 
-const CardTitle = ({ title, className, as = "h3" }: CardTitleProps) => {
+const CardTitle = ({ title, className, as = "p" }: CardTitleProps) => {
   const Component = as;
   return (
     <Component

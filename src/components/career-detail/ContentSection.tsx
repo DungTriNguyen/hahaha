@@ -13,8 +13,8 @@ const ContentSection = ({ content }: { content: string }) => {
         <Button
           href="#"
           text="Share your idea NOW"
-          icon1="/light.svg"
-          icon2="/right.svg"
+          icon1="/icons/light.svg"
+          icon2="/icons/right.svg"
           className="w-fit"
           aria-label="Share your idea NOW"
         />
