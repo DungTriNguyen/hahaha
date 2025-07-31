@@ -7,7 +7,9 @@ import ProjectSection from "@/components/home-page/ProjectSection";
 import ServiceSection from "@/components/home-page/ServiceSection";
 import { useEffect } from "react";
 import initAnimations from "../../../public/animations/in-view-animation";
+import { useTranslations } from "next-intl";
 export default function Home() {
+  const t = useTranslations("HomePage");
   useEffect(() => {
     initAnimations();
   }, []);

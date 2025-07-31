@@ -79,7 +79,7 @@ export default function CategorySlideSection() {
 
   return (
     <section className="text-white relative z-1 pb-10">
-      <div className="lg:max-w-[1285px] mx-auto px-4">
+      <div className="lg:max-w-[1285px] mx-auto px-4 lg:px-0">
         <div className="flex flex-col-reverse lg:flex-row lg:justify-between gap-8 lg:gap-12">
           <div className="lg:flex-1 flex flex-col gap-6">
             {isLoadingBlog ? (
@@ -97,12 +97,13 @@ export default function CategorySlideSection() {
                     <div className="flex flex-col md:flex-row gap-4 md:gap-6 group items-center">
                       <div className="w-full md:w-[300px] lg:w-[440px] h-[200px] md:h-[250px] lg:h-[330px] flex-shrink-0">
                         <Image
-                          unoptimized
                           width={440}
                           height={330}
                           src={article.imageUrl || "/articles/default.webp"}
                           alt={article.title}
                           className="w-full h-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110"
+                          sizes="(max-width: 768px) 100vw, 440px"
+                          unoptimized
                         />
                       </div>
                       <div className="flex-1 space-y-3 md:space-y-6 min-w-0 text-start">
@@ -163,15 +164,14 @@ export default function CategorySlideSection() {
                     (item: BlogCategory, index: number) => (
                       <li
                         key={index}
-                        className="cursor-pointer text-sm md:text-base transition-colors uppercase"
+                        className="cursor-pointer text-sm md:text-[15px] transition-colors uppercase"
                         onClick={() => handleCategoryClick(item.id)}
                       >
                         <span
                           className={twMerge(
-                            `relative pb-1 ${
-                              selectedCategoryId === item.id
-                                ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
-                                : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
+                            `relative pb-1 ${selectedCategoryId === item.id
+                              ? "font-bold text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
+                              : "text-gray-300 hover:text-white after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white after:opacity-0 hover:after:opacity-100"
                             }`
                           )}
                         >

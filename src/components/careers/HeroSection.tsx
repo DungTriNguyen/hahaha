@@ -9,7 +9,7 @@ import Button from "../ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative z-20 w-full lg:pb-8 lg:pt-28">
+    <section className="relative z-20 w-full lg:pb-8 lg:pt-44">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row  items-center lg:items-start  justify-center lg:justify-start  gap-12 text-white">
         <div className="w-full max-w-[800px] justify-items-start ">
           <Title title="SERVICES" />
@@ -36,11 +36,12 @@ const HeroSection = () => {
           <div className="relative w-full h-auto max-w-[592px]">
             <Image
               src="/careers/hero_section.webp"
+              alt="service banner"
               width={592}
               height={622}
-              alt="service banner"
-              className="object-contain rounded-lg"
               priority
+              sizes="(max-width: 768px) 100vw, 592px"
+              className="object-contain rounded-lg"
             />
           </div>
         </div>

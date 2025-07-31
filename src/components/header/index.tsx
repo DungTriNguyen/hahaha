@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
+import { twMerge } from "tailwind-merge";
 const navItemsDesktop = [
   {
     title: "Home",
@@ -77,6 +80,14 @@ const navItemsMobile = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const switchLanguage = (newLocale: string) => {
+    const currentPath = pathname.replace(`/${locale}`, '');
+    router.push(`/${newLocale}${currentPath}`);
+  };
 
   React.useEffect(() => {
     if (mobileOpen) {
@@ -92,8 +103,8 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-0 left-0 w-full z-40 bg-transparent header-blur-gradient">
-        <div className="flex items-center justify-between gap-8 px-12 py-6 max-md:px-4 max-md:py-3">
-          <div className="flex items-center">
+        <div className="flex items-center justify-between px-12 py-7 ">
+          <div className="flex items-center mr-5">
             <a href="/">
               <Image
                 src="/home/logo.png"
@@ -110,7 +121,7 @@ const Header = () => {
                   key={index}
                   data-scroll-to={item.id}
                   href={item.href}
-                  className="text-white font-semibold text-[15px] uppercase px-2 py-1"
+                  className="text-white font-semibold text-[15px] uppercase px-1 py-2"
                 >
                   {item.title}
                 </a>
@@ -124,6 +135,28 @@ const Header = () => {
                 </span>
               )
             )}
+            {/* Language Switcher */}
+            <div className="flex items-center gap-2 ml-4">
+              <button
+                onClick={() => switchLanguage('en')}
+                className={twMerge(
+                  "text-white font-semibold text-[15px] uppercase px-2 py-1 rounded",
+                  locale === 'en' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                )}
+              >
+                EN
+              </button>
+              <span className="text-white text-[15px]">|</span>
+              <button
+                onClick={() => switchLanguage('vi')}
+                className={twMerge(
+                  "text-white font-semibold text-[15px] uppercase px-2 py-1 rounded",
+                  locale === 'vi' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                )}
+              >
+                VI
+              </button>
+            </div>
           </nav>
           <button
             className="lg:hidden p-2"
@@ -177,6 +210,34 @@ const Header = () => {
                 </span>
               )
             )}
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-4 mt-4">
+              <button
+                onClick={() => {
+                  switchLanguage('en');
+                  setMobileOpen(false);
+                }}
+                className={twMerge(
+                  "text-white font-coda font-medium text-xl py-2 px-4 rounded",
+                  locale === 'en' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                )}
+              >
+                EN
+              </button>
+              <span className="text-white text-xl">|</span>
+              <button
+                onClick={() => {
+                  switchLanguage('vi');
+                  setMobileOpen(false);
+                }}
+                className={twMerge(
+                  "text-white font-coda font-medium text-xl py-2 px-4 rounded",
+                  locale === 'vi' ? 'bg-white bg-opacity-20 text-black' : 'hover:bg-white hover:bg-opacity-10 text-black'
+                )}
+              >
+                VI
+              </button>
+            </div>
           </nav>
         </div>
       )}

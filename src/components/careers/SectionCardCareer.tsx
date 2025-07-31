@@ -56,24 +56,20 @@ export default function SectionCardCareer() {
             {temp?.items?.map((career, index) => (
               <SwiperSlide key={index}>
                 <Link href={`/careers/${career.itemUrl}`}>
-                  <div className="group bg-background border border-[#2A2F3C] rounded-3xl flex flex-col shadow-lg w-full min-h-[444px] mx-auto transition-all duration-300 ease-in-out hover:bg-button hover:min-h-[480px] px-6 pt-12 pb-12">
+                  <div className="group bg-background border border-[#2A2F3C] rounded-4xl flex flex-col shadow-lg w-full min-h-[444px] mx-auto transition-all duration-300 ease-in-out hover:bg-button px-6 py-12">
                     <div className="flex flex-col transition-all duration-300 ease-in-out group-hover:-translate-y-3">
                       <span className="text-dateCard text-sm font-semibold tracking-wider">
                         {formatDateToLongEN(career.createdDate)}
                       </span>
-
                       <CardTitle title={career.title} className="pb-6" />
-
                       <CardDescription
                         description={career.description}
                         className="whitespace-pre-line line-clamp-3 mb-6"
                       />
                     </div>
-
-                    <div className="transition-all duration-300 ease-in-out overflow-hidden h-0 group-hover:h-4">
+                    <div className="transition-all duration-300 ease-in-out overflow-hidden h-0 group-hover:h-2">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-full w-full"></div>
                     </div>
-
                     <div className="flex flex-col transition-all duration-300 ease-in-out group-hover:translate-y-3">
                       <div className="grid grid-cols-2 gap-3 justify-between pb-6">
                         {infos.map((info) => (
@@ -93,7 +89,6 @@ export default function SectionCardCareer() {
                           </div>
                         ))}
                       </div>
-
                       <button className="flex bg-card group-hover:bg-white items-center gap-8 justify-between w-full p-1 rounded-2xl">
                         <span className="text-white group-hover:text-black pl-5 font-semibold tracking-widest uppercase text-sm md:text-[15px] whitespace-nowrap">
                           JOIN US

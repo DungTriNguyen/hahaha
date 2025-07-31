@@ -1,7 +1,7 @@
-import CareerDetailPage from "./CareerDetailPage";
-import { SeoData } from "@/types/seo";
 import type { Metadata, ResolvingMetadata } from "next";
+import ArticleDetailPage from "../../../components/article-detail/ArticleDetailPage";
 import { getBlog } from "@/services/blog";
+import { SeoData } from "@/types/seo";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -16,14 +16,12 @@ export async function generateMetadata(
   const customId = slug?.[slug.length - 1];
 
   let seoData: Partial<SeoData> = {};
-
   try {
     const blogData = await getBlog({ id: customId });
     seoData = blogData as Partial<SeoData>;
   } catch (error) {
     console.error("Error fetching SEO metadata:", error);
   }
-
   return {
     title:
       seoData.metaTitle ||
@@ -51,5 +49,5 @@ export async function generateMetadata(
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  return <CareerDetailPage params={{ slug }} />;
+  return <ArticleDetailPage params={{ slug }} />;
 }

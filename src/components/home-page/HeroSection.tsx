@@ -3,7 +3,9 @@ import SubTitle from "@/components/ui/sub-title";
 import Button from "../ui/button";
 import Description from "../ui/description";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 const HeroSection = () => {
+  const t = useTranslations("HomePage");
   return (
     <>
       <div className="h-screen pointer-events-none"></div>
@@ -25,18 +27,18 @@ const HeroSection = () => {
         </div>
         <div className="container absolute inset-0 flex flex-col justify-center items-center text-white z-10 gap-8 pb-[75px] drop-text ">
           <div className="drop-title">
-            <SubTitle title="WHERE TECH MEETS CREATIVITY" as="h1" />
+            <SubTitle title={t("title")} as="h1" />
           </div>
           <div className="drop-desc">
-            <Description description="We design intelligent digital platforms that grow with your business" />
+            <Description description={t("description")} />
           </div>
           <div className="drop-btn opacity-0 ">
             <Button
               href="#"
               icon1="/icons/starts.svg"
               icon2="/icons/right.svg"
-              text="EXPLORE NOW"
-              aria-label="EXPLORE NOW"
+              text={t("button")}  
+              aria-label={t("button")}
             />
           </div>
         </div>
@@ -52,7 +54,7 @@ const HeroSection = () => {
             />
           </div>
           <div>
-            <p className="uppercase text-descriptionCard text-[15px]">Scroll to explore</p>
+            <p className="uppercase text-descriptionCard text-[15px]">{t("scroll_to_explore")}</p>
           </div>
           <div className="w-full h-10 flex items-center justify-center">
             <Image

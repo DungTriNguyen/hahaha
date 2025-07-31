@@ -24,12 +24,13 @@ const HeroSlideSecton = () => {
   const blogResponse = dataBlog as BlogResponse | null;
 
   return (
-    <section className="container relative z-2 w-full flex flex-col justify-center items-center text-white lg:pt-21 lg:pb-34">
+    <section className="overflow-hidden">
+      <div className="container relative z-2 w-full flex flex-col justify-center items-center text-white lg:mt-21 lg:pb-34">
       <div className="text-center">
         <Title title="ARTICLES" />
         <SubTitle
           title="INSIGHTS & IDEAS"
-          as="h1"
+          as="p"
           className="text-center max-w-full"
         />
       </div>
@@ -65,11 +66,13 @@ const HeroSlideSecton = () => {
                   <div className="rounded-2xl w-full overflow-hidden mx-auto relative">
                     <Image
                       src={item.imageUrl}
-                      unoptimized
                       width={720}
                       height={540}
                       alt={item.title}
                       className="w-full relative h-[250px] lg:h-[540px] object-cover brightness-75 transition-transform duration-500 ease-in-out hover:scale-110"
+                      priority
+                      unoptimized
+                      sizes="(max-width: 1024px) 100vw, 720px"
                     />
                     <div className="absolute z-10 flex flex-col p-4 lg:p-12 bottom-0 right-0 left-0">
                       <Description
@@ -104,6 +107,7 @@ const HeroSlideSecton = () => {
 
         <div className="custom-swiper-pagination mt-12 flex justify-center" />
       </div>
+    </div>
     </section>
   );
 };

@@ -63,22 +63,26 @@ const projects: Projects[] = [
 const ProjectSection = () => {
   return (
    <>
-    <div className="h-[250px] bg-background relative z-10"></div>
+    <div className="h-[300px] bg-background relative z-10">
+      <div
+          className="pointer-events-none absolute top-0 left-0 w-full"
+          style={{
+            background: "linear-gradient(to bottom, rgba(12, 11, 16, 0) 70%, rgba(12, 11, 16, 1) 100%)",
+          }}
+        />
+    </div>
       <section
         className="relative z-20 w-full bg-background text-white data-scroll-to "
         id="projects"
-        style={{
-          backgroundColor: "#0C0B10" // trùng màu base với section trên
-        }}
       >
         {/* Overlay gradient giống FromIdeaToProduct */}
-        <div
+        {/* <div
           className="pointer-events-none absolute top-0 left-0 w-full"
           style={{
             height: "200px",
             background: "linear-gradient(to bottom, rgba(12, 11, 16, 1) 0%, rgba(12, 11, 16, 0) 100%)",
           }}
-        />
+        /> */}
         <div className="flex flex-col items-center gap-14 pt-44 pb-20">
           <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
             <div className="flex flex-col gap-1">

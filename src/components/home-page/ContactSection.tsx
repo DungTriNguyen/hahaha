@@ -41,7 +41,7 @@ const ContactSection = ({
             <Link href="tel:+84966868574">
               <div className="flex items-center lg:gap-4">
                 <Image src="/icons/phone.svg" width={20} height={20} alt="phone" />
-                <CardDescription description="[+84] 966 868 574" className="text-sm md:text-left text-white"/>
+                <CardDescription description="[+84] 966 868 574" className="text-sm md:text-left text-white hover:underline"/>
               </div>
             </Link>
             <Image
@@ -54,7 +54,7 @@ const ContactSection = ({
             <Link href="mailto:contact@hubcom.tech">
               <div className="flex items-center lg:gap-4">
                 <Image src="/icons/email.svg" width={20} height={20} alt="email" />
-                <CardDescription description="contact@hubcom.tech" className="text-sm md:text-left text-white"/>
+                <CardDescription description="contact@hubcom.tech" className="text-sm md:text-left text-white hover:underline"/>
               </div>
             </Link>
             <Image
@@ -72,7 +72,7 @@ const ContactSection = ({
                   height={20}
                   alt="location"
                 />
-                <CardDescription description="5 No Trang Long St.,W7, Binh Thanh Dist., HCMC" className="text-sm text-center text-white"/>
+                <CardDescription description="5 No Trang Long St.,W7, Binh Thanh Dist., HCMC" className="text-sm text-center text-white hover:underline"/>
               </div>
             </Link>
           </div>
